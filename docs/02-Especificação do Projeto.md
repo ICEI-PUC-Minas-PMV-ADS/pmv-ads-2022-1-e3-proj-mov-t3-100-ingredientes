@@ -1,66 +1,87 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+Os pontos mais relevantes a serem tratados neste projeto foram abordados e exemplificados através de personas fictícias e suas respectivas histórias, expondo casos comuns dos problemas levantados na pesquisa, que foram elaborados a partir do conhecimento comum e vivência dos membros da equipe.
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+|<h3>**Lucas**</h3> |  ||
+| ------------------------------------------------------- | -------------------| ---------|
+|<a><img src=img/personas/lucas.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 22 | “Um sistema para a modernidade seria um tremendo diferencial.” |
+**Motivação:**  Quer economizar com receitas simples e que ajude o seu tempo.| **Frustrações:**  Não tem tempo para cozinhar e seus gastos estão exagerados com alimentos de "Fast Food". |  **História:** Desenvolvedor que mora sozinho e passa a maior parte do seu dia trabalhando em seu escritório na sua própria casa. Sem tempo para fazer suas próprias refeições, Lucas percebe uma carência de receitas fáceis e práticas para pessoas que estão precisando otimizar o seu tempo e maximizar os resultados.
+| |  |  |
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+|<h3>**Márcio**</h3> |  ||
+| ------------------------------------------------------- | -------------------| ---------|
+|<a><img src=img/personas/Marcio.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 52 | “Sistema Prático e ágil para pessoas de todas as idades.” |
+**Motivação:** "Com a inovação e os livros sendo deixados de lado, gostaria de um sistema de receitas."| **Frustrações:**  Sistemas são complexos demais. |  **História:** Senhor que se encontra aposentado e tem dificuldades de encontrar receitas relacionadas ao seu gosto culinário e também com as novas tecnologias, por isso quer um sistema fácil e prático de se usar. Além disso, quer poder compartilhar suas receitas com outras pessoas.
+| |  |  |
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+|<h3>**Maria**</h3> |  ||
+| ------------------------------------------------------- | -------------------| ---------|
+|<a><img src=img/personas/Maria.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 40 | “Sistema que me ajude com meus ingredientes.” |
+**Motivação:** "Tempo predominante em meu negócio ."| **Frustrações:**  Não ter conhecimento em culinária. |  **História:** Empresária que mora sozinha e que tem uma renda mensal volátil devido ao clima dos negócios, sendo assim tem pouco tempo e conhecimento para saber o que pode fazer com os ingredientes disponibilizados em casa.
+| |  |  |
 
 ## Histórias de Usuários
 
-Com base na análise das personas forma identificadas as seguintes histórias de usuários:
-
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
+|Lucas|Encontrar receitas práticas e detalhadas.|Economizar tempo ao cozinhar.
+|Márcio|Pesquisar receitas conhecidas.|Modernizar a forma que usa receitas.
+|Maria|Pesquisar receitas a partir dos ingredientes.|Poder fazer receitas com os ingredientes que tem em casa.
+|Maria|Salvar as receitas numa lista de desejos.|Poder encontrar facilmente as receitas que gostou.
+|Márcio|Filtrar e ordenar suas pesquisas.|Encontrar mais facilmente o que pesquisa.
+|Márcio|Compartilhar suas receitas.|Para ajudar a comunidade.
+|Márcio|Comentar e avaliar receitas.|Para interagir com outros usuários com gostos em comum.
 
 ## Modelagem do Processo de Negócio 
 
-### Análise da Situação Atual
-
-Apresente aqui os problemas existentes que viabilizam sua proposta. Apresente o modelo do sistema como ele funciona hoje. Caso sua proposta seja inovadora e não existam processos claramente definidos, apresente como as tarefas que o seu sistema pretende implementar são executadas atualmente, mesmo que não se utilize tecnologia computacional. 
+Os processos abaixo descrevem a ordem de execução lógica de cada função do sistema.
 
 ### Descrição Geral da Proposta
 
 Apresente aqui uma descrição da sua proposta abordando seus limites e suas ligações com as estratégias e objetivos do negócio. Apresente aqui as oportunidades de melhorias.
 
-### Processo 1 – NOME DO PROCESSO
+#### Autenticação de usuário
+Dependência dos seguintes requisitos: RF-004, RF-005, RF-006, RF-008 e RF-009.
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 1. Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN. 
+![Diagrama de Autenticação do Usuário](img/processos/autenticacao.jpg)
 
-![Processo 1](img/02-bpmn-proc1.png)
+#### Buscar receitas
+Abrange os requisitos: RF-001, RF-002, RF-003, RF-007.
 
-### Processo 2 – NOME DO PROCESSO
+![Diagrama de Buscar receitas](img/processos/buscar_receitas.png)
 
-Apresente aqui o nome e as oportunidades de melhorias para o processo 2. Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
+#### Inserir novas receitas
+Abrange o requisito: RF-004.
 
-![Processo 2](img/02-bpmn-proc2.png)
+![Diagrama de Inserir Novas Receitas](img/processos/inserir_receitas.png)
+
+#### Interação com receitas próprias
+Abrange os requisitos: RF-005 e RF-006.
+
+![Diagrama de Interação com receitas próprias](img/processos/interacao_receitas.jpg)
+
+#### Salvar receita em lista de desejos
+Abrange o requisito: RF-008.
+
+![Diagrama de Salvar receita em lista de desejos](img/processos/lista_desejo.png)
+
+#### Avaliar receitas
+Abrange o requisito: RF-009.
+
+![Diagrama de Avaliar receitas](img/processos/avaliar_receita.png)
+
+#### Comentar receitas
+Abrange o requisito: RF-009.
+
+![Diagrama de Comentar receitas](img/processos/comentar_receitas.png)
+
+
+#### Notificar autor da receita
+Abrange o requisito: RF-010.
+
+![Diagrama de Notificar autor da receita](img/processos/notificar_autor.png)
 
 ## Indicadores de Desempenho
 
@@ -73,101 +94,64 @@ Obs.: todas as informações para gerar os indicadores devem estar no diagrama d
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto. Para determinar a prioridade de requisitos, aplicar uma técnica de priorização de requisitos e detalhar como a técnica foi aplicada.
+As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto.
 
 ### Requisitos Funcionais
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| A aplicação deverá exibir receitas de forma listada e detalhada. | ALTA |
+|RF-002| A aplicação deverá permitir buscar receitas pela semelhança com seu nome e descrição. | ALTA |
+|RF-003| A aplicação deverá permitir buscar receitas de acordo com uma lista de ingredientes inserida pelo usuário. | ALTA | 
+|RF-004| A aplicação deverá permitir que o usuário insira novas receitas. | MÉDIA |
+|RF-005| A aplicação deverá listar as receitas publicadas ao usuário que a publicou. | MÉDIA |
+|RF-006| A aplicação deverá permitir o autor de uma receita alterá-la ou deletá-la. | MÉDIA |
+|RF-007| A aplicação deverá permitir ordenar e filtrar o resultado da busca. | BAIXA |
+|RF-008| A aplicação deverá permitir que as receitas sejam salvas em uma lista de desejos. | BAIXA |
+|RF-009| A aplicação deverá permitir avaliar e comentar receitas de outro usuário | BAIXA |
+|RF-010| A aplicação deverá notificar o usuário quando alguém interagir com sua receita (avaliação e comentário). | BAIXA |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
-
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
+|RNF-001| A aplicação deve ser compatível com sistemas Android e iOS | ALTA |
+|RNF-002| O projeto deverá ser feito com a tecnologia React Native. | ALTA |
+|RNF-003| A aplicação deve possuir interface intuitiva. | MÉDIA |
 
 ## Restrições
 
-O projeto está restrito pelos itens apresentados na tabela a seguir.
+As questões que limitam a execução desse projeto e que se configuram como obrigações claras para o desenvolvimento do projeto em questão são apresentadas na tabela a seguir
 
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
+|02| Só poderão ser utilizados programas gratuitos ou fornecidos pela PUC Minas |
 
 ## Diagrama de Casos de Uso
 
-O diagrama de casos de uso é o próximo passo após a elicitação de requisitos, que utiliza um modelo gráfico e uma tabela com as descrições sucintas dos casos de uso e dos atores. Ele contempla a fronteira do sistema e o detalhamento dos requisitos funcionais com a indicação dos atores, casos de uso e seus relacionamentos. 
+Os casos de uso mostrando os Requisitos Funcionais para a aplicação são ilustrados abaixo.
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
-
-> **Links Úteis**:
-> - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
-> - [Como Criar Diagrama de Caso de Uso: Tutorial Passo a Passo](https://gitmind.com/pt/fazer-diagrama-de-caso-uso.html/)
-> - [Lucidchart](https://www.lucidchart.com/)
-> - [Astah](https://astah.net/)
-> - [Diagrams](https://app.diagrams.net/)
+![Diagrama de Casos de Uso](img/diagrama_de_caso_de_uso.png)
 
 # Matriz de Rastreabilidade
 
-A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualização dos relacionamento entre requisitos e outros artefatos ou objetos, permitindo a rastreabilidade entre os requisitos e os objetivos de negócio. 
-
-A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
-
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
-
-> **Links Úteis**:
-> - [Artigo Engenharia de Software 13 - Rastreabilidade](https://www.devmedia.com.br/artigo-engenharia-de-software-13-rastreabilidade/12822/)
-> - [Verificação da rastreabilidade de requisitos usando a integração do IBM Rational RequisitePro e do IBM ClearQuest Test Manager](https://developer.ibm.com/br/tutorials/requirementstraceabilityverificationusingrrpandcctm/)
-> - [IBM Engineering Lifecycle Optimization – Publishing](https://www.ibm.com/br-pt/products/engineering-lifecycle-optimization/publishing/)
-
+![Matriz de Rastreabilidade](img/Rastreabilidade.jpg)
 
 # Gerenciamento de Projeto
 
-De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar projetos, e que caracterizam a multidisciplinaridade envolvida, são: Integração, Escopo, Cronograma (Tempo), Custos, Qualidade, Recursos, Comunicações, Riscos, Aquisições, Partes Interessadas. Para desenvolver projetos um profissional deve se preocupar em gerenciar todas essas dez áreas. Elas se complementam e se relacionam, de tal forma que não se deve apenas examinar uma área de forma estanque. É preciso considerar, por exemplo, que as áreas de Escopo, Cronograma e Custos estão muito relacionadas. Assim, se eu amplio o escopo de um projeto eu posso afetar seu cronograma e seus custos.
-
 ## Gerenciamento de Tempo
 
-Com diagramas bem organizados que permitem gerenciar o tempo nos projetos, o gerente de projetos agenda e coordena tarefas dentro de um projeto para estimar o tempo necessário de conclusão.
+![PGCR - Plano de Gerenciamento do Cronograma](img/Gerenciamento%20do%20Cronograma-1.png)
 
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
-
-O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
-
-![Gráfico de Gantt](img/02-grafico-gantt.png)
+![Gráfico de Gantt](img/gantt.jpg)
+<a href="img/gantt.jpg" target="_blank">Clique aqui para abrir em nova aba</a>
 
 ## Gerenciamento de Equipe
 
-O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
-
-![Simple Project Timeline](img/02-project-timeline.png)
+![PGRH - Plano de Gerenciamento dos Recursos Humanos](img/Gerenciamento%20de%20RH_%20Pessoal-1.png)
 
 ## Gestão de Orçamento
 
-O processo de determinar o orçamento do projeto é uma tarefa que depende, além dos produtos (saídas) dos processos anteriores do gerenciamento de custos, também de produtos oferecidos por outros processos de gerenciamento, como o escopo e o tempo.
-
-![Orçamento](img/02-orcamento.png)
+![PGCS - Plano de Gerenciamento dos Custos](img/Plano%20de%20Gerenciamento%20dos%20Custos-1.png)
+![Orçamento](img/Orcamento1.jpg)
