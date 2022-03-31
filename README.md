@@ -1,27 +1,29 @@
-# TÍTULO DO PROJETO
+# 100-Ingredientes
 
-`CURSO`
+`Análise e Desenvolvimento de Sistemas`
 
-`DISCIPLINA`
+`Projeto Eixo 3`
 
-`SEMESTRE`
+`3º Semestre`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+De forma geral, o objetivo desse projeto é criar uma aplicação mobile voltada para facilitar a criação de receitas com poucos ingredientes, oferecendo uma experiência agradável para usuários.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Felipe Bohm Vaz Mitre Costa
+* Gabriel Ilídio Souza de Menezes
+* Iago Iann Rocha Ferreira
+* João Pedro Sena Dainese
+* Victor Lopes Macedo dos Santos
+* Yuri Witer Rocha Barboza
 
 ## Orientador
 
-* Nome completo do professor 1
+* Mateus Curcino de Lima
 
-## Instruções de utilização
+<!--- ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação. -->
 
 # Documentação
 
@@ -41,6 +43,7 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 <li><a href="docs/13-Referências.md"> Referências</a></li>
 </ol>
 
+<!---
 # Código
 
 <li><a href="src/README.md"> Código Fonte</a></li>
@@ -48,3 +51,4 @@ Assim que a primeira versão do sistema estiver disponível, deverá complementa
 # Apresentação
 
 <li><a href="presentation/README.md"> Apresentação da solução</a></li>
+--->
