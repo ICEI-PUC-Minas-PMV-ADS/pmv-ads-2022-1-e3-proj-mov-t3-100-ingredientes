@@ -85,12 +85,13 @@ Abrange o requisito: RF-010.
 
 ## Indicadores de Desempenho
 
-Apresente aqui os principais indicadores de desempenho e algumas metas para o processo. Atenção: as informações necessárias para gerar os indicadores devem estar contempladas no diagrama de classe. Colocar no mínimo 5 indicadores. 
+![PrimeiroKPI](img/KPI%201.png)<br><br>
+![PrimeiroKPI](img/KPI%202.png)<br><br>
+![PrimeiroKPI](img/KPI%203.png)<br><br>
+![PrimeiroKPI](img/KPI%204.png)<br><br>
+![PrimeiroKPI](img/KPI%205.png)<br><br>
 
-Usar o seguinte modelo: 
 
-![Indicadores de Desempenho](img/02-indic-desemp.png)
-Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classe a ser apresentado a posteriori. 
 
 ## Requisitos
 
