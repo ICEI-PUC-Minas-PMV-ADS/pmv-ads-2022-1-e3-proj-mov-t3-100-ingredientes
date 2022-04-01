@@ -24,8 +24,9 @@ Quanto à gerência de issues, o projeto adota a seguinte convenção para etiqu
 - `bug`: uma funcionalidade encontra-se com problemas
 - `enhancement`: uma funcionalidade precisa ser melhorada
 - `feature`: uma nova funcionalidade precisa ser introduzida
-- `locked`: caso haja algum empecilho para um integrante, o impedindo de concluir a tarefa.
-- `style`: melhorias relacionadas com estilo
+- `help wanted`: é preciso de atenção extra
+- `question`: Requer mais informação
+- `style`: melhorias visuais
 
 ## Gerenciamento de Projeto
 

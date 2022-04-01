@@ -12,13 +12,13 @@ Os pontos mais relevantes a serem tratados neste projeto foram abordados e exemp
 
 |<h3>**Márcio**</h3> |  ||
 | ------------------------------------------------------- | -------------------| ---------|
-|<a><img src=img/personas/Marcio.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 52 | “Sistema Prático e ágil para pessoas de todas as idades.” |
+|<a><img src=img/personas/marcio.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 52 | “Sistema Prático e ágil para pessoas de todas as idades.” |
 **Motivação:** "Com a inovação e os livros sendo deixados de lado, gostaria de um sistema de receitas."| **Frustrações:**  Sistemas são complexos demais. |  **História:** Senhor que se encontra aposentado e tem dificuldades de encontrar receitas relacionadas ao seu gosto culinário e também com as novas tecnologias, por isso quer um sistema fácil e prático de se usar. Além disso, quer poder compartilhar suas receitas com outras pessoas.
 | |  |  |
 
 |<h3>**Maria**</h3> |  ||
 | ------------------------------------------------------- | -------------------| ---------|
-|<a><img src=img/personas/Maria.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 40 | “Sistema que me ajude com meus ingredientes.” |
+|<a><img src=img/personas/maria.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 40 | “Sistema que me ajude com meus ingredientes.” |
 **Motivação:** "Tempo predominante em meu negócio ."| **Frustrações:**  Não ter conhecimento em culinária. |  **História:** Empresária que mora sozinha e que tem uma renda mensal volátil devido ao clima dos negócios, sendo assim tem pouco tempo e conhecimento para saber o que pode fazer com os ingredientes disponibilizados em casa.
 | |  |  |
 
