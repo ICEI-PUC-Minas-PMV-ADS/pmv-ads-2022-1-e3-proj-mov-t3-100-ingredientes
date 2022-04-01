@@ -1,12 +1,42 @@
 # Template Padrão da Aplicação
 
-<span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>
+###### Abaixo está sendo exibida todas as telas da aplicação mobile, estão estruturadas e alinhadas de forma como deverá ser a exibição na aplicação. A interface foi pensada de forma intuitiva para o usuário.
 
-Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
+#### Visão geral
+![Todas as telas](img/wireframe/geral.png)
 
-> **Links Úteis**:
->
-> - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
-> - [Website Page Layouts](http://www.cellbiol.com/bioinformatics_web_development/chapter-3-your-first-web-page-learning-html-and-css/website-page-layouts/)
-> - [Perfect Liquid Layout](https://matthewjamestaylor.com/perfect-liquid-layouts)
-> - [How and Why Icons Improve Your Web Design](https://usabilla.com/blog/how-and-why-icons-improve-you-web-design/)
+#### Tela de Login
+![Tela 1](img/wireframe/Tela_1.jpg)
+
+#### Tela de Registro
+![Tela 15](img/wireframe/Tela_15.jpg)
+
+#### Tela home
+![Tela 2](img/wireframe/Tela_2.jpg)
+
+#### Tela de "minhas receitas" detalhada
+![Tela 3](img/wireframe/Tela_3.jpg)
+
+#### Tela da receita específica, com ingredientes e modo de preparo
+![Tela 4](img/wireframe/Tela_4.jpg)
+
+#### Tela de comentários da receita
+![Tela 5](img/wireframe/Tela_5.jpg)
+
+#### Tela de "receitas favoritas" detalhada 
+![Tela 6](img/wireframe/Tela_6.jpg)
+
+#### Tela de pesquisa de receitas, exibindo as últimas pesquisas
+![Tela 8](img/wireframe/Tela_8.jpg)
+
+#### Tela de pesquisa de receitas, exibindo a pesquisa do usuario
+![Tela 9](img/wireframe/Tela_9.jpg)
+
+#### Tela de publicar receita
+![Tela 13](img/wireframe/Tela_13.jpg)
+
+#### Tela para avaliar e comentar receitas 
+![Tela 14](img/wireframe/Tela_14.jpg)
+
+#### Tela de configuração de preferências de notificações
+![Tela 17](img/wireframe/Tela_17.jpg)
