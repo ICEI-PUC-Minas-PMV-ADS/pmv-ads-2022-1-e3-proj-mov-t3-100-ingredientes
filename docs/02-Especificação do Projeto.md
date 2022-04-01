@@ -85,13 +85,20 @@ Abrange o requisito: RF-010.
 
 ## Indicadores de Desempenho
 
-![PrimeiroKPI](img/KPI%201.png)<br><br>
-![PrimeiroKPI](img/KPI%202.png)<br><br>
-![PrimeiroKPI](img/KPI%203.png)<br><br>
-![PrimeiroKPI](img/KPI%204.png)<br><br>
-![PrimeiroKPI](img/KPI%205.png)<br><br>
+#### Data/Tempo postagem
+![PrimeiroKPI](img/KPI%201.png)
 
+#### Data/Pessoas simultâneas
+![PrimeiroKPI](img/KPI%202.png)
 
+#### Contagem Avaliações
+![PrimeiroKPI](img/KPI%203.png)
+
+#### Data/Receitas Postadas
+![PrimeiroKPI](img/KPI%204.png)
+
+#### Indicar público masculino / feminino
+![PrimeiroKPI](img/KPI%205.png)
 
 ## Requisitos
 
