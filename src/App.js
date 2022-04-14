@@ -1,14 +1,11 @@
-import { View } from 'react-native';
 import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
+import PostRecipePage from './pages/PostRecipePage';
 
-
-
-export default function App() {
+const App = () => {
   return (
-    <>
-    <LoginPage></LoginPage>
-    </>
-
+        <MainPage />
   );
-}
+};
 
+export default App;
