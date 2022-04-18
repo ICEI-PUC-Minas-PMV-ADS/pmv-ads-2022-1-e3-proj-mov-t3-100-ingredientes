@@ -1,14 +1,21 @@
-import { View } from 'react-native';
 import LoginPage from './pages/LoginPage';
+import MainPage from './pages/MainPage';
+import PostRecipePage from './pages/PostRecipePage';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+const Stack = createNativeStackNavigator();
 
-
-export default function App() {
+const App = () => {
   return (
-    <>
-    <LoginPage></LoginPage>
-    </>
-
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="MainPage" screenOptions={{headerShown: false}}>
+        <Stack.Screen name="MainPage" component={MainPage} />
+        <Stack.Screen name="LoginPage" component={LoginPage} />
+        <Stack.Screen name="PostRecipePage" component={PostRecipePage} />
+      </Stack.Navigator>
+    </NavigationContainer>    
   );
-}
+};
 
+export default App;
