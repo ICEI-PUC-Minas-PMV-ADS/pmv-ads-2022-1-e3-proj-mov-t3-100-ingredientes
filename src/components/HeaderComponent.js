@@ -1,13 +1,17 @@
 import { Button } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
 import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const HeaderComponent = () => {
+
+  const navigation = useNavigation();
+
   return (
     <View style={Styles.Header}>
-      <Button mode="text">Login</Button>
-      <Button mode="text">Pesquisar</Button>
-      <Button mode="text">Postar</Button>
+      <Button mode="text" onPress={() => navigation.navigate('LoginPage')}>Login</Button>
+      <Button mode="text" onPress={() => navigation.navigate('MainPage')}>Pesquisar</Button>
+      <Button mode="text" onPress={() => navigation.navigate('PostRecipePage')}>Postar</Button>
     </View>
   );
 }
