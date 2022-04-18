@@ -9,13 +9,12 @@ const Stack = createNativeStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="MainPage">
+      <Stack.Navigator initialRouteName="MainPage" screenOptions={{headerShown: false}}>
         <Stack.Screen name="MainPage" component={MainPage} />
         <Stack.Screen name="LoginPage" component={LoginPage} />
         <Stack.Screen name="PostRecipePage" component={PostRecipePage} />
       </Stack.Navigator>
-    </NavigationContainer>
-        
+    </NavigationContainer>    
   );
 };
 
