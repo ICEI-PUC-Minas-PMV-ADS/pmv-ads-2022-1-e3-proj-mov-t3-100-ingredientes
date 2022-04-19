@@ -4,7 +4,13 @@ import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
 import StylesLoginPage from '../styles/StylesLoginPage';
 
+import { useNavigation } from '@react-navigation/native';
+import { Button } from 'react-native-paper';
+
 const LoginPage = () => {
+
+  const navigation = useNavigation();
+
   return (
     <>
     <HeaderComponent></HeaderComponent>
@@ -34,7 +40,8 @@ const LoginPage = () => {
             </TouchableOpacity>
 
             <TouchableOpacity style={StylesLoginPage.BotaoRegistrar}>
-              <Text style={StylesLoginPage.TextoRegistrar}>Criar conta gratis</Text>
+             {/* <Text style={StylesLoginPage.TextoRegistrar} onPress={() => navigation.navigate('RegisterPage')}>Criar conta gratis</Text> */}
+             <Button mode="text" onPress={() => navigation.navigate('RegisterPage')}>Register</Button>
             </TouchableOpacity>
 
           </View>
