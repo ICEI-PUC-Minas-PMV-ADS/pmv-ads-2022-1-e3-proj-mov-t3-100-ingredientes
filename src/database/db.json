@@ -5,7 +5,8 @@
         "password": "$2a$10$ymUVKpCxW8y0CHdEDtCQI./mD7amz4JGHDeItQncZ1zWTOZO3EFnq",
         "name": "joao",
         "id": 1,
-        "recipesId": [1],
+        "cratedRecipesId": [1],
+        "favoredRecipesId": [1],
         "reviewsId": [1]
       },
       {
@@ -13,7 +14,8 @@
           "password": "$2a$10$/NO7DEnXqF9XGFc4tqhqwuibIa5GIPRSNaXfeppJ0JcuP/.dyzydu",
           "name": "carlos",
           "id": 2,
-          "recipesId": [],
+          "createdRecipesId": [],
+          "favoredRecipesId": [],
           "reviewsId": [2]
       }
     ],
