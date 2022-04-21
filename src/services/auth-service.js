@@ -15,3 +15,19 @@ export const register = async (params) => {
         return null;
     }
 }
+
+export const login = async (params) => {
+    try{
+        return await API.post(`${BASE_URL}/login`, params).then(
+            response => {
+                return {success: true, data: response.data};
+            },
+            error => {
+                return {success: false, data: error};
+            }
+        )
+    }catch(error){
+        console.log("Erro interno. " + error);
+        return null;
+    }
+}
