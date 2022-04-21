@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native';
 
-
-export default StyleSheet.create({
+const StylesLoginPage = StyleSheet.create({
  Tela: {
     flex:1,
     alignItems:'center',
@@ -49,5 +48,6 @@ export default StyleSheet.create({
       color:'#fff',
       fontSize:18
    }
-   
 });
+
+export default StylesLoginPage;
