@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "email": "teste@teste.com",
+      "password": "$2a$10$ymUVKpCxW8y0CHdEDtCQI./mD7amz4JGHDeItQncZ1zWTOZO3EFnq",
+      "name": "teste",
+      "id": 1
+    },
+    {
+      "email": "teste2@teste.com",
+      "password": "$2a$10$/NO7DEnXqF9XGFc4tqhqwuibIa5GIPRSNaXfeppJ0JcuP/.dyzydu",
+      "name": "teste",
+      "id": 2
+    },
+    {
+      "email": "teste3@teste.com",
+      "password": "$2a$10$9dns7nXPOnobOdNmlkC.LOP9/1fmVk5zoNoKK3rKE2hZIAHh/S4oC",
+      "name": "teste",
+      "id": 3
+    },
+    {
+      "email": "teste4@teste.com",
+      "password": "$2a$10$pERkX1B0eOFQf6Qk95549uagC2lLVB8/LuPUQJBZQ38u/dTNdQt2e",
+      "name": "teste",
+      "id": 4
+    }
+  ],
+  "receitas": [],
+  "ingredientes": [
+    {
+      "name": "banana"
+    },
+    {
+      "name": "uva"
+    }
+  ]
+}
