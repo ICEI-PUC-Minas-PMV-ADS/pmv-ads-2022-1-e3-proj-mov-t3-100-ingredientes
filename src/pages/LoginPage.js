@@ -8,6 +8,9 @@ import { login } from '../services/auth-service';
 import { useUser } from '../contexts/UserContext';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 
+import { useNavigation } from '@react-navigation/native';
+import { Button } from 'react-native-paper';
+
 const LoginPage = () => {
   const {setUserSigned, setUserName, setUserId} = useUser();
 
@@ -30,6 +33,9 @@ const LoginPage = () => {
       }
     })
   }
+
+
+  const navigation = useNavigation();
 
   return (
     <>
@@ -60,7 +66,7 @@ const LoginPage = () => {
             </TouchableOpacity>
 
             <TouchableOpacity style={StylesLoginPage.BotaoRegistrar}>
-              <Text style={StylesLoginPage.TextoRegistrar}>Criar conta gratis</Text>
+             <Text style={StylesLoginPage.TextoRegistrar} onPress={() => navigation.navigate('RegisterPage')}>Criar conta gratis</Text>
             </TouchableOpacity>
 
           </View>
