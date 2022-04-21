@@ -21,7 +21,8 @@ const StylesRegisterPage = StyleSheet.create({
         backgroundColor: '#121212',
         borderRadius: 5,
         height: 50,
-        alignItems: 'center'
+        alignItems: 'center',
+        margin: 10
      },
      input: {
          width: '85%',

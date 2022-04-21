@@ -13,6 +13,12 @@ const Register = () => {
   const [input, setInput] = useState('');
   const [inputDois, setInputDois] = useState('');
 
+  const [inputEmail, setEmail] = useState('');
+  const [inputEmailDois, setEmailDois] = useState('');
+
+  const [hideEmail, setHideEmail] = useState(true);
+  const [hideEmailDois, setHideEmailDois] = useState(true);
+
   const [hidePass, setHidePass] = useState(true);
   const [hidePassDois, setHidePassDois] = useState(true);
 
@@ -20,7 +26,44 @@ const Register = () => {
     <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
+
     <View style={StylesRegisterPage.container}>
+
+        <View style={StylesRegisterPage.inputArea}>
+          <TextInput placeholder='Informe seu E-Mail'
+            style={StylesRegisterPage.input}
+            value={inputEmail}
+            onChangeText = { (Text) => {setEmail(Text)
+              setHideEmail(false)} }
+          />
+          <TouchableOpacity style={StylesRegisterPage.icon}>
+            {
+              hideEmail ?
+                <Ionicons name='close' color={'#fff'} size={25} />
+              :
+                <Ionicons name='checkmark-outline' color={'#fff'} size={25} />
+            }
+          </TouchableOpacity>
+        </View>
+
+        <View style={StylesRegisterPage.inputArea}>
+          <TextInput placeholder='Confirme seu E-Mail'
+            style={StylesRegisterPage.input}
+            value={inputEmailDois}
+            onChangeText = { (TextDois) => {setEmailDois(TextDois) 
+              setHideEmailDois(false)}}
+          />
+          <TouchableOpacity style={StylesRegisterPage.icon}>
+            {
+              hideEmailDois ?
+                <Ionicons name='close' color={'#fff'} size={25} />
+              :
+                <Ionicons name='checkmark-outline' color={'#fff'} size={25} />
+            }
+          </TouchableOpacity>
+        </View>
+
+
         <View style={StylesRegisterPage.inputArea}>
           <TextInput placeholder='Insira sua Senha'
             style={StylesRegisterPage.input}
