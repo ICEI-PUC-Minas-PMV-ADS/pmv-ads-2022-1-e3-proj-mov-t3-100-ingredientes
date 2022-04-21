@@ -24,7 +24,7 @@ const LoginPage = () => {
         setUserSigned(true);
         setUserName(response.data.user.name);
         setUserId(response.data.user.id);
-        AsyncStorage.setItem('@TOKEN_KEY', response.accessToken).then();
+        AsyncStorage.setItem('@TOKEN_KEY', response.data.accessToken).then();
       }else{
         console.log("Login failed");
       }
