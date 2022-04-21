@@ -29,6 +29,7 @@ const Register = () => {
 
     <View style={StylesRegisterPage.container}>
 
+        <Text>Informe o E-Mail</Text>
         <View style={StylesRegisterPage.inputArea}>
           <TextInput placeholder='Informe seu E-Mail'
             style={StylesRegisterPage.input}
@@ -45,7 +46,7 @@ const Register = () => {
             }
           </TouchableOpacity>
         </View>
-
+        <Text>Confirme o E-Mail</Text>
         <View style={StylesRegisterPage.inputArea}>
           <TextInput placeholder='Confirme seu E-Mail'
             style={StylesRegisterPage.input}
@@ -63,7 +64,7 @@ const Register = () => {
           </TouchableOpacity>
         </View>
 
-
+        <Text>Informe a sua Senha</Text>
         <View style={StylesRegisterPage.inputArea}>
           <TextInput placeholder='Insira sua Senha'
             style={StylesRegisterPage.input}
@@ -80,7 +81,7 @@ const Register = () => {
           </TouchableOpacity>
           
         </View>
-
+        <Text>Confirme a sua Senha</Text>
         <View style={StylesRegisterPage.inputArea}>
           <TextInput placeholder='Confirme sua Senha'
             style={StylesRegisterPage.input}
