@@ -40,8 +40,7 @@ const LoginPage = () => {
             </TouchableOpacity>
 
             <TouchableOpacity style={StylesLoginPage.BotaoRegistrar}>
-             {/* <Text style={StylesLoginPage.TextoRegistrar} onPress={() => navigation.navigate('RegisterPage')}>Criar conta gratis</Text> */}
-             <Button mode="text" onPress={() => navigation.navigate('RegisterPage')}>Register</Button>
+             <Text style={StylesLoginPage.TextoRegistrar} onPress={() => navigation.navigate('RegisterPage')}>Criar conta gratis</Text>
             </TouchableOpacity>
 
           </View>
