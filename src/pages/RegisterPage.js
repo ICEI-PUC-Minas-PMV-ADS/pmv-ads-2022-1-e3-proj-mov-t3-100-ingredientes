@@ -5,7 +5,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import StylesLoginPage from '../styles/StylesLoginPage';
 import StylesRegisterPage from '../styles/StylesRegisterPage';
 import BodyComponent from '../components/BodyComponent';
-import { TouchableOpacity } from 'react-native-web';
+import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 const Register = () => {

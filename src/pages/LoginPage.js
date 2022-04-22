@@ -35,7 +35,7 @@ const LoginPage = () => {
             onChangeText={()=>{}}
             />
 
-            <TouchableOpacity style={StylesLoginPage.Botao}>
+            <TouchableOpacity style={StylesLoginPage.Botao} onPress={() => navigation.navigate('MyAccount')}>
               <Text style={StylesLoginPage.TextoBotao}>Acessar</Text>
             </TouchableOpacity>
 
