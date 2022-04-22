@@ -5,7 +5,7 @@
         "password": "$2a$10$ymUVKpCxW8y0CHdEDtCQI./mD7amz4JGHDeItQncZ1zWTOZO3EFnq",
         "name": "joao",
         "id": 1,
-        "cratedRecipesId": [1],
+        "createdRecipesId": [1],
         "favoredRecipesId": [1],
         "reviewsId": [1]
       },

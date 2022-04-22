@@ -4,7 +4,7 @@ import { Button } from 'react-native-paper';
 import HeaderComponent from '../components/HeaderComponent';
 import StylesRegisterPage from '../styles/StylesRegisterPage';
 import BodyComponent from '../components/BodyComponent';
-import { TouchableOpacity } from 'react-native-web';
+import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 
