@@ -2,18 +2,10 @@ import { TextInput, Text } from 'react-native';
 import { View,Image, } from 'react-native';
 import { Button } from 'react-native-paper';
 import HeaderComponent from '../components/HeaderComponent';
-<<<<<<< HEAD
-import StylesLoginPage from '../styles/StylesLoginPage';
-=======
->>>>>>> main
 import StylesRegisterPage from '../styles/StylesRegisterPage';
 import BodyComponent from '../components/BodyComponent';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-<<<<<<< HEAD
-
-const Register = () => {
-=======
 import { useState } from 'react';
 
 const Register = () => {
@@ -30,50 +22,10 @@ const Register = () => {
   const [hidePass, setHidePass] = useState(true);
   const [hidePassDois, setHidePassDois] = useState(true);
 
->>>>>>> main
   return (
     <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
-<<<<<<< HEAD
-      <View style={StylesLoginPage.GridButon}>
-        <Text>E-MAIL ADDRESS</Text>
-        <TextInput style={StylesLoginPage.Interface}
-            autoCorrect={false}
-            onChangeText={()=>{}}
-        />
-
-        <Text>CONFIRM E-MAIL ADDRESS</Text>
-        <TextInput style={StylesLoginPage.Interface}
-            autoCorrect={false}
-            onChangeText={()=>{}}
-        />
-
-        <Text>PASSWORD</Text>
-        
-        <View>
-        <TouchableOpacity style={StylesRegisterPage.icon}>
-          <Ionicons name='eye' color={'#fff'} size={25} />
-        </TouchableOpacity>
-        
-        <TextInput style={StylesLoginPage.Interface}
-            secureTextEntry
-            autoCorrect={false}
-            onChangeText={()=>{}}
-        />
-        </View>
-
-        <Text>CONFIRM PASSWORD</Text>
-        <TextInput style={StylesLoginPage.Interface}
-            secureTextEntry
-            autoCorrect={false}
-            onChangeText={()=>{}}
-        />
-        <Button style={StylesRegisterPage.button}>Register</Button>
-      </View>
-    </BodyComponent>
-    </>
-=======
 
     <View style={StylesRegisterPage.container}>
 
@@ -151,7 +103,6 @@ const Register = () => {
       </BodyComponent>
       </>
       
->>>>>>> main
   );
 }
 
