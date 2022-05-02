@@ -59,7 +59,10 @@ const Register = () => {
     <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
-
+      <View>
+        <Button onPress={() => post(email, senha)}>Registrar</Button>
+      </View>
+    
     <View style={StylesRegisterPage.container}>
 
         <Text>Informe o E-Mail</Text>
@@ -135,7 +138,7 @@ const Register = () => {
         </View>
 
       </View>
-      <Button onPress={mostrar(email, senha)}>Registrar</Button>
+      
       </BodyComponent>
       </>
       

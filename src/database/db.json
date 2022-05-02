@@ -25,6 +25,11 @@
       "reviewsId": [
         2
       ]
+    },
+    {
+      "email": "felipe@felipe.com",
+      "password": "160300",
+      "id": 3
     }
   ],
   "recipes": [
