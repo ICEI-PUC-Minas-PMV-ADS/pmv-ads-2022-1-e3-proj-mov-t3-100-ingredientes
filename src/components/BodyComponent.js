@@ -12,7 +12,7 @@ const BodyComponent = ({children}) => {
 const Styles = StyleSheet.create({
  Body: {
    backgroundColor: '#ddd',
-   flex: 9
+   flex: 230
 }
 });
 
