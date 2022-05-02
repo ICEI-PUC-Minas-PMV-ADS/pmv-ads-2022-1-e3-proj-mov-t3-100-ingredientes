@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native';
 
 const StylesLoginPage = StyleSheet.create({
    Screen: {
-      flex: 1
+      flex: 1,
+      backgroundColor: '#FFFFFF',
    },
 
    Image:{

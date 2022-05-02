@@ -60,7 +60,7 @@ const LoginPage = () => {
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={StylesLoginPage.Screen}>
+        <KeyboardAvoidingView style={StylesLoginPage.Screen} behavior="padding">
             <View style={StylesLoginPage.ImageSection}>
               <Image style={StylesLoginPage.Image}
                 source={require('../assets/images/login.png')}
@@ -103,7 +103,7 @@ const LoginPage = () => {
               </TouchableOpacity>
 
             </View>
-        </View>
+        </KeyboardAvoidingView>
       </TouchableWithoutFeedback>
     </BodyComponent>
     </>
