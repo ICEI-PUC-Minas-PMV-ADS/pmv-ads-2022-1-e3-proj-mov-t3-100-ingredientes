@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { TextInput, TouchableOpacity,Text } from 'react-native';
+import { ActivityIndicator, TextInput, TouchableOpacity,Text } from 'react-native';
 import { View, KeyboardAvoidingView,Image } from 'react-native';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
@@ -13,6 +13,7 @@ import { Button } from 'react-native-paper';
 
 const LoginPage = () => {
   const {setUserSigned, userSigned, setUserName, setUserId} = useUser();
+  const [loading, setLoading] = useState(false);
 
   const [email, setEmail] = useState('joao@gmail.com');
   const [password, setPassword] = useState('abc123');
@@ -20,10 +21,13 @@ const LoginPage = () => {
   const navigation = useNavigation();
 
   const handleLogin = () => {
+    setLoading(true);
     login({
       email: email,
       password: password
     }).then( response => {
+      setLoading(false);
+
       if(response && response.success){
         console.log("Login success")
         
@@ -53,7 +57,7 @@ const LoginPage = () => {
             <Image 
               source={require('../assets/naruto.png')}
             />
-          </View>
+          </View> 
           <View style={StylesLoginPage.GridButon}> 
             <TextInput style={StylesLoginPage.Interface}
             placeholder='E-mail'
@@ -69,11 +73,14 @@ const LoginPage = () => {
             />
 
             <TouchableOpacity onPress={handleLogin} style={StylesLoginPage.Botao}>
-              <Text style={StylesLoginPage.TextoBotao}>Acessar</Text>
+              { loading
+                ? <ActivityIndicator size="small" color="#FFFFFF" />
+                : <Text style={StylesLoginPage.TextoBotao}> Acessar </Text>             
+              }    
             </TouchableOpacity>
 
             <TouchableOpacity style={StylesLoginPage.BotaoRegistrar}>
-             <Text style={StylesLoginPage.TextoRegistrar} onPress={() => navigation.navigate('RegisterPage')}>Criar conta gratis</Text>
+              <Text style={StylesLoginPage.TextoRegistrar} onPress={() => navigation.navigate('RegisterPage')}>Criar conta gratis</Text>
             </TouchableOpacity>
 
           </View>

@@ -16,7 +16,7 @@ const StylesLoginPage = StyleSheet.create({
 },
    Imagem:{
    flex:1, 
-   alignItems: 'center', 
+   alignItems: 'center',
 },
    Interface:{
       backgroundColor:'#fff',
