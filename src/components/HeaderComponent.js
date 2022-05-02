@@ -10,8 +10,6 @@ const HeaderComponent = () => {
   const navigation = useNavigation();
   const route = useRoute();
 
-  console.log(route);
-
   return (
     <View style={Styles.Header}>
       <StatusBar
@@ -29,7 +27,7 @@ const HeaderComponent = () => {
 
 const Styles = StyleSheet.create({
     Header: {
-       flex: 23,
+       height: 60,
        flexDirection: 'row',
        justifyContent: 'space-around',
        backgroundColor: '#E05D25'
