@@ -27,13 +27,13 @@ const HeaderComponent = () => {
 
 const Styles = StyleSheet.create({
     Header: {
-       height: 60,
+       height: 80,
        flexDirection: 'row',
        justifyContent: 'space-around',
        backgroundColor: '#E05D25'
     },
     HeaderButton:{
-      marginTop: 20
+      marginTop: 40
     },
     HeaderButtonLabel: {
       color: "#FFFFFF",
