@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TextInput, TouchableOpacity,Text } from 'react-native';
 import { View, KeyboardAvoidingView,Image } from 'react-native';
 import HeaderComponent from '../components/HeaderComponent';
@@ -12,10 +12,12 @@ import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-paper';
 
 const LoginPage = () => {
-  const {setUserSigned, setUserName, setUserId} = useUser();
+  const {setUserSigned, userSigned, setUserName, setUserId} = useUser();
 
   const [email, setEmail] = useState('joao@gmail.com');
   const [password, setPassword] = useState('abc123');
+
+  const navigation = useNavigation();
 
   const handleLogin = () => {
     login({
@@ -24,18 +26,23 @@ const LoginPage = () => {
     }).then( response => {
       if(response && response.success){
         console.log("Login success")
+        
         setUserSigned(true);
         setUserName(response.data.user.name);
         setUserId(response.data.user.id);
         AsyncStorage.setItem('@TOKEN_KEY', response.data.accessToken).then();
+
+        navigation.navigate('MainPage');
       }else{
         console.log("Login failed");
       }
     })
   }
 
-
-  const navigation = useNavigation();
+  useEffect(() => {
+    if(userSigned)
+      navigation.navigate('MainPage');
+  })
 
   return (
     <>
