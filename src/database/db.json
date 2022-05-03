@@ -1,55 +1,75 @@
 {
-    "users": [
-      {
-        "email": "joao@gmail.com",
-        "password": "$2a$10$ymUVKpCxW8y0CHdEDtCQI./mD7amz4JGHDeItQncZ1zWTOZO3EFnq",
-        "name": "joao",
-        "id": 1,
-        "createdRecipesId": [1],
-        "favoredRecipesId": [1],
-        "reviewsId": [1]
-      },
-      {
-          "email": "carlos@gmail.com",
-          "password": "$2a$10$/NO7DEnXqF9XGFc4tqhqwuibIa5GIPRSNaXfeppJ0JcuP/.dyzydu",
-          "name": "carlos",
-          "id": 2,
-          "createdRecipesId": [],
-          "favoredRecipesId": [],
-          "reviewsId": [2]
-      }
-    ],
-    "recipes": [
-        {
-            "name": "bolo de banana",
-            "instrucions": "mistura tudo e bate e assa",
-            "ingredients": ["banana","farinha","ovo"],
-            "id": 1,
-            "userId": 1,
-            "reviewsId": [1,2]
-        }
-    ],
-    "reviews": [
-        {
-          "id": 1,
-          "score": 5,
-          "comment": "delicia"
-        },
-        {
-          "id": 2,
-          "score": 1,
-          "comment": "um lixo"
-        }
-    ],
-    "ingredients": [
-      {
-        "name": "banana"
-      },
-      {
-        "name": "farinha"
-      },
-      {
-        "name": "ovo"
-      }
-    ]
-  }
+  "users": [
+    {
+      "email": "joao@gmail.com",
+      "password": "$2a$10$ymUVKpCxW8y0CHdEDtCQI./mD7amz4JGHDeItQncZ1zWTOZO3EFnq",
+      "name": "joao",
+      "id": 1,
+      "createdRecipesId": [
+        1
+      ],
+      "favoredRecipesId": [
+        1
+      ],
+      "reviewsId": [
+        1
+      ]
+    },
+    {
+      "email": "carlos@gmail.com",
+      "password": "$2a$10$/NO7DEnXqF9XGFc4tqhqwuibIa5GIPRSNaXfeppJ0JcuP/.dyzydu",
+      "name": "carlos",
+      "id": 2,
+      "createdRecipesId": [],
+      "favoredRecipesId": [],
+      "reviewsId": [
+        2
+      ]
+    },
+    {
+      "email": "felipe@felipe.com",
+      "password": "160300",
+      "id": 3
+    }
+  ],
+  "recipes": [
+    {
+      "name": "bolo de banana",
+      "instrucions": "mistura tudo e bate e assa",
+      "ingredients": [
+        "banana",
+        "farinha",
+        "ovo"
+      ],
+      "id": 1,
+      "userId": 1,
+      "reviewsId": [
+        1,
+        2
+      ]
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "score": 5,
+      "comment": "delicia"
+    },
+    {
+      "id": 2,
+      "score": 1,
+      "comment": "um lixo"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "banana"
+    },
+    {
+      "name": "farinha"
+    },
+    {
+      "name": "ovo"
+    }
+  ]
+}

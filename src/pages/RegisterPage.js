@@ -8,7 +8,12 @@ import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 
+
+
 const Register = () => {
+
+  
+
 
   const [input, setInput] = useState('');
   const [inputDois, setInputDois] = useState('');
@@ -22,11 +27,42 @@ const Register = () => {
   const [hidePass, setHidePass] = useState(true);
   const [hidePassDois, setHidePassDois] = useState(true);
 
+
+
+  var email, senha;
+  email = inputEmail;
+  senha = input;
+
+  function post(email, password){
+    fetch('http://localhost:3000/users', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password
+      })
+    })
+      .then( (resposta) => resposta.json )
+        .then( (json) => console.log(json) )
+        .catch( (error) => console.log(error) )
+  }
+
+  function mostrar(email, senha){
+    console.log(email);
+    console.log(senha);
+  }
+
   return (
     <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
-
+      <View>
+        <Button onPress={() => post(email, senha)}>Registrar</Button>
+      </View>
+    
     <View style={StylesRegisterPage.container}>
 
         <Text>Informe o E-Mail</Text>
@@ -34,8 +70,10 @@ const Register = () => {
           <TextInput placeholder='Informe seu E-Mail'
             style={StylesRegisterPage.input}
             value={inputEmail}
-            onChangeText = { (Text) => {setEmail(Text)
-              setHideEmail(false)} }
+            onChangeText = { (Text) => {
+              setEmail(Text)
+              setHideEmail(false) 
+            } }
           />
           <TouchableOpacity style={StylesRegisterPage.icon}>
             {
@@ -100,6 +138,7 @@ const Register = () => {
         </View>
 
       </View>
+      
       </BodyComponent>
       </>
       
