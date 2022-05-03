@@ -1,53 +1,82 @@
 import { StyleSheet } from 'react-native';
 
 const StylesLoginPage = StyleSheet.create({
- Tela: {
-    flex:1,
-    alignItems:'center',
-    backgroundColor: '#5555',
+   Screen: {
+      flex: 1,
+      backgroundColor: '#FFFFFF',
+   },
 
- },
-   GridButon:{
-      flex:1,
-      alignItems:'center',
-      justifyContent:'center',
-      width:'90%'
+   Image:{
+      flex: 1,
+      width: null,
+      height: null,
+      resizeMode: 'cover'
+   },
 
-},
-   Imagem:{
-   flex:1, 
-   alignItems: 'center', 
-},
-   Interface:{
-      backgroundColor:'#fff',
-      width:'90%',
-      marginBottom:10,
-      color:'#222',
-      fontSize:17,
+   ImageSection: {
+      flex: 99
+   },
+   InteractionSection: {
+      flex: 131,
+      backgroundColor: 'white',
+      paddingTop: 20,
+      paddingBottom: 20,
+      paddingLeft: 20,
+      paddingRight: 20
+
+   },
+   LoginLabel: {
+      fontSize: 55,
+      fontWeight: '400',
+      //fontFamily: 'Oxygen',
+      color: '#000000',
+      marginBottom: 11
+   },
+   AlertLabel: {
+      fontSize: 15,
+      color: 'red',
+      alignSelf: 'center',
+      paddingBottom: 20
+   },
+   InputLabel:{
+      textTransform: 'uppercase',
+      fontSize: 13,
+      color: '#00000075'
+   },
+   Input:{
+      borderBottomWidth: 1,
+      marginBottom: 9,
+      borderBottomColor: '#C2C2C2'
+   },
+   LoginButton:{
+      backgroundColor: '#E05D25',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 62,
+      width: '90%',
       borderRadius:7,
-      padding:10
-},
-   Botao:{
-      backgroundColor: '#ff9930',
-      width:'90%',
-      alignItems:'center',
-      justifyContent:'center',
-      height:45,
-      borderRadius:7
+      alignSelf: 'center',
+      marginBottom: 20
 
    },
-   TextoBotao:{
-      color:'#fff',
-      fontSize:18
-      
+   LoginButtonLabel:{
+      color:'#FFFFFF',
+      fontSize:23
    },
-   BotaoRegistrar:{
-      marginTop:10,
+   LabelGeneric:{
+      fontSize: 13,
+      color: '#00000080'
    },
-   TextoRegistrar:{
-      color:'#fff',
-      fontSize:18
+   LinkGeneric: {
+      fontSize: 13,
+      color: '#E05D25',
+      fontWeight: '700'
+   },
+   CreateAccount:{
+      flexDirection: 'row',
+      alignSelf: 'center'
    }
-});
+})
+
 
 export default StylesLoginPage;
