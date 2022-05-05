@@ -29,9 +29,18 @@ const Register = () => {
 
 
 
-  var email, senha;
+  var email, senha, email2, senha2;
   email = inputEmail;
+  email2 = inputEmailDois;
+  senha2 = inputDois;
   senha = input;
+
+  function valida(inputMail, inputMail2, inputSenha, inputSenha2, email, senha){
+
+    (inputMail == inputMail2 && inputSenha == inputSenha2) ? console.log("validou") : console.log("não validou")
+    
+  }
+
 
   function post(email, password){
     fetch('http://localhost:3000/users', {
@@ -50,17 +59,12 @@ const Register = () => {
         .catch( (error) => console.log(error) )
   }
 
-  function mostrar(email, senha){
-    console.log(email);
-    console.log(senha);
-  }
-
   return (
     <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
       <View>
-        <Button onPress={() => post(email, senha)}>Registrar</Button>
+        <Button onPress={() => valida(email, email2, senha, senha2, email, senha)}>Registrar</Button>
       </View>
     
     <View style={StylesRegisterPage.container}>
