@@ -7,6 +7,7 @@ import BodyComponent from '../components/BodyComponent';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
+import { register } from '../services/auth-service';
 
 
 
@@ -36,18 +37,31 @@ const Register = () => {
   senha2 = inputDois;
   senha = input;
 
-  function valida(inputMail, inputMail2, inputSenha, inputSenha2, email, senha){
-    // valida(email, email2, senha, senha2, email, senha)
+  function valida(inputMail, inputMail2, inputSenha, inputSenha2){
+  
     if(inputMail != "" && inputMail2 != "" && inputSenha != "" && inputSenha2 != "")
-      (inputMail == inputMail2 && inputSenha == inputSenha2) ? console.log("validou") : console.log("não validou");
+      (inputMail == inputMail2 && inputSenha == inputSenha2) ? handleRegister() : console.log("não validou");
     else
       console.log("prencha os campos")
     
   }
 
-  
+  const handleRegister = () => {
 
-  function post(email, password){
+    register({
+      email: email,
+      password: senha
+    }).then( response => {
+      if(response && response.success){
+        console.log("Register success")
+      }else{
+        console.log("Register failed");
+        //console.log(response);
+      }
+    })
+  }
+
+ /* function post(email, password){
     fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
@@ -63,13 +77,13 @@ const Register = () => {
         .then( (json) => console.log(json) )
         .catch( (error) => console.log(error) )
   }
-
+*/
   return (
     <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
       <View>
-        <Button onPress={() => valida(email, email2, senha, senha2, email, senha)}>Registrar</Button>
+        <Button onPress={() => /*</View>post (email, email2, senha, senha2, email, senha) */ valida()}>Registrar</Button>
       </View>
     
     <View style={StylesRegisterPage.container}>
