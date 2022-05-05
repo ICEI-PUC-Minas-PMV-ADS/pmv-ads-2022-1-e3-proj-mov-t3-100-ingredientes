@@ -28,6 +28,7 @@ const Register = () => {
   const [hidePassDois, setHidePassDois] = useState(true);
 
 
+  var error = "";
 
   var email, senha, email2, senha2;
   email = inputEmail;
@@ -36,11 +37,15 @@ const Register = () => {
   senha = input;
 
   function valida(inputMail, inputMail2, inputSenha, inputSenha2, email, senha){
-
-    (inputMail == inputMail2 && inputSenha == inputSenha2) ? console.log("validou") : console.log("não validou")
+    // valida(email, email2, senha, senha2, email, senha)
+    if(inputMail != "" && inputMail2 != "" && inputSenha != "" && inputSenha2 != "")
+      (inputMail == inputMail2 && inputSenha == inputSenha2) ? console.log("validou") : console.log("não validou");
+    else
+      console.log("prencha os campos")
     
   }
 
+  
 
   function post(email, password){
     fetch('http://localhost:3000/users', {
