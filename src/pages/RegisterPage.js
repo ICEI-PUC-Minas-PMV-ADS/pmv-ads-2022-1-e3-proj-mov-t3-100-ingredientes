@@ -8,6 +8,7 @@ import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { register } from '../services/auth-service';
+import StylesLoginPage from '../styles/StylesLoginPage';
 
 
 
@@ -28,6 +29,10 @@ const Register = () => {
   const [hidePass, setHidePass] = useState(true);
   const [hidePassDois, setHidePassDois] = useState(true);
 
+  const [registerFail, setRegisterFail] = useState(false);
+  const [registerNull, setRegisterNull] = useState(false);
+  const [registerSucess, setRegisterSucess] = useState(false);
+
 
   var error = "";
 
@@ -39,14 +44,21 @@ const Register = () => {
 
   function valida(inputMail, inputMail2, inputSenha, inputSenha2){
   
-    if(inputMail != "" && inputMail2 != "" && inputSenha != "" && inputSenha2 != "")
-      (inputMail == inputMail2 && inputSenha == inputSenha2) ? handleRegister() : console.log("não validou");
-    else
-      console.log("prencha os campos")
+    setRegisterFail(false);
+    setRegisterNull(false);
     
+
+    if(inputMail != "" && inputMail2 != "" && inputSenha != "" && inputSenha2 != ""){
+      (inputMail == inputMail2 && inputSenha == inputSenha2) ? handleRegister() : setRegisterFail(true);
+    }
+    else{
+      setRegisterNull(true);
+    }
   }
 
   const handleRegister = () => {
+
+    setRegisterSucess(false);
 
     register({
       email: email,
@@ -54,9 +66,11 @@ const Register = () => {
     }).then( response => {
       if(response && response.success){
         console.log("Register success")
+        setRegisterSucess(true);
       }else{
         console.log("Register failed");
-        //console.log(response);
+        
+        console.log(response);
       }
     })
   }
@@ -83,7 +97,10 @@ const Register = () => {
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
       <View>
-        <Button onPress={() => /*</View>post (email, email2, senha, senha2, email, senha) */ valida()}>Registrar</Button>
+        <Button onPress={() => valida(email, email2, senha, senha2)}>Registrar</Button>
+        <Text style={StylesLoginPage.AlertLabel}>{ registerFail ? 'Email ou senha incorretos!' : null }</Text>
+        <Text style={StylesLoginPage.AlertLabel}>{registerNull ? 'Email ou Senha em branco' : null}</Text>
+        <Text style={StylesLoginPage.AlertLabel}>{registerSucess ? 'Registrado com Sucesso' : null}</Text>
       </View>
     
     <View style={StylesRegisterPage.container}>
