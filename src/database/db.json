@@ -15,7 +15,7 @@
           "name": "carlos",
           "id": 2,
           "createdRecipesId": [],
-          "favoredRecipesId": [],
+          "favoritedRecipesId": [],
           "reviewsId": [2]
       }
     ],
@@ -26,9 +26,20 @@
             "instrucions": "mistura tudo e bate e assa",
             "ingredients": ["banana","farinha","ovo"],
             "id": 1,
-            "userId": 1,
-            "reviewsId": [1,2]
-        }
+            "cratedByUserId": 1,
+            "reviewsIdList": [1,2],
+            "favoritedByUserIdList": [2]
+        },
+        {
+          "name": "bolo de morango",
+          "imageUrl": "https://s3-alpha-sig.figma.com/img/952f/99ba/987a5e9dba94b0101051366fa648251c?Expires=1652659200&Signature=DhirJ893M7PN~~XMo7HZFlZ5ZxFQBkNDj3vPoKGoFuiLLitvo75H-uM2NWHXe-Dj1PIoImW5QCxp5LeV3gtubztVS0h~5bigyFp0AY4yLRRdkc6HeQ5fyPnaF8ywDfO69w1B8250GK2c7h2QuYndgZSJZg75qFAsrp5S0hnQ1bZv-vQfkSJA8RWAyD7axpMEpFpnk1gKFA4JfGkJLi9PM9lHu7osJXO3YHDsBMJ-3XsiratL4kRKoQqIPwBM5k1gzoYKVLxeu1keNWvvBsn~5SPXF-rm9pUgB3p8QXN-PyldWhvAYkZ6RjrVoYfs-OPppsPezY7FzNws282Re6y8rA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+          "instrucions": "mistura tudo e bate e assa",
+          "ingredients": ["banana","farinha","ovo"],
+          "id": 2,
+          "cratedByUserId": 2,
+          "reviewsIdList": [],
+          "favoritedByUsersIdList": [1]
+      }
     ],
     "reviews": [
         {
