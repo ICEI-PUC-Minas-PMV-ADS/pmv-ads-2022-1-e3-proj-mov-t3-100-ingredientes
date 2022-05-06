@@ -1,4 +1,3 @@
-import { includes } from 'json-server-auth';
 import API, {BASE_URL} from './webapi-service';
 
 export const getRecipes = async () => {
@@ -37,24 +36,13 @@ export const getOwnRecipesByUserId = async (props) => {
 
 export const getFavoriteRecipesByUserId = async (props) => {
   try{
-    return await API.get(`${BASE_URL}/recipes?favoritedByUsersId=${props.userId}`).then( 
-
-      
-      response => {
-        
-
-        let a = response.data;
-
-        console.log(a);
-
-        let x = a.filter(function (z) {
-          return z != undefined;
+    return await API.get(`${BASE_URL}/recipes`).then(    
+      response => {     
+        let filteredData = response.data.filter(function (item) {
+          return item.favoritedByUserIdList == props.userId;
         });
 
-        console.log("lista filtrada");
-        console.log(x);
-
-        return { success: true, data: response.data };
+        return { success: true, data: filteredData };
       },
       error =>{
         console.log(error);

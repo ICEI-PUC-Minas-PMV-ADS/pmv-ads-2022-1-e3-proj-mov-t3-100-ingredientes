@@ -38,7 +38,7 @@
           "id": 2,
           "cratedByUserId": 2,
           "reviewsIdList": [],
-          "favoritedByUsersIdList": [1]
+          "favoritedByUserIdList": [1]
       }
     ],
     "reviews": [
