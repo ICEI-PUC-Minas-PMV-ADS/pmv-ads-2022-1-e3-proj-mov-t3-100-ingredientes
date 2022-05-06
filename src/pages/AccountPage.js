@@ -59,7 +59,7 @@ const AccountPage = () => {
      <BodyComponent>
     <View style={StylesAccountPage.Screen}> 
         <View style={StylesAccountPage.SectionRecipeList}>
-            <Text style={StylesAccountPage.Title}>Minhas Receitas</Text>
+            <Text style={StylesAccountPage.Title}>Minhas Receitas 📔</Text>
             <View style={{flex: 9}}>
                 {ownRecipes.length > 0 && <RecipeListComponent data={ownRecipes}></RecipeListComponent>}
                 {ownRecipes.length == 0 && <View style={{marginLeft: 50, marginRight: 50, flex: 1, justifyContent: 'center'}}>
@@ -78,7 +78,7 @@ const AccountPage = () => {
         </View>
         <View style = {StylesGeneric.LineGeneric} />
         <View style={StylesAccountPage.SectionRecipeList}>
-            <Text style={StylesAccountPage.Title}>RECEITAS FAVORITAS</Text>
+            <Text style={StylesAccountPage.Title}>RECEITAS FAVORITAS ❤️</Text>
             <View style={{flex: 9}}>
                 {favoriteRecipes.length > 0 && <RecipeListComponent data={favoriteRecipes}></RecipeListComponent>}
                 {favoriteRecipes.length == 0 && <View style={{marginLeft: 50, marginRight: 50, flex: 1, justifyContent: 'center'}}>
