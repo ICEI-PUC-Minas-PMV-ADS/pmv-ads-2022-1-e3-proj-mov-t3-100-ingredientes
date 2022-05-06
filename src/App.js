@@ -5,7 +5,7 @@ import RegisterPage from './pages/RegisterPage';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import UserProvider from './contexts/UserContext';
-import MyAccount from './pages/MyAccount';
+import AccountPage from './pages/AccountPage';
 import MyListRecipe from './pages/MyListRecipe';
 
 const Stack = createNativeStackNavigator();
@@ -19,7 +19,7 @@ const App = () => {
           <Stack.Screen name="LoginPage" component={LoginPage} />
           <Stack.Screen name="PostRecipePage" component={PostRecipePage} />
           <Stack.Screen name="RegisterPage" component={RegisterPage} />
-          <Stack.Screen name="MyAccount" component={MyAccount}/>
+          <Stack.Screen name="AccountPage" component={AccountPage}/>
         <Stack.Screen name="MyListRecipe" component={MyListRecipe}/>
         </Stack.Navigator>
       </NavigationContainer>   

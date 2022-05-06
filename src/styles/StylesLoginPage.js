@@ -63,15 +63,6 @@ const StylesLoginPage = StyleSheet.create({
       color:'#FFFFFF',
       fontSize:23
    },
-   LabelGeneric:{
-      fontSize: 13,
-      color: '#00000080'
-   },
-   LinkGeneric: {
-      fontSize: 13,
-      color: '#E05D25',
-      fontWeight: '700'
-   },
    CreateAccount:{
       flexDirection: 'row',
       alignSelf: 'center'

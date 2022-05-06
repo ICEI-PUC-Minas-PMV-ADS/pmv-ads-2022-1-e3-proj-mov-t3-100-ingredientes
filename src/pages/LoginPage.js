@@ -4,6 +4,7 @@ import { View, KeyboardAvoidingView,Image } from 'react-native';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
 import StylesLoginPage from '../styles/StylesLoginPage';
+import StylesGeneric from '../styles/StylesGeneric';
 import { login } from '../services/auth-service';
 import { useUser } from '../contexts/UserContext';
 import AsyncStorage from '@react-native-async-storage/async-storage'
@@ -99,7 +100,7 @@ const LoginPage = () => {
               </TouchableOpacity>
 
               <TouchableOpacity style={StylesLoginPage.CreateAccount} onPress={() => navigation.navigate('RegisterPage')}>
-                <Text style={StylesLoginPage.LabelGeneric}>Não tem uma conta? </Text><Text style={StylesLoginPage.LinkGeneric}>Criar nova conta.</Text>
+                <Text style={StylesGeneric.LabelGeneric}>Não tem uma conta? </Text><Text style={StylesGeneric.LinkGeneric}>Criar nova conta.</Text>
               </TouchableOpacity>
 
             </View>
