@@ -1,10 +1,10 @@
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 const GenericButtonComponent = ({children}) => {
     return (
-      <TouchableOpacity style={StylesGenericButton.GenericButton}>
+      <View style={StylesGenericButton.GenericButton}>
         <Text style={StylesGenericButton.GenericButtonText}>{children}</Text>
-      </TouchableOpacity>
+      </View>
     );
   }
 

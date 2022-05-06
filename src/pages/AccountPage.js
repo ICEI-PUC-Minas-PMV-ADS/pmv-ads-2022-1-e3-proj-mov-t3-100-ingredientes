@@ -55,9 +55,8 @@ const AccountPage = () => {
     
   return (
    <>
- <BodyComponent>
      <HeaderComponent></HeaderComponent>
-    
+     <BodyComponent>
     <View style={StylesAccountPage.Screen}> 
         <View style={StylesAccountPage.SectionRecipeList}>
             <Text style={StylesAccountPage.Title}>Minhas Receitas</Text>
@@ -72,7 +71,9 @@ const AccountPage = () => {
                 
             </View>
             <View style={{flex: 2, marginTop: 15}}>
+              <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'own'})}>
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>
+              </TouchableOpacity>
             </View>
         </View>
         <View style = {StylesGeneric.LineGeneric} />
@@ -88,7 +89,9 @@ const AccountPage = () => {
                 </View>}
             </View>
             <View style={{flex: 2, marginTop: 15}}>
+              <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'favorited'})}>
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>
+              </TouchableOpacity>
             </View>
         </View>
         <View style = {StylesGeneric.LineGeneric} />
