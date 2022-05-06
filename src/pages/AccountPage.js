@@ -73,7 +73,7 @@ const AccountPage = () => {
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>
             </View>
         </View>
-        <View style = {StylesGeneric.Line} />
+        <View style = {StylesGeneric.LineGeneric} />
         <View style={StylesAccountPage.SectionRecipeList}>
             <Text style={StylesAccountPage.Title}>RECEITAS FAVORITAS</Text>
             <View style={{flex: 9}}>
@@ -89,7 +89,7 @@ const AccountPage = () => {
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>
             </View>
         </View>
-        <View style = {StylesGeneric.Line} />
+        <View style = {StylesGeneric.LineGeneric} />
         <View style={StylesAccountPage.SectionBottom}>
             <TouchableOpacity style={{flexDirection: 'row', alignSelf: 'center', margin:7}}>
                 <Text style={StylesGeneric.LabelGeneric}>Alterar dados do </Text><Text style={StylesGeneric.LinkGeneric}>Perfil.</Text>

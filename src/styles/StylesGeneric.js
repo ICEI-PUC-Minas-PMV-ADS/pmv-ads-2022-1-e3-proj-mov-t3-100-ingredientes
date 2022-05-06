@@ -5,7 +5,7 @@ const StylesGeneric = StyleSheet.create({
       borderWidth: 0.5,
       borderColor:'#00000080',
       width: '90%',
-      alignSelf: 'center'
+      alignSelf: 'center',
    },
    LabelGeneric:{
       fontSize: 13,
