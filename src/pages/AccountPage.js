@@ -46,17 +46,11 @@ const AccountPage = () => {
         })
     }
 
-
-
     useEffect(() => {
       getOwnRecipes();
       getFavoriteRecipes();
     }, []);
     
-    const dados=[
-        {id:'1',name:'Receita 001', imageUrl:'https://s3-alpha-sig.figma.com/img/952f/99ba/987a5e9dba94b0101051366fa648251c?Expires=1652659200&Signature=DhirJ893M7PN~~XMo7HZFlZ5ZxFQBkNDj3vPoKGoFuiLLitvo75H-uM2NWHXe-Dj1PIoImW5QCxp5LeV3gtubztVS0h~5bigyFp0AY4yLRRdkc6HeQ5fyPnaF8ywDfO69w1B8250GK2c7h2QuYndgZSJZg75qFAsrp5S0hnQ1bZv-vQfkSJA8RWAyD7axpMEpFpnk1gKFA4JfGkJLi9PM9lHu7osJXO3YHDsBMJ-3XsiratL4kRKoQqIPwBM5k1gzoYKVLxeu1keNWvvBsn~5SPXF-rm9pUgB3p8QXN-PyldWhvAYkZ6RjrVoYfs-OPppsPezY7FzNws282Re6y8rA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'},        {id:'1',name:'Receita 001', imageUrl:'https://s3-alpha-sig.figma.com/img/952f/99ba/987a5e9dba94b0101051366fa648251c?Expires=1652659200&Signature=DhirJ893M7PN~~XMo7HZFlZ5ZxFQBkNDj3vPoKGoFuiLLitvo75H-uM2NWHXe-Dj1PIoImW5QCxp5LeV3gtubztVS0h~5bigyFp0AY4yLRRdkc6HeQ5fyPnaF8ywDfO69w1B8250GK2c7h2QuYndgZSJZg75qFAsrp5S0hnQ1bZv-vQfkSJA8RWAyD7axpMEpFpnk1gKFA4JfGkJLi9PM9lHu7osJXO3YHDsBMJ-3XsiratL4kRKoQqIPwBM5k1gzoYKVLxeu1keNWvvBsn~5SPXF-rm9pUgB3p8QXN-PyldWhvAYkZ6RjrVoYfs-OPppsPezY7FzNws282Re6y8rA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'},        {id:'1',name:'Receita 001', imageUrl:'https://s3-alpha-sig.figma.com/img/952f/99ba/987a5e9dba94b0101051366fa648251c?Expires=1652659200&Signature=DhirJ893M7PN~~XMo7HZFlZ5ZxFQBkNDj3vPoKGoFuiLLitvo75H-uM2NWHXe-Dj1PIoImW5QCxp5LeV3gtubztVS0h~5bigyFp0AY4yLRRdkc6HeQ5fyPnaF8ywDfO69w1B8250GK2c7h2QuYndgZSJZg75qFAsrp5S0hnQ1bZv-vQfkSJA8RWAyD7axpMEpFpnk1gKFA4JfGkJLi9PM9lHu7osJXO3YHDsBMJ-3XsiratL4kRKoQqIPwBM5k1gzoYKVLxeu1keNWvvBsn~5SPXF-rm9pUgB3p8QXN-PyldWhvAYkZ6RjrVoYfs-OPppsPezY7FzNws282Re6y8rA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'},        {id:'1',name:'Receita 001', imageUrl:'https://s3-alpha-sig.figma.com/img/952f/99ba/987a5e9dba94b0101051366fa648251c?Expires=1652659200&Signature=DhirJ893M7PN~~XMo7HZFlZ5ZxFQBkNDj3vPoKGoFuiLLitvo75H-uM2NWHXe-Dj1PIoImW5QCxp5LeV3gtubztVS0h~5bigyFp0AY4yLRRdkc6HeQ5fyPnaF8ywDfO69w1B8250GK2c7h2QuYndgZSJZg75qFAsrp5S0hnQ1bZv-vQfkSJA8RWAyD7axpMEpFpnk1gKFA4JfGkJLi9PM9lHu7osJXO3YHDsBMJ-3XsiratL4kRKoQqIPwBM5k1gzoYKVLxeu1keNWvvBsn~5SPXF-rm9pUgB3p8QXN-PyldWhvAYkZ6RjrVoYfs-OPppsPezY7FzNws282Re6y8rA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'},        {id:'1',name:'Receita 001', imageUrl:'https://s3-alpha-sig.figma.com/img/952f/99ba/987a5e9dba94b0101051366fa648251c?Expires=1652659200&Signature=DhirJ893M7PN~~XMo7HZFlZ5ZxFQBkNDj3vPoKGoFuiLLitvo75H-uM2NWHXe-Dj1PIoImW5QCxp5LeV3gtubztVS0h~5bigyFp0AY4yLRRdkc6HeQ5fyPnaF8ywDfO69w1B8250GK2c7h2QuYndgZSJZg75qFAsrp5S0hnQ1bZv-vQfkSJA8RWAyD7axpMEpFpnk1gKFA4JfGkJLi9PM9lHu7osJXO3YHDsBMJ-3XsiratL4kRKoQqIPwBM5k1gzoYKVLxeu1keNWvvBsn~5SPXF-rm9pUgB3p8QXN-PyldWhvAYkZ6RjrVoYfs-OPppsPezY7FzNws282Re6y8rA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'},        {id:'1',name:'Receita 001', imageUrl:'https://s3-alpha-sig.figma.com/img/952f/99ba/987a5e9dba94b0101051366fa648251c?Expires=1652659200&Signature=DhirJ893M7PN~~XMo7HZFlZ5ZxFQBkNDj3vPoKGoFuiLLitvo75H-uM2NWHXe-Dj1PIoImW5QCxp5LeV3gtubztVS0h~5bigyFp0AY4yLRRdkc6HeQ5fyPnaF8ywDfO69w1B8250GK2c7h2QuYndgZSJZg75qFAsrp5S0hnQ1bZv-vQfkSJA8RWAyD7axpMEpFpnk1gKFA4JfGkJLi9PM9lHu7osJXO3YHDsBMJ-3XsiratL4kRKoQqIPwBM5k1gzoYKVLxeu1keNWvvBsn~5SPXF-rm9pUgB3p8QXN-PyldWhvAYkZ6RjrVoYfs-OPppsPezY7FzNws282Re6y8rA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'},        {id:'1',name:'Receita 001', imageUrl:'https://s3-alpha-sig.figma.com/img/952f/99ba/987a5e9dba94b0101051366fa648251c?Expires=1652659200&Signature=DhirJ893M7PN~~XMo7HZFlZ5ZxFQBkNDj3vPoKGoFuiLLitvo75H-uM2NWHXe-Dj1PIoImW5QCxp5LeV3gtubztVS0h~5bigyFp0AY4yLRRdkc6HeQ5fyPnaF8ywDfO69w1B8250GK2c7h2QuYndgZSJZg75qFAsrp5S0hnQ1bZv-vQfkSJA8RWAyD7axpMEpFpnk1gKFA4JfGkJLi9PM9lHu7osJXO3YHDsBMJ-3XsiratL4kRKoQqIPwBM5k1gzoYKVLxeu1keNWvvBsn~5SPXF-rm9pUgB3p8QXN-PyldWhvAYkZ6RjrVoYfs-OPppsPezY7FzNws282Re6y8rA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA'},
-
-    ]
   return (
    <>
  <BodyComponent>
@@ -66,7 +60,14 @@ const AccountPage = () => {
         <View style={StylesAccountPage.SectionRecipeList}>
             <Text style={StylesAccountPage.Title}>Minhas Receitas</Text>
             <View style={{flex: 9}}>
-                <RecipeListComponent data={ownRecipes}></RecipeListComponent>
+                {ownRecipes.length > 0 && <RecipeListComponent data={ownRecipes}></RecipeListComponent>}
+                {ownRecipes.length == 0 && <View style={{marginLeft: 50, marginRight: 50, flex: 1, justifyContent: 'center'}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('PostRecipePage')} style={{alignItems: 'center', alignItems: 'center'}}>
+                        <Text style={StylesGeneric.LabelGeneric}>Ahhhhhhh, parece que você não tem nenhum receita publicada 😩😩😩😩. </Text>
+                        <Text style={StylesGeneric.LinkGeneric}>Que tal postar uma agora mesmo?</Text>
+                    </TouchableOpacity>
+                </View>}
+                
             </View>
             <View style={{flex: 2, marginTop: 15}}>
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>
@@ -76,7 +77,13 @@ const AccountPage = () => {
         <View style={StylesAccountPage.SectionRecipeList}>
             <Text style={StylesAccountPage.Title}>RECEITAS FAVORITAS</Text>
             <View style={{flex: 9}}>
-                <RecipeListComponent data={favoriteRecipes}></RecipeListComponent>
+                {favoriteRecipes.length > 0 && <RecipeListComponent data={favoriteRecipes}></RecipeListComponent>}
+                {favoriteRecipes.length == 0 && <View style={{marginLeft: 50, marginRight: 50, flex: 1, justifyContent: 'center'}}>
+                    <TouchableOpacity onPress={() => navigation.navigate('MainPage')} style={{alignItems: 'center', alignItems: 'center'}}>
+                        <Text style={StylesGeneric.LabelGeneric}>Ahhhhhhh, parece que você não tem nenhum receita favoritada 😩😩😩😩. </Text>
+                        <Text style={StylesGeneric.LinkGeneric}>Que tal encontrar uma agora mesmo?</Text>
+                    </TouchableOpacity>
+                </View>}
             </View>
             <View style={{flex: 2, marginTop: 15}}>
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>

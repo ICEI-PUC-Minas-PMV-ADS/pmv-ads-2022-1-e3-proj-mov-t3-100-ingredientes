@@ -26,7 +26,7 @@
             "instrucions": "mistura tudo e bate e assa",
             "ingredients": ["banana","farinha","ovo"],
             "id": 1,
-            "cratedByUserId": 1,
+            "cratedByUserId": 2,
             "reviewsIdList": [1,2],
             "favoritedByUserIdList": [2]
         },
@@ -38,7 +38,7 @@
           "id": 2,
           "cratedByUserId": 2,
           "reviewsIdList": [],
-          "favoritedByUserIdList": [1]
+          "favoritedByUserIdList": []
       }
     ],
     "reviews": [

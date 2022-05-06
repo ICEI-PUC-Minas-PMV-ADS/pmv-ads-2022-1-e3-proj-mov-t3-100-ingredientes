@@ -9,7 +9,7 @@ const StylesGeneric = StyleSheet.create({
    },
    LabelGeneric:{
       fontSize: 13,
-      color: '#00000080'
+      color: '#00000080',
    },
    LinkGeneric: {
       fontSize: 13,
