@@ -1,4 +1,14 @@
 import API, {BASE_URL} from './webapi-service';
+import { useUser } from './../contexts/UserContext';
+import { useNavigation } from '@react-navigation/native';
+
+export const redirectUnauthenticatedToLogin = async () => {
+    const {userSigned} = useUser();
+    const navigation = useNavigation();
+
+    if(!userSigned)
+        navigation.navigate('LoginPage');
+}
 
 export const register = async (params) => {
     try{

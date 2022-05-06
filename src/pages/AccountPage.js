@@ -9,8 +9,10 @@ import GenericButtonComponent from '../components/GenericButtonComponent';
 import RecipeListComponent from '../components/RecipeListComponent';
 import { getOwnRecipesByUserId, getFavoriteRecipesByUserId } from '../services/recipes-service';
 import { useUser } from './../contexts/UserContext';
+import {redirectUnauthenticatedToLogin} from '../services/auth-service'
 
 const AccountPage = () => {
+    redirectUnauthenticatedToLogin();
     const navigation = useNavigation();
 
     const {userId} = useUser();
