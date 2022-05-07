@@ -190,6 +190,9 @@ useEffect(() => {
         </ScrollView>
         <View style={StylesConfigurationPage.SectionButtonsContainer}>
           <View style={StylesConfigurationPage.DeleteRegionContainer}>
+            {!editing && <TouchableOpacity style={StylesConfigurationPage.DeleteRegion}>
+              <Text style={StylesGeneric.LinkGeneric} onPress={() => logoff()}>Sair da conta</Text>
+            </TouchableOpacity>}
             {editing && <TouchableOpacity style={StylesConfigurationPage.DeleteRegion}>
               <Text style={StylesConfigurationPage.DeleteRegionText} onPress={() => setModalVisible(!modalVisible)}>Deletar conta</Text>
             </TouchableOpacity>}
