@@ -16,6 +16,25 @@ const StylesGeneric = StyleSheet.create({
       color: '#E05D25',
       fontWeight: '700'
    },
+   TitleGeneric: {
+      
+   },
+   GenericInput:{
+      borderBottomWidth: 1,
+      marginBottom: 9,
+      borderBottomColor: '#C2C2C2'
+   },
+   GenericInputLabelBlack:{
+      textTransform: 'uppercase',
+      fontSize: 13,
+      color: '#000000'
+   },
+   GenericInputLabelGray:{
+      textTransform: 'uppercase',
+      fontSize: 13,
+      color: '#00000075'
+   },
+
 
 
 });

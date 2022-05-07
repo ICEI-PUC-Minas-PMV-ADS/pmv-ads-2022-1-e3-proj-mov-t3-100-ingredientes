@@ -38,16 +38,6 @@ const StylesLoginPage = StyleSheet.create({
       alignSelf: 'center',
       paddingBottom: 20
    },
-   InputLabel:{
-      textTransform: 'uppercase',
-      fontSize: 13,
-      color: '#00000075'
-   },
-   Input:{
-      borderBottomWidth: 1,
-      marginBottom: 9,
-      borderBottomColor: '#C2C2C2'
-   },
    LoginButton:{
       backgroundColor: '#E05D25',
       alignItems: 'center',

@@ -7,6 +7,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import UserProvider from './contexts/UserContext';
 import AccountPage from './pages/AccountPage';
 import RecipesListPage from './pages/RecipesListPage';
+import ConfigurationPage from './pages/ConfigurationsPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const App = () => {
           <Stack.Screen name="RegisterPage" component={RegisterPage} />
           <Stack.Screen name="AccountPage" component={AccountPage}/>
           <Stack.Screen name="RecipesListPage" component={RecipesListPage} />
+          <Stack.Screen name="ConfigurationPage" component={ ConfigurationPage } />
         </Stack.Navigator>
       </NavigationContainer>   
     </UserProvider> 

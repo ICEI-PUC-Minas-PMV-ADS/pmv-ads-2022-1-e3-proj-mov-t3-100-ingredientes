@@ -96,11 +96,8 @@ const AccountPage = () => {
         </View>
         <View style = {StylesGeneric.LineGeneric} />
         <View style={StylesAccountPage.SectionBottom}>
-            <TouchableOpacity style={{flexDirection: 'row', alignSelf: 'center', margin:7}}>
-                <Text style={StylesGeneric.LabelGeneric}>Alterar dados do </Text><Text style={StylesGeneric.LinkGeneric}>Perfil.</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={{flexDirection: 'row', alignSelf: 'center'}}>
-                <Text style={StylesGeneric.LabelGeneric}>Preferencia de </Text><Text style={StylesGeneric.LinkGeneric}>Notificações.</Text>
+            <TouchableOpacity style={{flexDirection: 'row', alignSelf: 'center', margin:7}} onPress={() => navigation.navigate('ConfigurationPage')}>
+                <Text style={StylesGeneric.LabelGeneric}>Configurações de </Text><Text style={StylesGeneric.LinkGeneric}>Perfil.</Text>
             </TouchableOpacity>
         </View>
      </View>
