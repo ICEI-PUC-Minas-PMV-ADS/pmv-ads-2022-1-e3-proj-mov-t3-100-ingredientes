@@ -71,7 +71,47 @@ DeleteRegionText:{
 ButtonText:{
    color:'#FFFFFF',
    fontSize:12
-}
+},
+
+
+CentralizedModalDelete: {
+   flex: 1,
+   justifyContent: "center",
+   alignItems: "center",
+
+   //backgroundColor: 'red'
+ },
+ ModalDelete: {
+   margin: 20,
+   width: '60%',
+   backgroundColor: "white",
+   borderRadius: 10,
+   padding: 20,
+   alignItems: "center",
+   shadowColor: "#000",
+   shadowOffset: {
+     width: 0,
+     height: 2
+   },
+   shadowOpacity: 0.25,
+   shadowRadius: 4,
+   elevation: 5
+ },
+ ModalDeleteConfirmRegion: {
+   height: 30,
+   alignSelf: "center",
+   alignItems: "center",
+   justifyContent: "center",
+ },
+
+ CancelDeleteButton:{
+   backgroundColor: '#E05D25',
+   alignItems: 'center',
+   justifyContent: 'center',
+   height: 30,
+   width: 100,
+   borderRadius:5,
+},
 
 });
 

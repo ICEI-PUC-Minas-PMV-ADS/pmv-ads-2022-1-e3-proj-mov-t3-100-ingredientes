@@ -42,6 +42,22 @@ export const getUserById = async (props) => {
   }
 }
 
+export const deleteUser = async (props) => {
+  try{
+      return await API.delete(`${BASE_URL}/users/${props.id}`).then(
+          response => {
+              return {success: true, data: response.data};
+          },
+          error => {
+              return {success: false, data: error};
+          }
+      )
+  }catch(error){
+      console.log("Erro interno. " + error);
+      return null;
+  }
+}
+
 export const updateUser = async (params) => {
   let dataUserUpdated = {};
   dataUserUpdated.id = params.id;
@@ -74,6 +90,11 @@ export const updateUser = async (params) => {
 }
 
 const valideGeneral = (user) => {
+  if(user.password.length == 0){
+    errorMessage = 'Insira a senha';
+    return false;
+  }
+
   if(user.password.length < 6){
     errorMessage = 'Senha deve ter ao menos 6 caracteres';
     return false;

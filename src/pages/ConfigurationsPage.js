@@ -1,4 +1,4 @@
-import {Text, View, TouchableOpacity, TextInput, TouchableWithoutFeedback, Keyboard, ScrollView} from 'react-native';
+import {Text, View, TouchableOpacity, TextInput, TouchableWithoutFeedback, Keyboard, ScrollView, Modal} from 'react-native';
 import {useState, useEffect} from 'react';
 import StylesConfigurationPage from '../styles/StylesConfigurationPage';
 import StylesGeneric from '../styles/StylesGeneric';
@@ -6,14 +6,17 @@ import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
 import { useNavigation } from '@react-navigation/native';
 import GenericGoBackComponent from '../components/GenericGoBackComponent';
-import RecipeListComponent from '../components/RecipeListComponent';
 import { useUser } from './../contexts/UserContext';
-import {redirectUnauthenticatedToLogin} from '../services/auth-service'
-import { getUserById, updateUser } from '../services/users-service';
+import {redirectUnauthenticatedToLogin, logoff} from '../services/auth-service'
+import { getUserById, updateUser, deleteUser } from '../services/users-service';
 
 const ConfigurationPage = () => {
-  //redirectUnauthenticatedToLogin();
-  const {userId} = useUser();
+  redirectUnauthenticatedToLogin();
+  const {userId, setUserId, setUserSigned} = useUser();
+  const navigation = useNavigation();
+
+  const [modalVisible, setModalVisible] = useState(false);
+
   const [editing, setEditing] = useState(false);
   const [editSuccess, setEditSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -66,6 +69,30 @@ const ConfigurationPage = () => {
     })
   }
 
+  const handleDelete = () => {
+    deleteUser({
+      id: userId,
+    }).then( response => {
+      if(response && response.success){
+        logoff();
+
+        console.log("Delete user success");
+      }else{
+        console.log("Update user failed");
+        console.log(response);
+      }
+    })
+  }
+
+  const logoff = () => {
+    setUserId('');
+    setUserSigned('');
+
+    console.log('Logoff success');
+
+    navigation.popToTop();
+  }
+
   const cancelUpdate = () => {
     setEditing(!editing);
     setErrorMessage('');
@@ -80,6 +107,37 @@ useEffect(() => {
     
   return (
    <>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <TouchableWithoutFeedback onPress={() => setModalVisible(false)}>
+          <View style={StylesConfigurationPage.CentralizedModalDelete}>
+            <View style={StylesConfigurationPage.ModalDelete}>
+              <Text>Atenção! Essa ação é irreversível. Tem certeza que deseja continuar?</Text>
+
+              <View style={{flexDirection: 'row', marginTop: 20}}>
+                <View style={{height: 30, flex: 1, alignItems: 'flex-start'}}>
+                  <TouchableOpacity style={StylesConfigurationPage.CancelDeleteButton} onPress={() => setModalVisible(!modalVisible)}>
+                    <Text style={StylesConfigurationPage.ButtonText}>Cancelar</Text>
+                  </TouchableOpacity>             
+                </View>
+                <View style={{height: 30, flex: 1, alignItems: 'flex-end'}}>
+                  <TouchableOpacity style={StylesConfigurationPage.ModalDeleteConfirmRegion} onPress={() => handleDelete()}>
+                    <Text style={StylesConfigurationPage.DeleteRegionText}>Deletar conta</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+
+            </View>
+          </View>
+        </TouchableWithoutFeedback>
+      </Modal>
+
      <HeaderComponent></HeaderComponent>
      <BodyComponent>
      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -133,7 +191,7 @@ useEffect(() => {
         <View style={StylesConfigurationPage.SectionButtonsContainer}>
           <View style={StylesConfigurationPage.DeleteRegionContainer}>
             {editing && <TouchableOpacity style={StylesConfigurationPage.DeleteRegion}>
-              <Text style={StylesConfigurationPage.DeleteRegionText}>Deletar conta</Text>
+              <Text style={StylesConfigurationPage.DeleteRegionText} onPress={() => setModalVisible(!modalVisible)}>Deletar conta</Text>
             </TouchableOpacity>}
           </View>
           <View style={StylesConfigurationPage.SectionButtons}>
