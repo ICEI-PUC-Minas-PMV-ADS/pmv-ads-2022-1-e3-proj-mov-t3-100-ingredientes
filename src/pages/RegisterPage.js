@@ -7,6 +7,8 @@ import BodyComponent from '../components/BodyComponent';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
+import { register } from '../services/auth-service';
+import StylesLoginPage from '../styles/StylesLoginPage';
 
 
 
@@ -27,13 +29,53 @@ const Register = () => {
   const [hidePass, setHidePass] = useState(true);
   const [hidePassDois, setHidePassDois] = useState(true);
 
+  const [registerFail, setRegisterFail] = useState(false);
+  const [registerNull, setRegisterNull] = useState(false);
+  const [registerSucess, setRegisterSucess] = useState(false);
 
 
-  var email, senha;
+  var error = "";
+
+  var email, senha, email2, senha2;
   email = inputEmail;
+  email2 = inputEmailDois;
+  senha2 = inputDois;
   senha = input;
 
-  function post(email, password){
+  function valida(inputMail, inputMail2, inputSenha, inputSenha2){
+  
+    setRegisterFail(false);
+    setRegisterNull(false);
+    
+
+    if(inputMail != "" && inputMail2 != "" && inputSenha != "" && inputSenha2 != ""){
+      (inputMail == inputMail2 && inputSenha == inputSenha2) ? handleRegister() : setRegisterFail(true);
+    }
+    else{
+      setRegisterNull(true);
+    }
+  }
+
+  const handleRegister = () => {
+
+    setRegisterSucess(false);
+
+    register({
+      email: email,
+      password: senha
+    }).then( response => {
+      if(response && response.success){
+        console.log("Register success")
+        setRegisterSucess(true);
+      }else{
+        console.log("Register failed");
+        
+        console.log(response);
+      }
+    })
+  }
+
+ /* function post(email, password){
     fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
@@ -49,18 +91,16 @@ const Register = () => {
         .then( (json) => console.log(json) )
         .catch( (error) => console.log(error) )
   }
-
-  function mostrar(email, senha){
-    console.log(email);
-    console.log(senha);
-  }
-
+*/
   return (
     <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
       <View>
-        <Button onPress={() => post(email, senha)}>Registrar</Button>
+        <Button onPress={() => valida(email, email2, senha, senha2)}>Registrar</Button>
+        <Text style={StylesLoginPage.AlertLabel}>{ registerFail ? 'Email ou senha incorretos!' : null }</Text>
+        <Text style={StylesLoginPage.AlertLabel}>{registerNull ? 'Email ou Senha em branco' : null}</Text>
+        <Text style={StylesLoginPage.AlertLabel}>{registerSucess ? 'Registrado com Sucesso' : null}</Text>
       </View>
     
     <View style={StylesRegisterPage.container}>
