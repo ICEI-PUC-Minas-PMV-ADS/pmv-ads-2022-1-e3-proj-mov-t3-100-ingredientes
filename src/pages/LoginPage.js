@@ -88,7 +88,7 @@ const LoginPage = () => {
               onChangeText={(text) => setPassword(text)}
               />
 
-              <Text style={StylesLoginPage.AlertLabel}>{ loginError ? 'Email ou senha incorretos!' : null }</Text>
+              <Text style={StylesGeneric.GenericLabelAlert}>{ loginError ? 'Email ou senha incorretos!' : null }</Text>
 
               <TouchableOpacity onPress={handleLogin} style={StylesLoginPage.LoginButton}>
                 { loading

@@ -15,6 +15,13 @@ const StylesGeneric = StyleSheet.create({
       fontSize: 13,
       color: '#E05D25',
       fontWeight: '700'
+   },   
+   GenericLabelAlert: {
+      fontSize: 14,
+      fontWeight: '400',
+      color: 'red',
+      alignSelf: 'center',
+      paddingBottom: 20
    },
    TitleGeneric: {
       

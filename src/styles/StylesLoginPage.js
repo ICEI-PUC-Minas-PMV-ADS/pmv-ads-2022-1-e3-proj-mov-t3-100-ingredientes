@@ -32,12 +32,6 @@ const StylesLoginPage = StyleSheet.create({
       color: '#000000',
       marginBottom: 11
    },
-   AlertLabel: {
-      fontSize: 15,
-      color: 'red',
-      alignSelf: 'center',
-      paddingBottom: 20
-   },
    LoginButton:{
       backgroundColor: '#E05D25',
       alignItems: 'center',

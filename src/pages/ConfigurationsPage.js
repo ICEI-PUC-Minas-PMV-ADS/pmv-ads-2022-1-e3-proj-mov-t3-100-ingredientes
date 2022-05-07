@@ -9,12 +9,14 @@ import GenericGoBackComponent from '../components/GenericGoBackComponent';
 import RecipeListComponent from '../components/RecipeListComponent';
 import { useUser } from './../contexts/UserContext';
 import {redirectUnauthenticatedToLogin} from '../services/auth-service'
-import { getUserById } from '../services/users-service';
+import { getUserById, updateUser } from '../services/users-service';
 
 const ConfigurationPage = () => {
   //redirectUnauthenticatedToLogin();
   const {userId} = useUser();
   const [editing, setEditing] = useState(false);
+  const [editSuccess, setEditSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const [userName, setUserName] = useState('');
   const [userEmail, setUserEmail] = useState('');
@@ -38,6 +40,40 @@ const ConfigurationPage = () => {
     })
   }
 
+  const handleUpdate = () => {
+    setEditSuccess(false);
+
+    updateUser({
+      id: userId,
+      name: userName,
+      email: userEmail,
+      password: userPassword,
+      passwordConfirm: userPasswordConfirm
+    }).then( response => {
+      if(response && response.success){
+        console.log("Update user success");
+
+        setEditing(!editing);
+        setEditSuccess(true);
+        setErrorMessage('');
+        getUser();
+      }else{
+        setErrorMessage(response.data);
+
+        console.log("Update user failed");
+        console.log(response);
+      }
+    })
+  }
+
+  const cancelUpdate = () => {
+    setEditing(!editing);
+    setErrorMessage('');
+
+    setUserPassword('');
+    setUserPasswordConfirm('');
+  }
+
 useEffect(() => {
   getUser();
 }, []); 
@@ -59,7 +95,7 @@ useEffect(() => {
             autoCorrect={true}
             onChangeText={(text) => setUserName(text)}
           />}
-          
+
           <Text style={StylesGeneric.GenericInputLabelBlack}>Endereço de E-mail</Text>
           {!editing && <Text style={StylesGeneric.GenericInput}>{userEmail}</Text>}
           {editing && <TextInput
@@ -85,8 +121,13 @@ useEffect(() => {
             placeholder="***********"
             secureTextEntry
             autoCorrect={false}
-            onChangeText={(text) => setUserEmail(text)}
+            onChangeText={(text) => setUserPasswordConfirm(text)}
           />}
+
+          {errorMessage != '' && <Text style={StylesGeneric.GenericLabelAlert}>{errorMessage}</Text>}
+          {editSuccess && <View style={{alignItems: 'center', marginTop: 10}}>
+            <Text style={StylesGeneric.LabelGeneric}>Cadastro atualizado com sucesso! 😊😊😊😊</Text>
+          </View>}
 
         </ScrollView>
         <View style={StylesConfigurationPage.SectionButtonsContainer}>
@@ -99,10 +140,10 @@ useEffect(() => {
                 {!editing && <TouchableOpacity style={StylesConfigurationPage.EditButton} onPress={() => setEditing(!editing)}>
                   <Text style={StylesConfigurationPage.ButtonText}>Editar</Text>
                 </TouchableOpacity>}
-                {editing && <TouchableOpacity style={StylesConfigurationPage.EditButton} onPress={() => setEditing(!editing)}>
+                {editing && <TouchableOpacity style={StylesConfigurationPage.EditButton} onPress={() => cancelUpdate()}>
                   <Text style={StylesConfigurationPage.ButtonText}>Cancelar</Text>
                 </TouchableOpacity>}
-                {editing && <TouchableOpacity style={StylesConfigurationPage.SaveButton}>
+                {editing && <TouchableOpacity style={StylesConfigurationPage.SaveButton} onPress={() => handleUpdate()}>
                   <Text style={StylesConfigurationPage.ButtonText}>Salvar</Text>
                 </TouchableOpacity>}
           </View>  

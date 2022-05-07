@@ -1,5 +1,7 @@
 import API, {BASE_URL} from './webapi-service';
 
+var errorMessage = '';
+
 export const getUsers = async () => {
   try{
     return await API.get(`${BASE_URL}/users`).then( 
@@ -38,4 +40,55 @@ export const getUserById = async (props) => {
     console.log("Erro interno. " + error);
     return null;
   }
+}
+
+export const updateUser = async (params) => {
+  let dataUserUpdated = {};
+  dataUserUpdated.id = params.id;
+  dataUserUpdated.name = params.name;
+  dataUserUpdated.email = params.email;
+
+  if(!validateUpdate(params)) 
+    return { success: false, data: errorMessage};
+
+  if(!valideGeneral(params))
+    return { success: false, data: errorMessage};
+
+  if(params.password.length >= 6){
+    dataUserUpdated.password = params.password;
+  }
+
+  try{
+      return await API.patch(`${BASE_URL}/users/${params.id}`, dataUserUpdated).then(
+          response => {
+              return {success: true, data: response.data};
+          },
+          error => {
+              return {success: false, data: error};
+          }
+      )
+  }catch(error){
+      console.log("Erro interno. " + error);
+      return null;
+  }
+}
+
+const valideGeneral = (user) => {
+  if(user.password.length < 6){
+    errorMessage = 'Senha deve ter ao menos 6 caracteres';
+    return false;
+  }
+
+  errorMessage = '';
+  return true;
+}
+
+const validateUpdate = (user) => {
+  if(user.password != user.passwordConfirm){
+    errorMessage = 'Senhas não coincidem';
+    return false;
+  }
+  
+  errorMessage = '';
+  return true;
 }
