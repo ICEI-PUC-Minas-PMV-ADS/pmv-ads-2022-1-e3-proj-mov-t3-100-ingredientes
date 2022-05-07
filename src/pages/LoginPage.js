@@ -8,9 +8,7 @@ import StylesGeneric from '../styles/StylesGeneric';
 import { login } from '../services/auth-service';
 import { useUser } from '../contexts/UserContext';
 import AsyncStorage from '@react-native-async-storage/async-storage'
-
 import { useNavigation } from '@react-navigation/native';
-import { Button } from 'react-native-paper';
 
 const LoginPage = () => {
   const {setUserSigned, userSigned, setUserName, setUserId} = useUser();
@@ -71,26 +69,26 @@ const LoginPage = () => {
 
               <Text style={StylesLoginPage.LoginLabel}>Login</Text>
               
-              <Text style={StylesLoginPage.InputLabel}>Endereço de E-mail</Text>
+              <Text style={StylesGeneric.GenericInputLabelGray}>Endereço de E-mail</Text>
 
               <TextInput
-              style={StylesLoginPage.Input}
+              style={StylesGeneric.GenericInput}
               placeholder="nome@email.com"
               autoCorrect={true}
               onChangeText={(text) => setEmail(text)}
               />
 
-              <Text style={StylesLoginPage.InputLabel}>Senha</Text>
+              <Text style={StylesGeneric.GenericInputLabelGray}>Senha</Text>
 
               <TextInput 
-              style={StylesLoginPage.Input}
+              style={StylesGeneric.GenericInput}
               placeholder="***********"
               secureTextEntry
               autoCorrect={false}
               onChangeText={(text) => setPassword(text)}
               />
 
-              <Text style={StylesLoginPage.AlertLabel}>{ loginError ? 'Email ou senha incorretos!' : null }</Text>
+              <Text style={StylesGeneric.GenericLabelAlert}>{ loginError ? 'Email ou senha incorretos!' : null }</Text>
 
               <TouchableOpacity onPress={handleLogin} style={StylesLoginPage.LoginButton}>
                 { loading

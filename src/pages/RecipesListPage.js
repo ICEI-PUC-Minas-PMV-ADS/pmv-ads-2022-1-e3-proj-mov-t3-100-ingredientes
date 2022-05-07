@@ -59,7 +59,7 @@ const RecipesList = ({route}) => {
     <BodyComponent>
     <View style={StylesRecipesListPage.Screen}> 
         <View style={StylesRecipesListPage.SectionRecipeList}>
-            <Text style={StylesRecipesListPage.Title}>{type == 'own' ? 'Minhas Receitas' : 'Receitas Favoritas'}</Text>
+            <Text style={StylesRecipesListPage.Title}>{type == 'own' ? 'Minhas Receitas 📔' : 'Receitas Favoritas ❤️'}</Text>
             <View>
                 <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>          
             </View>
