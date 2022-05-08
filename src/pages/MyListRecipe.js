@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import {SafeAreaView,View,TextInput,FlatList,TouchableOpacity} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import ListItem from '../components/ListItem';
+import ListItem from '../components/RecipeListComponent2';
 
 import results from '../data/ListaDeReceitas';
 import StylesMyListRecipe from '../styles/StylesMyListRecipe';
@@ -26,7 +26,7 @@ const MyListRecipe = () => {
         )
       );
     }
-  }, [searchText]);
+  }, [searchText]);tr
 
   const handleOrderClick = () => {
     let newList = [...results];
