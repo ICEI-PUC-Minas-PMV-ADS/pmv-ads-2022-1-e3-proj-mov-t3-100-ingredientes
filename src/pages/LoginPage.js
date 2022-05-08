@@ -9,15 +9,16 @@ import { login } from '../services/auth-service';
 import { useUser } from '../contexts/UserContext';
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native';
+import { insertLoginOptions, getLoginOptions, updateLoginOptions } from '../services/sqlite-service';
 
 const LoginPage = () => {
-  const {setUserSigned, userSigned, setUserName, setUserId} = useUser();
+  const {setUserSigned, userSigned, setUserName, userId, setUserId} = useUser();
   const [loading, setLoading] = useState(false);
   const [loginError, setLoginError] = useState(false);
 
   const [email, setEmail] = useState('joao@gmail.com');
   const [password, setPassword] = useState('abc123');
-  
+  const [keepConnected, setKeepConnected] = useState(false);
 
   const navigation = useNavigation();
 
@@ -39,6 +40,15 @@ const LoginPage = () => {
         setUserId(response.data.user.id);
         AsyncStorage.setItem('@TOKEN_KEY', response.data.accessToken).then();
 
+        //get login options
+        let loginOptions = {};//getLoginOptions({userId: response.data.user.id});
+
+        if(loginOptions == undefined || loginOptions == {} || loginOptions == null)
+          insertLoginOptions({keepConnected: keepConnected ? 1 : 0, userId: response.data.user.id, email: keepConnected ? email : null, password: keepConnected ? password : null})
+
+        if(loginOptions != undefined && loginOptions != {} && loginOptions != null)
+          updateLoginOptions({keepConnected: keepConnected ? 1 : 0, userId: response.data.user.id, email: keepConnected ? email : null, password: keepConnected ? password : null})
+          
         navigation.navigate('MainPage');
       }else{
         console.log("Login failed");
@@ -52,6 +62,16 @@ const LoginPage = () => {
   useEffect(() => {
     if(userSigned)
       navigation.navigate('MainPage');
+
+    let loginOptions = {};//getLoginOptions({userId: userId});
+
+    if(loginOptions == undefined || loginOptions == {} || loginOptions == null)
+      if(loginOptions.keepConnected == 1 && loginOptions.email != null && loginOptions.password != null){
+        setEmail(loginOptions.email);
+        setPassword(loginOptions.password);
+        handleLogin();
+      }
+    
   })
 
   return (
