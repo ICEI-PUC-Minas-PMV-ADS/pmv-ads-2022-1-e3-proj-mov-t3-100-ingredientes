@@ -30,6 +30,11 @@
       "email": "felipe@felipe.com",
       "password": "160300",
       "id": 3
+    },
+    {
+      "email": "vlinvictus@gmail.com",
+      "password": "$2a$10$tEOQaaCb9S66oQSym1xDY.UrAJ4rfPccyLkwJx5TU4iKQStpp65xS",
+      "id": 4
     }
   ],
   "recipes": [
