@@ -8,7 +8,6 @@ export const BASE_URL_AUTH = Platform.OS == 'web' ? 'http://localhost:3000/660' 
 const onRequest = async(config) => {
     const token = await AsyncStorage.getItem('@TOKEN_KEY');
     if(token && token != 'undefined'){
-      console.log(`Token adicionado com sucesso à requisição. ${token}`)
       config.headers.Authorization = `Bearer ${token}`;
     }else{console.log('Chamada sem token')}
     return config;
