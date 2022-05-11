@@ -7,14 +7,16 @@ import BodyComponent from '../components/BodyComponent';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import { register } from '../services/auth-service';
 import StylesLoginPage from '../styles/StylesLoginPage';
+import StylesGeneric from '../styles/StylesGeneric';
 
 
 
 const Register = () => {
 
-  
+  const navigation = useNavigation();
 
 
   const [input, setInput] = useState('');
@@ -95,17 +97,20 @@ const Register = () => {
   return (
     <>
     <HeaderComponent></HeaderComponent>
-    <BodyComponent>
-      <View>
-        <Button onPress={() => valida(email, email2, senha, senha2)}>Registrar</Button>
-        <Text style={StylesLoginPage.AlertLabel}>{ registerFail ? 'Email ou senha incorretos!' : null }</Text>
-        <Text style={StylesLoginPage.AlertLabel}>{registerNull ? 'Email ou Senha em branco' : null}</Text>
-        <Text style={StylesLoginPage.AlertLabel}>{registerSucess ? 'Registrado com Sucesso' : null}</Text>
+    
+    <BodyComponent style>
+      <View style={StylesRegisterPage.ImageSection}>
+        <Image style={StylesRegisterPage.Image}
+          source={require('../assets/images/login.png')}
+        />
       </View>
     
-    <View style={StylesRegisterPage.container}>
 
-        <Text>Informe o E-Mail</Text>
+    <View style={StylesRegisterPage.container}>
+    <View>
+      <Text style={StylesRegisterPage.title}>Register</Text>
+    </View>
+        <Text style={StylesRegisterPage.text}>Informe o E-Mail</Text>
         <View style={StylesRegisterPage.inputArea}>
           <TextInput placeholder='Informe seu E-Mail'
             style={StylesRegisterPage.input}
@@ -124,7 +129,7 @@ const Register = () => {
             }
           </TouchableOpacity>
         </View>
-        <Text>Confirme o E-Mail</Text>
+        <Text style={StylesRegisterPage.text}>Confirme o E-Mail</Text>
         <View style={StylesRegisterPage.inputArea}>
           <TextInput placeholder='Confirme seu E-Mail'
             style={StylesRegisterPage.input}
@@ -142,7 +147,7 @@ const Register = () => {
           </TouchableOpacity>
         </View>
 
-        <Text>Informe a sua Senha</Text>
+        <Text style={StylesRegisterPage.text}>Informe a sua Senha</Text>
         <View style={StylesRegisterPage.inputArea}>
           <TextInput placeholder='Insira sua Senha'
             style={StylesRegisterPage.input}
@@ -159,7 +164,7 @@ const Register = () => {
           </TouchableOpacity>
           
         </View>
-        <Text>Confirme a sua Senha</Text>
+        <Text style={StylesRegisterPage.text}>Confirme a sua Senha</Text>
         <View style={StylesRegisterPage.inputArea}>
           <TextInput placeholder='Confirme sua Senha'
             style={StylesRegisterPage.input}
@@ -175,7 +180,19 @@ const Register = () => {
           }
           </TouchableOpacity>
           
+
         </View>
+
+        <View>
+        <Text style={StylesLoginPage.AlertLabel}>{ registerFail ? 'Email ou senha incorretos!' : null }</Text>
+        <Text style={StylesLoginPage.AlertLabel}>{registerNull ? 'Email ou Senha em branco' : null}</Text>
+        <Text style={StylesLoginPage.AlertLabel}>{registerSucess ? 'Registrado com Sucesso' : null}</Text>
+        <Button style={StylesRegisterPage.button} onPress={() => valida(email, email2, senha, senha2)}>Registrar</Button>
+        <TouchableOpacity style={StylesLoginPage.CreateAccount} onPress={() => navigation.navigate('MainPage')}>
+            <Text style={StylesGeneric.LinkGeneric}>Welcome</Text>
+        </TouchableOpacity>
+        
+      </View>
 
       </View>
       
