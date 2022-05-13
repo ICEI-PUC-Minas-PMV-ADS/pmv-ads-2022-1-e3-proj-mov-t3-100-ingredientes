@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import { shadow } from 'react-native-paper';
 
 const StylesMainPage = StyleSheet.create({
    Pesquisar: {
@@ -7,6 +8,7 @@ const StylesMainPage = StyleSheet.create({
       width: '60%',
       alignSelf: "center",
       paddingTop: 10,
+      
       
    },
    input: {
@@ -32,37 +34,86 @@ const StylesMainPage = StyleSheet.create({
       paddingLeft: 20,
    },
    imagemp: {
-      flexDirection:"row",
+      
       justifyContent: "space-between",
-      alignSelf: "center",
-      paddingTop: 60,
+      marginTop: 25,
+      margin: 5,
+      flexDirection: "row",
+      backgroundColor: "#E9795D",
+      borderRadius: 10,
       
+   
+   },
+   imagemp: {
       
+      justifyContent: "space-between",
+      marginTop: 25,
+      margin: 5,
+      flexDirection: "row",
+      backgroundColor: "#E9795D",
+      borderRadius: 10
+   
+   },
+   imagemp: {
+      
+      justifyContent: "space-between",
+      marginTop: 25,
+      margin: 5,
+      flexDirection: "row",
+      backgroundColor: "#E9795D",
+      borderRadius: 10
+   
    },
    imagema: {
       height: 80,
       width: 80,
       padding: 50,
       margin: 10,
-      
-      
    },
-   Textode: {
-      fontSize: 10,
-      color: "#555",
-      justifyContent: "space-between",
-      alignSelf: "center",
-      paddingLeft: 20,
-      paddingRight: 20,
-   
-   },
-   textovi: {
-      flexDirection:"row",
-      
-      alignSelf: "center",
-      padding: 30,
+ 
+  
 
+   imagemmain1: {
+       marginTop: 5,
+      flexDirection:"row",
+      alignSelf: "center",
    },
+   imagemmain2: {
+      marginTop: 0,
+      flexDirection:"row",
+      alignSelf: "center",
+   },
+   
+  
+   ImagemPostada: {
+      width: 60,
+      height: 60,
+      alignSelf: "center",
+      marginLeft: 10,
+   },
+
+   ReceitaPostada: {
+      flexDirection: "row",
+      backgroundColor: "#d3d3d3",
+      borderRadius: 15,
+      margin: 20,
+      width: 370,
+      alignSelf: "center",
+      marginTop: 30,
+      height: 90,
+      shadowOffset:{  width: 5,  height: 5,  },
+      shadowColor: 'black',
+      shadowOpacity: 0.5,     
+      
+   },
+
+   TextPostada: {
+      paddingLeft: 20,
+      width: 280,
+      alignSelf: "center",
+   },
+   
+  
    
 });
 
