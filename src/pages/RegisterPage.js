@@ -1,6 +1,5 @@
 import { TextInput, Text } from 'react-native';
 import { View,Image, } from 'react-native';
-import { Button } from 'react-native-paper';
 import HeaderComponent from '../components/HeaderComponent';
 import StylesRegisterPage from '../styles/StylesRegisterPage';
 import BodyComponent from '../components/BodyComponent';
@@ -99,11 +98,11 @@ const Register = () => {
     <HeaderComponent></HeaderComponent>
     
     <BodyComponent style>
-      <View style={StylesRegisterPage.ImageSection}>
+     <View style={StylesRegisterPage.ImageSection}>
         <Image style={StylesRegisterPage.Image}
           source={require('../assets/images/login.png')}
         />
-      </View>
+  </View> 
     
 
     <View style={StylesRegisterPage.container}>
@@ -187,7 +186,7 @@ const Register = () => {
         <Text style={StylesLoginPage.AlertLabel}>{ registerFail ? 'Email ou senha incorretos!' : null }</Text>
         <Text style={StylesLoginPage.AlertLabel}>{registerNull ? 'Email ou Senha em branco' : null}</Text>
         <Text style={StylesLoginPage.AlertLabel}>{registerSucess ? 'Registrado com Sucesso' : null}</Text>
-        <Button style={StylesRegisterPage.button} onPress={() => valida(email, email2, senha, senha2)}>Registrar</Button>
+        <Text  onPress={() => valida(email, email2, senha, senha2)}>Registrar</Text>
         <TouchableOpacity style={StylesLoginPage.CreateAccount} onPress={() => navigation.navigate('MainPage')}>
             <Text style={StylesGeneric.LinkGeneric}>Welcome</Text>
         </TouchableOpacity>

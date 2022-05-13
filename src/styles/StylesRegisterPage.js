@@ -58,12 +58,12 @@ const StylesRegisterPage = StyleSheet.create({
         color: '#00000075'
       },
     ImageSection: {
-         flexDirection: 'column-reverse'
+        flex: 99
      },
      Image:{
         flex: 1,
-        width: '436px',
-        height: '175px',
+        width: 436,
+        height: 175,
         resizeMode: 'cover'
      }
 })
