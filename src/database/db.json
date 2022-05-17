@@ -25,6 +25,16 @@
       "reviewsId": [
         2
       ]
+    },
+    {
+      "email": "felipe@felipe.com",
+      "password": "160300",
+      "id": 3
+    },
+    {
+      "email": "vlinvictus@gmail.com",
+      "password": "$2a$10$tEOQaaCb9S66oQSym1xDY.UrAJ4rfPccyLkwJx5TU4iKQStpp65xS",
+      "id": 4
     }
   ],
   "recipes": [
@@ -62,6 +72,80 @@
       "favoritedByUserIdList": [
         1
       ]
+    },
+    {
+      "name": "bolo de limão",
+      "instrucions": "mistura tudo e bate e assa",
+      "ingredients": [
+        "limão",
+        "farinha",
+        "ovo"
+      ],
+      "id": 2,
+      "userId": 2,
+      "reviewsId": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "bolo de maça",
+      "instrucions": "mistura tudo e bate e assa",
+      "ingredients": [
+        "maça",
+        "farinha",
+        "ovo"
+      ],
+      "id": 3,
+      "userId": 2,
+      "reviewsId": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "bolo de banana caramelizada",
+      "instrucions": "mistura tudo e bate e assa",
+      "ingredients": [
+        "banana",
+        "farinha",
+        "ovo",
+        "caramelo"
+      ],
+      "id": 4,
+      "userId": 2,
+      "reviewsId": [
+        1,
+        2
+      ]
+    },
+    {
+      "imgUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
+      "name": "Bolo de morango",
+      "ingredients": "farinha de trigo, morango, ovo, leite ",
+      "instrucions": "Misture tudo e coloque no forno. Temperatura: 800C. Tempo: 11 horas.",
+      "id": 5
+    },
+    {
+      "imgUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
+      "name": "Bolo de Morango",
+      "ingredients": "Morango, farinha de trigo, ovo.",
+      "instrucions": "Misture tudo, pode comer.",
+      "id": 6
+    },
+    {
+      "imgUrl": "",
+      "name": "",
+      "ingredients": "",
+      "instrucions": "",
+      "id": 7
+    },
+    {
+      "imgUrl": "",
+      "name": "",
+      "ingredients": "",
+      "instrucions": "",
+      "id": 8
     }
   ],
   "reviews": [
