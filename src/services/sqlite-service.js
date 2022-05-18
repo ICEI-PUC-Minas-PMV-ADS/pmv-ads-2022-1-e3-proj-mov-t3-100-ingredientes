@@ -1,4 +1,5 @@
 import * as SQLite from 'expo-sqlite';
+import { Platform } from 'react-native';
 
 const Database = {
   getConnection: () => {
@@ -34,27 +35,33 @@ const Database = {
 
 const DB_EXEC = Database.getConnection();
 
-export const getLoginOptions = async (params) => {
-  let results = await DB_EXEC(`select * loginOptions where userId = ? order by id desc`, [params.userId]);
-  //console.log(results);
-  //return results.rows._array;
+export const getLoginOptions = async () => {
+  let results = await DB_EXEC(`select * from loginOptions order by id desc`);
+
+  if(Platform.OS != 'web')
+    return results.rows._array;
+  
+  return results.rows;
 }
 
 export const insertLoginOptions = async (params) => {
+  console.log("inserindo login options");
+
   let results = await DB_EXEC(`insert into loginOptions(keepConnected,userId,userEmail,userPassword) values (?,?,?,?)`, [params.keepConnected,params.userId, params.email, params.password]);
-  //console.log(results);
   return results.rowsAffected;
 }
 
 export const updateLoginOptions = async (params) => {
+  console.log("atualizando loginOptions");
+
   let results = await DB_EXEC(`update loginOptions set keepConnected = ?, userEmail = ?, userPassword = ? where userId = ?`, [params.keepConnected, params.email, params.password, params.userId]);
-  //console.log(results);
   return results.rowsAffected;
 }
 
-export const delteLoginOptions = async (params) => {
+export const deleteLoginOptions = async (params) => {
   let results = await DB_EXEC(`delete from loginOptions where userId=?`, [params.userId]);
-  //console.log(results);
+  console.log("sucesso ao matar todos os dados...");
+  console.log(results.rowsAffected);
   return results.rowsAffected;
 }
 

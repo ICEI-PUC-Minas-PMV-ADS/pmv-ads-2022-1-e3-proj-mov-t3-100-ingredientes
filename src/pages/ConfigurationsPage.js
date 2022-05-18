@@ -9,6 +9,7 @@ import GenericGoBackComponent from '../components/GenericGoBackComponent';
 import { useUser } from './../contexts/UserContext';
 import {redirectUnauthenticatedToLogin, logoff} from '../services/auth-service'
 import { getUserById, updateUser, deleteUser } from '../services/users-service';
+import { deleteLoginOptions } from '../services/sqlite-service';
 
 const ConfigurationPage = () => {
   redirectUnauthenticatedToLogin();
@@ -88,6 +89,7 @@ const ConfigurationPage = () => {
     setUserId('');
     setUserSigned('');
 
+    deleteLoginOptions({userId: userId});
     console.log('Logoff success');
 
     navigation.popToTop();
