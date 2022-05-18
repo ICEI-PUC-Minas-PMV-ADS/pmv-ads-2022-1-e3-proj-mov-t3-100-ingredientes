@@ -17,8 +17,11 @@ export const getRecipes = async () => {
   }
 }
 export const getRecipesIngredientV8 = async (filter,params) => {
+  console.log(params);
+  console.log(filter);
   try{
-    return await API.get(`${BASE_URL}/recipes?${filter}_like=`,params).then( 
+    /* http://localhost:3000/recipes?ingredients_like=`b%27 */ 
+    return await API.get(`${BASE_URL}/recipes?${filter}_like=${params}`).then( 
       response => {
         console.log(response.data);
         return { success: true, data: response.data };

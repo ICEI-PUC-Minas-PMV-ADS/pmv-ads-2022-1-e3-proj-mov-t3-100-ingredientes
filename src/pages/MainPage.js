@@ -1,53 +1,73 @@
-import { View, Text, TextInput, Image } from 'react-native';
+import { View, Text, TextInput, Image, FlatList, TouchableOpacity } from 'react-native';
 import StylesMainPage from '../styles/StylesMainPage';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
 import { Ionicons } from '@expo/vector-icons';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {ScrollView} from 'react-native';
+import { getRecipesIngredientV8 } from '../services/recipes-service';
+
+
+
 
 const MainPage = () => {
+const twoinone = (t) => {
+    setSearch(t);
+    getSearchRecipes();
+    console.log(t);
+}
 
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState('pesquisa');
+  const [result, setResult] = useState([]);
+  let Filter = 'ingredients';
+  const getSearchRecipes = async () =>{
+    getRecipesIngredientV8(
+         Filter,
+         search
 
+    ).then(async response => {  
+      if(response && response.success){
+        console.log("Get favorite recipes by user id success");
+        setResult(response.data);
+      }else{
+        console.log("Get favorite recipes by user id failed");
+        console.log(response);
+      }
+    })
+}
+  
   return (
     <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
       <View style={StylesMainPage.Pesquisar}>
         <TextInput placeholder='Pesquisar' 
-        onChangeText={(text) => setSearch(text)}
+        value={search}
+        onChangeText={(t) => twoinone(t)}
         style={StylesMainPage.input}/>
         <Ionicons name='search' color={'#fff'} size={30} onPress={() => {}} 
         style={StylesMainPage.search}/>
       </View>
-      {search == '' &&  <View>
+      
+      {search != '' &&  <View>
         <View style={StylesMainPage.ultimo}>
         <Text>ÚLTIMOS VISTOS</Text>
         </View>
         <View style={StylesMainPage.mainmain}>
-          <View style={StylesMainPage.imagemmain1}>
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receitaum.png')}/>
-            </View> 
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita2.png')}/>
-            </View>
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita3.png')}/>
-            </View>
-          </View>
-          <View style={StylesMainPage.imagemmain2}>
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita4.png')}/>
-            </View> 
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita5.png')}/>
-            </View>
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-            </View>
-          </View>
+        <FlatList
+          data={result}
+          keyExtractor={(item)=>item.id}
+          numColumns={3}
+      
+          renderItem={({item})=> {
+            return(
+              <TouchableOpacity >   
+                <Text numberOfLines={1} >{item.name}</Text>
+                <Image style={StylesMainPage.testeImg} source={{uri:item.imageUrl}}/>
+              </TouchableOpacity>
+          );
+      }}
+    />
         </View>
       </View>}
       {search != '' && <ScrollView>

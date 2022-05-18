@@ -113,7 +113,11 @@ const StylesMainPage = StyleSheet.create({
       alignSelf: "center",
    },
    
-  
+   testeImg: { 
+   width: 80,
+    height: 60,
+    borderRadius:7,
+   },
    
 });
 
