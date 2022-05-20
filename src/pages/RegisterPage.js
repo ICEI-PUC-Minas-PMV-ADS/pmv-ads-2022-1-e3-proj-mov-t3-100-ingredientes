@@ -10,10 +10,13 @@ import { validateRegister } from '../services/users-service';
 import StylesLoginPage from '../styles/StylesLoginPage';
 import StylesGeneric from '../styles/StylesGeneric';
 import StylesRegisterPage from '../styles/StylesRegisterPage';
+import { useUser } from '../contexts/UserContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Register = () => {
 
   const navigation = useNavigation();
+  const {setUserSigned, userName, userId, setUserName, setUserId} = useUser();
 
   const [input, setInput] = useState('');
   const [inputDois, setInputDois] = useState('');
@@ -50,9 +53,16 @@ const Register = () => {
         console.log("Register success");
         setRegisterSucess(true);
 
-        console.log("Redirecionando...");
+        setUserSigned(true);
+        setUserName(response.data.user.name);
+        setUserId(response.data.user.id);
+        AsyncStorage.setItem('@TOKEN_KEY', response.data.accessToken).then();
 
-        navigation.popToTop();
+        console.log("Redirecionando em 3seg...");
+        setTimeout(() => {
+          navigation.navigate('MainPage');
+        }, 3000)
+        
       }else{
         console.log("Register failed");
         
