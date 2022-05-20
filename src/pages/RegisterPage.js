@@ -34,11 +34,11 @@ const Register = () => {
   const [registerSucess, setRegisterSucess] = useState(false);
  
 
-  const handleRegister = () => {
+  const handleRegister = async () => {
     setRegisterSucess(false);
     setErrorMessage('');
-
-    let validation = validateRegister({email: inputEmail, emailConfirm: inputEmailDois, password: input, passwordConfirm: inputDois});
+    
+    let validation = await validateRegister({email: inputEmail, emailConfirm: inputEmailDois, password: input, passwordConfirm: inputDois});
 
     if(!validation.success){
       setErrorMessage(validation.errorMessage);
@@ -71,23 +71,6 @@ const Register = () => {
     })
   }
 
- /* function post(email, password){
-    fetch('http://localhost:3000/users', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password
-      })
-    })
-      .then( (resposta) => resposta.json )
-        .then( (json) => console.log(json) )
-        .catch( (error) => console.log(error) )
-  }
-*/
   return (
     <>
     <HeaderComponent></HeaderComponent>

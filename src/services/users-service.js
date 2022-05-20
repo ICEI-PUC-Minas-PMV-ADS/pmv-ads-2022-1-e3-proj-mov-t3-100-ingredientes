@@ -42,6 +42,28 @@ export const getUserById = async (props) => {
   }
 }
 
+export const getUserByEmail = async (props) => {
+  try{
+    return await API.get(`${BASE_URL}/users?email=${props.userEmail}`).then( 
+      response => {
+        if(response.data == null || response.data == undefined || response.data.length == 0){
+          console.log('User not found');
+          return { success: false, data: 'NotFound' };
+        }
+
+        return { success: true, data: response.data[0] };
+      },
+      error =>{
+        console.log(error);
+        return { success: false, data: response.data };
+      }
+    );
+  }catch(error){
+    console.log("Erro interno. " + error);
+    return null;
+  }
+}
+
 export const deleteUser = async (props) => {
   try{
       return await API.delete(`${BASE_URL}/users/${props.id}`).then(
@@ -64,7 +86,7 @@ export const updateUser = async (params) => {
   dataUserUpdated.name = params.name;
   dataUserUpdated.email = params.email;
 
-  let validation = validateUpdate(params);
+  let validation = await validateUpdate(params);
 
   if(!validation.success)
     return { success: validation.success, data: validation.errorMessage};
@@ -88,9 +110,13 @@ export const updateUser = async (params) => {
   }
 }
 
-const validateGeneral = (user) => {
+const validateGeneral = async (user) => {
   if(user.email.length == 0)
     return {success: false, errorMessage: 'Insira o email'};
+
+  let existingUser = await getUserByEmail({userEmail: user.email});
+  if(existingUser.data != 'NotFound' && existingUser.data.id != user.id)
+    return {success:false, errorMessage: 'Email já está sendo utilizado por outro usuário'}
 
   if(user.password.length == 0)
     return {success: false, errorMessage: 'Insira a senha'};
@@ -109,16 +135,16 @@ const validateGeneral = (user) => {
   return {success: true, errorMessage: ''};
 }
 
-const validateUpdate = (user) => {
-  let resultValidationGeneral = validateGeneral(user);
+const validateUpdate = async (user) => {
+  let resultValidationGeneral = await validateGeneral(user);
   if(!resultValidationGeneral.success)
     return {success: resultValidationGeneral.success, errorMessage: resultValidationGeneral.errorMessage}
 
   return {success: true, errorMessage: ''};
 }
 
-export const validateRegister = (user) => {
-  let resultValidationGeneral = validateGeneral(user);
+export const validateRegister = async (user) => {
+  let resultValidationGeneral = await validateGeneral(user);
   if(!resultValidationGeneral.success)
     return {success: resultValidationGeneral.success, errorMessage: resultValidationGeneral.errorMessage}
 
