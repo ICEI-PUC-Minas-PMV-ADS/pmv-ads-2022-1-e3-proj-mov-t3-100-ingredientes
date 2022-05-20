@@ -1,4 +1,5 @@
 import { TouchableOpacity, Text, StyleSheet, Dimensions, FlatList, Image } from 'react-native';
+import { allInitialsUpperCase } from '../utils/StringFormaterHelper';
 
 const RecipeListComponent = (props) => {
   const screenWidth = Dimensions.get('window').width;
@@ -13,7 +14,7 @@ const RecipeListComponent = (props) => {
       renderItem={({item})=> {
           return(
           <TouchableOpacity style={StylesRecipeList.RecipeContainer}>   
-              <Text numberOfLines={1} style= {StylesRecipeList.RecipeContainerText}>{item.name}</Text>
+              <Text numberOfLines={1} style= {StylesRecipeList.RecipeContainerText}>{allInitialsUpperCase(item.name)}</Text>
               <Image style= {StylesRecipeList.RecipeContainerImage} source={{uri:item.imageUrl}}/>
           </TouchableOpacity>
           );

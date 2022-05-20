@@ -2,7 +2,7 @@
   "users": [
     {
       "email": "joao@gmail.com",
-      "password": "$2a$10$ui3h0tD7eNv20mP6EJ00neGXOp5Ca/vVSdwGSQ/ITRfFMavLEmMyi",
+      "password": "$2a$10$9zBadzdMsppUZp4Dx7QQZ.d9WHqGIrXaVPQdWqg2OmiD1ITtOWP2i",
       "name": "joao",
       "id": 1,
       "createdRecipesId": [
@@ -35,6 +35,36 @@
       "email": "vlinvictus@gmail.com",
       "password": "$2a$10$tEOQaaCb9S66oQSym1xDY.UrAJ4rfPccyLkwJx5TU4iKQStpp65xS",
       "id": 4
+    },
+    {
+      "email": "teste@gmail.com",
+      "password": "$2a$10$a10GYWkMyEoISIoIT7bDhORB4cgz9yi4vwYMyhp8J/9.6rUfxnNh.",
+      "id": 5
+    },
+    {
+      "email": "teste2@gmial.com",
+      "password": "$2a$10$XFdmP/VqoxET2NTf4y8w6unXdMc3/B0PyvF7wtSpYX3OiIzCoe7Ua",
+      "id": 6
+    },
+    {
+      "email": "teste3@gmail.com",
+      "password": "$2a$10$ltPJQ/faQI3DW3FbmUVTLuP/M..fkU/hWX8SbVSbNSYCNXrh9Y/su",
+      "id": 7
+    },
+    {
+      "email": "teste4@g",
+      "password": "$2a$10$HTuyD81oUsMlutXL3XO4VOBs/ZBKS2kUMCtHOGYi/XnJjWhGJS0Ny",
+      "id": 8
+    },
+    {
+      "email": "teste6@g",
+      "password": "$2a$10$mhlac32X8c6MGF/2qXksB.ptvSJ4V/J14Hee.UP6Nieko0gYHFbcu",
+      "id": 9
+    },
+    {
+      "email": "teste9@g",
+      "password": "$2a$10$ta7DDSDgeYkbPSU/3GPYcO87KPOaG3GIFYOiQ.mzCY3aUtv2pqy2.",
+      "id": 10
     }
   ],
   "recipes": [
@@ -74,6 +104,7 @@
       ]
     },
     {
+      "imageUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
       "name": "bolo de limão",
       "instrucions": "mistura tudo e bate e assa",
       "ingredients": [
@@ -82,13 +113,14 @@
         "ovo"
       ],
       "id": 2,
-      "userId": 2,
+      "cratedByUserId": 1,
       "reviewsId": [
         1,
         2
       ]
     },
     {
+      "imageUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
       "name": "bolo de maça",
       "instrucions": "mistura tudo e bate e assa",
       "ingredients": [
@@ -97,13 +129,14 @@
         "ovo"
       ],
       "id": 3,
-      "userId": 2,
+      "cratedByUserId": 1,
       "reviewsId": [
         1,
         2
       ]
     },
     {
+      "imageUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
       "name": "bolo de banana caramelizada",
       "instrucions": "mistura tudo e bate e assa",
       "ingredients": [
@@ -113,35 +146,35 @@
         "caramelo"
       ],
       "id": 4,
-      "userId": 2,
+      "cratedByUserId": 1,
       "reviewsId": [
         1,
         2
       ]
     },
     {
-      "imgUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
+      "imageUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
       "name": "Bolo de morango",
       "ingredients": "farinha de trigo, morango, ovo, leite ",
       "instrucions": "Misture tudo e coloque no forno. Temperatura: 800C. Tempo: 11 horas.",
       "id": 5
     },
     {
-      "imgUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
+      "imageUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
       "name": "Bolo de Morango",
       "ingredients": "Morango, farinha de trigo, ovo.",
       "instrucions": "Misture tudo, pode comer.",
       "id": 6
     },
     {
-      "imgUrl": "",
+      "imageUrl": "",
       "name": "",
       "ingredients": "",
       "instrucions": "",
       "id": 7
     },
     {
-      "imgUrl": "",
+      "imageUrl": "",
       "name": "",
       "ingredients": "",
       "instrucions": "",
