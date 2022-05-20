@@ -6,19 +6,19 @@ Os pontos mais relevantes a serem tratados neste projeto foram abordados e exemp
 
 |<h3>**Lucas**</h3> |  ||
 | ------------------------------------------------------- | -------------------| ---------|
-|<a><img src=img/personas/lucas.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 22 | “Um sistema para a modernidade seria um tremendo diferencial.” |
+|![Foto Lucas](img/personas/lucas.jpg)| **Idade:** 22 | “Um sistema para a modernidade seria um tremendo diferencial.” |
 **Motivação:**  Quer economizar com receitas simples e que ajude o seu tempo.| **Frustrações:**  Não tem tempo para cozinhar e seus gastos estão exagerados com alimentos de "Fast Food". |  **História:** Desenvolvedor que mora sozinho e passa a maior parte do seu dia trabalhando em seu escritório na sua própria casa. Sem tempo para fazer suas próprias refeições, Lucas percebe uma carência de receitas fáceis e práticas para pessoas que estão precisando otimizar o seu tempo e maximizar os resultados.
 | |  |  |
 
 |<h3>**Márcio**</h3> |  ||
 | ------------------------------------------------------- | -------------------| ---------|
-|<a><img src=img/personas/marcio.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 52 | “Sistema Prático e ágil para pessoas de todas as idades.” |
+|![Foto Márcio](img/personas/marcio.jpg)| **Idade:** 52 | “Sistema Prático e ágil para pessoas de todas as idades.” |
 **Motivação:** "Com a inovação e os livros sendo deixados de lado, gostaria de um sistema de receitas."| **Frustrações:**  Sistemas são complexos demais. |  **História:** Senhor que se encontra aposentado e tem dificuldades de encontrar receitas relacionadas ao seu gosto culinário e também com as novas tecnologias, por isso quer um sistema fácil e prático de se usar. Além disso, quer poder compartilhar suas receitas com outras pessoas.
 | |  |  |
 
 |<h3>**Maria**</h3> |  ||
 | ------------------------------------------------------- | -------------------| ---------|
-|<a><img src=img/personas/maria.jpg width="180" alt="Photo Lucas"></a>| **Idade:** 40 | “Sistema que me ajude com meus ingredientes.” |
+|![Foto Maria](img/personas/maria.jpg)| **Idade:** 40 | “Sistema que me ajude com meus ingredientes.” |
 **Motivação:** "Tempo predominante em meu negócio ."| **Frustrações:**  Não ter conhecimento em culinária. |  **História:** Empresária que mora sozinha e que tem uma renda mensal volátil devido ao clima dos negócios, sendo assim tem pouco tempo e conhecimento para saber o que pode fazer com os ingredientes disponibilizados em casa.
 | |  |  |
 
