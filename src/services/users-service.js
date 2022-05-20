@@ -101,6 +101,11 @@ const validateGeneral = (user) => {
   if(user.password != user.passwordConfirm)
     return {success: false, errorMessage: 'Senhas não coincidem'};
 
+  var emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i;
+  var emailRegexTest = emailRegex.test(user.email);
+  if(!emailRegexTest)
+    return {success: false, errorMessage: 'Formato de email inválido'};
+
   return {success: true, errorMessage: ''};
 }
 
