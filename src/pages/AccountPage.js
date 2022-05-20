@@ -1,4 +1,4 @@
-import {Text, View, TouchableOpacity} from 'react-native';
+import {Text, View, TouchableOpacity,Dimensions} from 'react-native';
 import {useState, useEffect} from 'react';
 import StylesAccountPage from '../styles/StylesAccountPage';
 import StylesGeneric from '../styles/StylesGeneric';
@@ -20,13 +20,20 @@ const AccountPage = () => {
     const [ownRecipes, setOwnRecipes] = useState([]);
     const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
+    const screenWidth = Dimensions.get('window').width;
+    const columns = Math.floor(screenWidth / 100)
+    const rows =  3;
+    const itemsQuantity = columns * rows;
+
     const getOwnRecipes = async () =>{
         getOwnRecipesByUserId({
             userId: userId,
         }).then(async response => {  
           if(response && response.success){
             console.log("Get own recipes by user id success");
-            setOwnRecipes(response.data);
+
+            let items = response.data.slice(0, itemsQuantity);
+            setOwnRecipes(items);
           }else{
             console.log("Get own recipes by user id failed");
             console.log(response);
@@ -40,7 +47,9 @@ const AccountPage = () => {
         }).then(async response => {  
           if(response && response.success){
             console.log("Get favorite recipes by user id success");
-            setFavoriteRecipes(response.data);
+
+            let items = response.data.slice(0, itemsQuantity);
+            setFavoriteRecipes(items);
           }else{
             console.log("Get favorite recipes by user id failed");
             console.log(response);
