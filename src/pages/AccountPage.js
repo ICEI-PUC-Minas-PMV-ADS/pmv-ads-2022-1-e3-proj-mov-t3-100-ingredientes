@@ -71,9 +71,9 @@ const AccountPage = () => {
                 
             </View>
             <View style={{flex: 2, marginTop: 15}}>
-              <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'own'})}>
+              {ownRecipes.length > 0 && <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'own'})}>
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>
-              </TouchableOpacity>
+              </TouchableOpacity>}
             </View>
         </View>
         <View style = {StylesGeneric.LineGeneric} />
@@ -89,9 +89,9 @@ const AccountPage = () => {
                 </View>}
             </View>
             <View style={{flex: 2, marginTop: 15}}>
-              <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'favorited'})}>
+              {favoriteRecipes.length > 0 && <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'favorited'})}>
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>
-              </TouchableOpacity>
+              </TouchableOpacity>}
             </View>
         </View>
         <View style = {StylesGeneric.LineGeneric} />
