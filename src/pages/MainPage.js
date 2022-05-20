@@ -5,7 +5,10 @@ import BodyComponent from '../components/BodyComponent';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
 import {ScrollView} from 'react-native';
-import { getRecipesIngredientV8 } from '../services/recipes-service';
+import { getRecipesIngredientV8, getRecipesById } from '../services/recipes-service';
+
+import {insertLastSeen, getLastSeen, deleteLastSeen } from '../services/sqlite-service';
+
 
 
 
@@ -19,7 +22,9 @@ const twoinone = (t) => {
 
   const [search, setSearch] = useState('pesquisa');
   const [result, setResult] = useState([]);
+
   let Filter = 'ingredients';
+
   const getSearchRecipes = async () =>{
     getRecipesIngredientV8(
          Filter,
@@ -35,7 +40,38 @@ const twoinone = (t) => {
       }
     })
 }
-  
+
+//#region putaria
+const [lastSeenRecipeList, setlastSeenRecipeList] = useState([]);
+
+let lastSeenList = [];
+let lastSeenIds = [];
+
+useEffect(() => {
+
+  getLastSeen().then( (result) => {
+    lastSeenList = result;
+    lastSeenIds = lastSeenList.map((i) => {return i.recipeId});
+
+    getRecipesLastList(lastSeenIds);
+    console.log(lastSeenRecipeList);
+  });
+
+},[search]);
+
+const getRecipesLastList =async (lastSeenIds) =>{
+  getRecipesById(lastSeenIds).then(async response => {  
+    if(response && response.success){
+      if(lastSeenRecipeList.length < response.data.length)
+        setlastSeenRecipeList(response.data);
+    }else{
+      console.log(response);
+    }
+  })
+}
+
+//#endregion
+
   return (
     <>
     <HeaderComponent></HeaderComponent>
@@ -57,11 +93,11 @@ const twoinone = (t) => {
         <FlatList
           data={result}
           keyExtractor={(item)=>item.id}
-          numColumns={3}
+          numColumns={1}
       
           renderItem={({item})=> {
             return(
-              <TouchableOpacity >   
+              <TouchableOpacity onPress={()=>{insertLastSeen({recipeId: item.id})}}>   
                 <Text numberOfLines={1} >{item.name}</Text>
                 <Image style={StylesMainPage.testeImg} source={{uri:item.imageUrl}}/>
               </TouchableOpacity>
@@ -70,26 +106,23 @@ const twoinone = (t) => {
     />
         </View>
       </View>}
-      {search != '' && <ScrollView>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
+      {search == '' && <ScrollView>
+        <FlatList
+          data={lastSeenRecipeList}
+          keyExtractor={(item)=> item.id}
+          numColumns={1}
+          renderItem={({item})=> {
+            return(
+              <TouchableOpacity onPress={()=>{insertLastSeen({recipeId: item.id})}}>
+                <View style={StylesMainPage.ReceitaPostada}>   
+                  <Image style={StylesMainPage.ImagemPostada} source={{uri:item.imageUrl}}/>
+                  <Text style={StylesMainPage.TextPostada} numberOfLines={1} >{item.name}</Text>
+                </View>
+              </TouchableOpacity>
+            );
+          }}
+        />
       </ScrollView>}
-     
-      
     </BodyComponent>
     </>
   );
