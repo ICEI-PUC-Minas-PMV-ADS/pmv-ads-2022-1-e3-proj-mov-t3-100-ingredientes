@@ -64,11 +64,10 @@ export const updateUser = async (params) => {
   dataUserUpdated.name = params.name;
   dataUserUpdated.email = params.email;
 
-  if(!validateUpdate(params)) 
-    return { success: false, data: errorMessage};
+  let validation = validateUpdate(params);
 
-  if(!valideGeneral(params))
-    return { success: false, data: errorMessage};
+  if(!validation.success)
+    return { success: validation.success, data: validation.errorMessage};
 
   if(params.password.length >= 6){
     dataUserUpdated.password = params.password;
@@ -89,27 +88,37 @@ export const updateUser = async (params) => {
   }
 }
 
-const valideGeneral = (user) => {
-  if(user.password.length == 0){
-    errorMessage = 'Insira a senha';
-    return false;
-  }
+const validateGeneral = (user) => {
+  if(user.email.length == 0)
+    return {success: false, errorMessage: 'Insira o email'};
 
-  if(user.password.length < 6){
-    errorMessage = 'Senha deve ter ao menos 6 caracteres';
-    return false;
-  }
+  if(user.password.length == 0)
+    return {success: false, errorMessage: 'Insira a senha'};
 
-  errorMessage = '';
-  return true;
+  if(user.password.length < 6)
+    return {success: false, errorMessage: 'Senha deve ter ao menos 6 caracteres'};
+
+  if(user.password != user.passwordConfirm)
+    return {success: false, errorMessage: 'Senhas não coincidem'};
+
+  return {success: true, errorMessage: ''};
 }
 
 const validateUpdate = (user) => {
-  if(user.password != user.passwordConfirm){
-    errorMessage = 'Senhas não coincidem';
-    return false;
-  }
-  
-  errorMessage = '';
-  return true;
+  let resultValidationGeneral = validateGeneral(user);
+  if(!resultValidationGeneral.success)
+    return {success: resultValidationGeneral.success, errorMessage: resultValidationGeneral.errorMessage}
+
+  return {success: true, errorMessage: ''};
+}
+
+export const validateRegister = (user) => {
+  let resultValidationGeneral = validateGeneral(user);
+  if(!resultValidationGeneral.success)
+    return {success: resultValidationGeneral.success, errorMessage: resultValidationGeneral.errorMessage}
+
+  if(user.email != user.emailConfirm)
+    return {success: false, errorMessage: 'Emails não coincidem'};
+
+  return {success: true, errorMessage: ''};
 }

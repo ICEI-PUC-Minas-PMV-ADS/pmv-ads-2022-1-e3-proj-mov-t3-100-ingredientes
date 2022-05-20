@@ -67,8 +67,6 @@ const LoginPage = () => {
     }
       
     getLoginOptions().then(loginOptions => {   
-      console.log(loginOptions[0]);
-
       if(loginOptions[0] != undefined && loginOptions[0] != {} && loginOptions[0] != null){
         if(loginOptions[0].keepConnected == 1 && loginOptions[0].userEmail != null && loginOptions[0].userPassword != null){
           setEmail(loginOptions[0].userEmail);
