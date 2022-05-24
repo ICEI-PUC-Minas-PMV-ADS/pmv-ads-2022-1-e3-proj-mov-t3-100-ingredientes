@@ -23,8 +23,11 @@ const StylesGeneric = StyleSheet.create({
       alignSelf: 'center',
       paddingBottom: 20
    },
-   TitleGeneric: {
-      
+   GenericTitle:{
+      fontSize: 13,
+      color: '#000000',
+      padding: 21,
+      textTransform: 'uppercase'
    },
    GenericInput:{
       borderBottomWidth: 1,

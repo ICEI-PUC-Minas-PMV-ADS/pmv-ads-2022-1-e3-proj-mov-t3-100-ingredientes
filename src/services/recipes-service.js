@@ -107,6 +107,23 @@ export const getFavoriteRecipesByUserId = async (props) => {
   }
 }
 
+export const getRecipeById = async (params) => {
+  try{
+    return await API.get(`${BASE_URL}/recipes?id=${params.recipeId}`).then( 
+      response => {
+        return { success: true, data: response.data };
+      },
+      error =>{
+        console.log(error);
+        return { success: false, data: response.data };
+      }
+    );
+  }catch(error){
+    console.log("Erro interno. " + error);
+    return null;
+  }
+}
+
 export const getRecipesById = async (idList) => {
   
 let textIdRecipe = "";
@@ -128,3 +145,4 @@ let textIdRecipe = "";
     return null;
   }
 }
+

@@ -1,9 +1,13 @@
 import { TouchableOpacity, Text, StyleSheet, Dimensions, FlatList, Image } from 'react-native';
 import { allInitialsUpperCase } from '../utils/StringFormaterHelper';
+import { useNavigation } from '@react-navigation/native';
+
 
 const RecipeListComponent = (props) => {
   const screenWidth = Dimensions.get('window').width;
   const columns = Math.floor(screenWidth / 100);
+
+  const navigation = useNavigation();
 
   return (
     <FlatList
@@ -13,7 +17,7 @@ const RecipeListComponent = (props) => {
       
       renderItem={({item})=> {
           return(
-          <TouchableOpacity style={StylesRecipeList.RecipeContainer}>   
+          <TouchableOpacity style={StylesRecipeList.RecipeContainer} onPress={() => {navigation.navigate('RecipeDetailsPage', {recipeId: item.id})}}>   
               <Text numberOfLines={1} style= {StylesRecipeList.RecipeContainerText}>{allInitialsUpperCase(item.name)}</Text>
               <Image style= {StylesRecipeList.RecipeContainerImage} source={{uri:item.imgUrl}}/>
           </TouchableOpacity>
