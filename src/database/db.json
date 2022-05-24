@@ -1,0 +1,216 @@
+{
+  "users": [
+    {
+      "email": "joao@gmail.com",
+      "password": "$2a$10$ui3h0tD7eNv20mP6EJ00neGXOp5Ca/vVSdwGSQ/ITRfFMavLEmMyi",
+      "name": "joao",
+      "id": 1,
+      "createdRecipesId": [
+        1
+      ],
+      "favoredRecipesId": [
+        1
+      ],
+      "reviewsId": [
+        1
+      ]
+    },
+    {
+      "email": "carlos@gmail.com",
+      "password": "$2a$10$/NO7DEnXqF9XGFc4tqhqwuibIa5GIPRSNaXfeppJ0JcuP/.dyzydu",
+      "name": "carlos",
+      "id": 2,
+      "createdRecipesId": [],
+      "favoritedRecipesId": [],
+      "reviewsId": [
+        2
+      ]
+    },
+    {
+      "email": "felipe@felipe.com",
+      "password": "160300",
+      "id": 3
+    },
+    {
+      "email": "vlinvictus@gmail.com",
+      "password": "$2a$10$tEOQaaCb9S66oQSym1xDY.UrAJ4rfPccyLkwJx5TU4iKQStpp65xS",
+      "id": 4
+    }
+  ],
+  "recipes": [
+    {
+      "name": "bolo de banana",
+      "imgUrl": "https://recreio.uol.com.br/media/_versions/historia/kurama_capa_widemd.jpg",
+      "instrucions": "mistura tudo e bate e assa",
+      "ingredients": [
+        "banana",
+        "farinha",
+        "ovo"
+      ],
+      "id": 1,
+      "cratedByUserId": 1,
+      "reviewsIdList": [
+        1,
+        2
+      ],
+      "favoritedByUserIdList": [
+        2
+      ]
+    },
+    {
+      "name": "bolo de morango",
+      "imgUrl": "https://images.aws.nestle.recipes/resized/29bb98070ebfcbab93128be99ddd4327_bolo-banana-caramelada-receitas-nestle_1200_600.jpg",
+      "instrucions": "mistura tudo e bate e assa",
+      "ingredients": [
+        "banana",
+        "farinha",
+        "ovo"
+      ],
+      "id": 2,
+      "cratedByUserId": 2,
+      "reviewsIdList": [],
+      "favoritedByUserIdList": [
+        1
+      ]
+    },
+    {
+      "name": "bolo de limão",
+      "instrucions": "mistura tudo e bate e assa",
+      "ingredients": [
+        "limão",
+        "farinha",
+        "ovo"
+      ],
+      "id": 3,
+      "userId": 2,
+      "reviewsId": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "bolo de maça",
+      "instrucions": "mistura tudo e bate e assa",
+      "ingredients": [
+        "maça",
+        "farinha",
+        "ovo"
+      ],
+      "id": 4,
+      "userId": 2,
+      "reviewsId": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "bolo de banana caramelizada",
+      "instrucions": "mistura tudo e bate e assa",
+      "ingredients": [
+        "banana",
+        "farinha",
+        "ovo",
+        "caramelo"
+      ],
+      "id": 5,
+      "userId": 2,
+      "reviewsId": [
+        1,
+        2
+      ]
+    },
+    {
+      "imgUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
+      "name": "Bolo de morango",
+      "ingredients": "farinha de trigo, morango, ovo, leite ",
+      "instrucions": "Misture tudo e coloque no forno. Temperatura: 800C. Tempo: 11 horas.",
+      "id": 6
+    },
+    {
+      "imgUrl": "https://th.bing.com/th/id/R.dcea431781163ee00ca52823dff5c066?rik=YCF1wTRxFmSVuw&riu=http%3a%2f%2fwww.flamboesa.com.br%2fwp-content%2fuploads%2f2018%2f12%2fbolo-kitkat-morango-2.jpg&ehk=9fyuSDpz67bxsbeUGEycUwcv9b03Rbp8uKp3vnIXLR8%3d&risl=&pid=ImgRaw&r=0",
+      "name": "Bolo de Morango",
+      "ingredients": "Morango, farinha de trigo, ovo.",
+      "instrucions": "Misture tudo, pode comer.",
+      "id": 7
+    },
+    {
+      "imgUrl": "",
+      "name": "",
+      "ingredients": "",
+      "instrucions": "",
+      "id": 8
+    },
+    {
+      "imgUrl": "",
+      "name": "",
+      "ingredients": "",
+      "instrucions": "",
+      "id": 9
+    },
+    {
+      "imgUrl": "https://s2.glbimg.com/SkyLTd6VJy8WiUMg5L6EeUwgyMw=/0x0:620x548/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/B/t/limPwzQmSeI4WJO7haZg/2012-08-15-mf1.jpg",
+      "name": "teste",
+      "ingredients": "teste",
+      "instrucions": "teste",
+      "id": 10
+    },
+    {
+      "imgUrl": "https://img.olhardigital.com.br/wp-content/uploads/2021/07/Naruto-Classico-e-Naruto-Shippuden-fillers-695x500.jpg",
+      "name": "TesteNaruto",
+      "ingredients": "Naruto, sasuke, bla bla",
+      "instrucions": "è isso",
+      "id": 11
+    },
+    {
+      "imgUrl": "https://viciados.net/wp-content/uploads/2020/02/Naruto-Cl%C3%A1ssico-e-Naruto-Shippuden-fillers.jpg",
+      "name": "Teste img",
+      "ingredients": "NarutoTeste",
+      "instrucions": "NarutoTeste",
+      "id": 12
+    },
+    {
+      "imgUrl": "https://recreio.uol.com.br/media/_versions/historia/kurama_capa_widemd.jpg",
+      "name": "Raposa",
+      "ingredients": "Raposa",
+      "instrucions": "Raposa",
+      "id": 13
+    },
+    {
+      "imgUrl": "https://recreio.uol.com.br/media/_versions/historia/kurama_capa_widemd.jpg",
+      "name": "Raposa",
+      "ingredients": "Raposa",
+      "instrucions": "Raposa",
+      "id": 14
+    },
+    {
+      "imgUrl": "data:image/jpeg;base64,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",
+      "name": "KAKASHI",
+      "ingredients": "KAKASHI",
+      "instrucions": "KAKASHI",
+      "id": 15
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "score": 5,
+      "comment": "delicia"
+    },
+    {
+      "id": 2,
+      "score": 1,
+      "comment": "um lixo"
+    }
+  ],
+  "ingredients": [
+    {
+      "name": "banana"
+    },
+    {
+      "name": "farinha"
+    },
+    {
+      "name": "ovo"
+    }
+  ]
+}
