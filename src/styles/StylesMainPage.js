@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { shadow } from 'react-native-paper';
 
 const StylesMainPage = StyleSheet.create({
    Pesquisar: {
@@ -100,12 +99,9 @@ const StylesMainPage = StyleSheet.create({
 
    testeT: {
       color: "#FFFF",
-      fontFamily: "Arial Bold",
-      fontWeight: 500,
+      fontWeight: '500',
       marginLeft: 9,
       marginTop: 5,
-      
-      
    },
    
 });

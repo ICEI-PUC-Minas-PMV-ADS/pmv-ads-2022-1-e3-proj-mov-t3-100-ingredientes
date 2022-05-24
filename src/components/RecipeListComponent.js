@@ -15,7 +15,7 @@ const RecipeListComponent = (props) => {
           return(
           <TouchableOpacity style={StylesRecipeList.RecipeContainer}>   
               <Text numberOfLines={1} style= {StylesRecipeList.RecipeContainerText}>{allInitialsUpperCase(item.name)}</Text>
-              <Image style= {StylesRecipeList.RecipeContainerImage} source={{uri:item.imageUrl}}/>
+              <Image style= {StylesRecipeList.RecipeContainerImage} source={{uri:item.imgUrl}}/>
           </TouchableOpacity>
           );
       }}
