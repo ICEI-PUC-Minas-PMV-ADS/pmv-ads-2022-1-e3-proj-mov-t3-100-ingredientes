@@ -57,9 +57,10 @@ const RecipeDetailsPage = ({route}) => {
           <Text style={StylesGeneric.GenericTitle}>Ingredientes 📋</Text>
           <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
             {!editing && <Text style={StylesGeneric.LabelGeneric}>{recipe.ingredients}</Text>}
-            {editing && <TextInput style={StylesGeneric.GenericInput}
+            {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaContent}
               defaultValue={recipe.instructions}
               multiline={true}
+              textAlignVertical={'top'}
               autoCorrect={true}
             />}
           </ScrollView>
@@ -69,9 +70,10 @@ const RecipeDetailsPage = ({route}) => {
           <Text style={StylesGeneric.GenericTitle}>Modo de Preparo 🍴</Text>
           <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
             {!editing && <Text style={StylesGeneric.LabelGeneric}>{recipe.instructions}</Text>}
-            {editing && <TextInput style={StylesGeneric.GenericInput}
+            {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaContent}
               defaultValue={recipe.instructions}
               multiline={true}
+              textAlignVertical={'top'}
               autoCorrect={true}
             />}
           </ScrollView>
