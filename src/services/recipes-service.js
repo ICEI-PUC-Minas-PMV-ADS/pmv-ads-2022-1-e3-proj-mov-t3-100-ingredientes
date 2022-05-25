@@ -53,21 +53,6 @@ export const getRecipesUsers = async (userId) => {
     return null;
   }
 }
-export const PostRecipes = async (params) => {
-  try{
-      return await API.post(`${BASE_URL}/recipes`, params).then(
-          response => {
-              return {success: true, data: response.data};
-          },
-          error => {
-              return {success: false, data: error};
-          }
-      )
-  }catch(error){
-      console.log("Erro interno. " + error);
-      return null;
-  }
-}
 
 export const getOwnRecipesByUserId = async (props) => {
   try{
@@ -146,3 +131,34 @@ let textIdRecipe = "";
   }
 }
 
+export const updateRecipe = async (params) => {
+  try{
+      return await API.patch(`${BASE_URL}/recipes/${params.id}`, params).then(
+          response => {
+              return {success: true, data: response.data};
+          },
+          error => {
+              return {success: false, data: error};
+          }
+      )
+  }catch(error){
+      console.log("Erro interno. " + error);
+      return null;
+  }
+}
+
+export const PostRecipes = async (params) => {
+  try{
+      return await API.post(`${BASE_URL}/recipes`, params).then(
+          response => {
+              return {success: true, data: response.data};
+          },
+          error => {
+              return {success: false, data: error};
+          }
+      )
+  }catch(error){
+      console.log("Erro interno. " + error);
+      return null;
+  }
+}
