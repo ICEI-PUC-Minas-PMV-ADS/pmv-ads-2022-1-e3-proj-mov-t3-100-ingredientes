@@ -1,4 +1,4 @@
-import {Text, TextInput, View, TouchableOpacity,Dimensions, Image, ScrollView} from 'react-native';
+import {Text, TextInput, View, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Image, ScrollView} from 'react-native';
 import {useState, useEffect} from 'react';
 import StylesRecipeDetailsPage from '../styles/StylesRecipeDetailsPage';
 import StylesGeneric from '../styles/StylesGeneric';
@@ -70,75 +70,79 @@ const handleUpdate = () => {
    <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
-      <View style={{flex: 7}}>
-        <View style={StylesRecipeDetailsPage.ContentSection}>
-          {!editing && <Text style={StylesGeneric.GenericTitle}>{recipeName}</Text>}
-          {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaOneLine}
-              defaultValue={recipeName}
-              multiline={false}
-              textAlignVertical={'top'}
-              autoCorrect={true}
-              onChangeText={(text) => setRecipeName(text)}
-            />}
-          {!editing && <Image style={StylesRecipeDetailsPage.Image} source={{uri:recipeImgUrl}}/>}
-          {editing && <Image style={StylesRecipeDetailsPage.ImageEditing} source={{uri:recipeImgUrl}}/>}
-          {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaOneLine}
-              defaultValue={recipeImgUrl}
-              multiline={false}
-              textAlignVertical={'top'}
-              autoCorrect={true}
-              onChangeText={(text) => setRecipeImgUrl(text)}
-            />}
-        </View>
-        <View style = {StylesGeneric.LineGeneric} />
-        <View style={StylesRecipeDetailsPage.ContentSection}>
-          <Text style={StylesGeneric.GenericTitle}>Ingredientes 📋</Text>
-          <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
-            {!editing && <Text style={StylesGeneric.LabelGeneric}>{recipeIngredients}</Text>}
-            {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaContent}
-              defaultValue={recipeIngredients}
-              multiline={true}
-              textAlignVertical={'top'}
-              autoCorrect={true}
-              onChangeText={(text) => setRecipeIngredients(text)}
-            />}
-          </ScrollView>
-        </View>
-        <View style = {StylesGeneric.LineGeneric} />
-        <View style={StylesRecipeDetailsPage.ContentSection}>
-          <Text style={StylesGeneric.GenericTitle}>Modo de Preparo 🍴</Text>
-          <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
-            {!editing && <Text style={StylesGeneric.LabelGeneric}>{recipeInstructions}</Text>}
-            {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaContent}
-              defaultValue={recipeInstructions}
-              multiline={true}
-              textAlignVertical={'top'}
-              autoCorrect={true}
-              onChangeText={(text) => setRecipeInstructions(text)}
-            />}
-          </ScrollView>
-        </View>
-      </View>
-      <View style={StylesRecipeDetailsPage.BottomSection}>
-        <View style={{flex: 1}}>
-          <GenericGoBackComponent/>
-        </View>
-        {userIsOwner && <View style={{flex: 1, alignItems: 'flex-end'}}>
-          <View style={{flexDirection: 'row', marginRight: 20}}>
-            {!editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
-              <Text style={StylesGeneric.GenericWhiteButtonText}>Editar</Text>
-            </TouchableOpacity>}
-            {editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
-              <Text style={StylesGeneric.GenericWhiteButtonText}>Cancelar</Text>
-            </TouchableOpacity>}
-            {editing && <TouchableOpacity style={StylesGeneric.GenericButtonOrange} onPress={() => handleUpdate()}>
-              <Text style={StylesGeneric.GenericWhiteButtonText}>Salvar</Text>
-            </TouchableOpacity>}
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={{flex: 7}}>
+          <View style={StylesRecipeDetailsPage.ContentSection}>
+            {!editing && <Text style={StylesGeneric.GenericTitle}>{recipeName}</Text>}
+            {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaOneLine}
+                defaultValue={recipeName}
+                multiline={false}
+                textAlignVertical={'top'}
+                autoCorrect={true}
+                onChangeText={(text) => setRecipeName(text)}
+              />}
+            {!editing && <Image style={StylesRecipeDetailsPage.Image} source={{uri:recipeImgUrl}}/>}
+            {editing && <Image style={StylesRecipeDetailsPage.ImageEditing} source={{uri:recipeImgUrl}}/>}
+            {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaOneLine}
+                defaultValue={recipeImgUrl}
+                multiline={false}
+                textAlignVertical={'top'}
+                autoCorrect={true}
+                onChangeText={(text) => setRecipeImgUrl(text)}
+              />}
           </View>
-        </View>}
-      </View>
-
+          <View style = {StylesGeneric.LineGeneric} />
+          <View style={StylesRecipeDetailsPage.ContentSection}>
+            <Text style={StylesGeneric.GenericTitle}>Ingredientes 📋</Text>
+            <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
+              {!editing && <Text style={StylesGeneric.LabelGeneric}>{recipeIngredients}</Text>}
+              {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaContent}
+                defaultValue={recipeIngredients}
+                multiline={true}
+                textAlignVertical={'top'}
+                autoCorrect={true}
+                onChangeText={(text) => setRecipeIngredients(text)}
+              />}
+            </ScrollView>
+          </View>
+          <View style = {StylesGeneric.LineGeneric} />
+          <View style={StylesRecipeDetailsPage.ContentSection}>
+            <Text style={StylesGeneric.GenericTitle}>Modo de Preparo 🍴</Text>
+            <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
+              {!editing && <Text style={StylesGeneric.LabelGeneric}>{recipeInstructions}</Text>}
+              {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaContent}
+                defaultValue={recipeInstructions}
+                multiline={true}
+                textAlignVertical={'top'}
+                autoCorrect={true}
+                onChangeText={(text) => setRecipeInstructions(text)}
+              />}
+            </ScrollView>
+          </View>
+        </View>
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={StylesRecipeDetailsPage.BottomSection}>
+          <View style={{flex: 1}}>
+            <GenericGoBackComponent/>
+          </View>
+          {userIsOwner && <View style={{flex: 1, alignItems: 'flex-end'}}>
+            <View style={{flexDirection: 'row', marginRight: 20}}>
+              {!editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
+                <Text style={StylesGeneric.GenericWhiteButtonText}>Editar</Text>
+              </TouchableOpacity>}
+              {editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
+                <Text style={StylesGeneric.GenericWhiteButtonText}>Cancelar</Text>
+              </TouchableOpacity>}
+              {editing && <TouchableOpacity style={StylesGeneric.GenericButtonOrange} onPress={() => handleUpdate()}>
+                <Text style={StylesGeneric.GenericWhiteButtonText}>Salvar</Text>
+              </TouchableOpacity>}
+            </View>
+          </View>}
+        </View>
+      </TouchableWithoutFeedback>
     </BodyComponent>
+
     </>
   );
 }
