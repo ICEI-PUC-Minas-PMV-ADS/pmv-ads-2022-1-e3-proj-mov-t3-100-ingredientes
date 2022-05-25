@@ -4,12 +4,8 @@ import StylesRecipeDetailsPage from '../styles/StylesRecipeDetailsPage';
 import StylesGeneric from '../styles/StylesGeneric';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
-import { useNavigation } from '@react-navigation/native';
-import GenericButtonComponent from '../components/GenericButtonComponent';
-import RecipeListComponent from '../components/RecipeListComponent';
 import { getRecipeById, updateRecipe } from '../services/recipes-service';
 import { useUser } from './../contexts/UserContext';
-import {redirectUnauthenticatedToLogin} from '../services/auth-service';
 import GenericGoBackComponent from '../components/GenericGoBackComponent';
 
 const RecipeDetailsPage = ({route}) => {
