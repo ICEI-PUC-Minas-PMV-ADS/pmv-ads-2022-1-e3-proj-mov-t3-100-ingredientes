@@ -1,6 +1,6 @@
 import {Text, View, TouchableOpacity,Dimensions, Image, ScrollView} from 'react-native';
 import {useState, useEffect} from 'react';
-//import StylesRecipeDetailsPage from '../styles/StylesRecipeDetailsPage';
+import StylesRecipeDetailsPage from '../styles/StylesRecipeDetailsPage';
 import StylesGeneric from '../styles/StylesGeneric';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
@@ -14,7 +14,11 @@ import GenericGoBackComponent from '../components/GenericGoBackComponent';
 
 const RecipeDetailsPage = ({route}) => {
   const { recipeId } = route.params;
-  const [recipe, setRecipe] = useState({});
+  const [recipe, setRecipe] = useState({
+    name: 'Carregando...',
+    ingredients: 'Carregando...',
+    instrucions: 'Carregando...'
+  });
 
   const getRecipe = async () =>{
     getRecipeById({
@@ -37,31 +41,29 @@ const RecipeDetailsPage = ({route}) => {
 
   }, [recipeId]);
 
-  
-    
   return (
    <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
       <View style={{flex: 7}}>
-      <View style={{flex: 1, backgroundColor: 'green', alignItems: 'center'}}>
-        <Text style={StylesGeneric.GenericTitle}>Bolo de banana</Text>
-        <Image style={{width: '60%', height: '60%', borderRadius: 7}} source={{uri:recipe.imgUrl}}/>
-      </View>
-        <View style={{flex: 1, backgroundColor: 'red', alignItems: 'center'}}>
+        <View style={StylesRecipeDetailsPage.ContentSection}>
+          <Text style={StylesGeneric.GenericTitle}>{recipe.name}</Text>
+          <Image style={{width: '60%', height: '60%', borderRadius: 7}} source={{uri:recipe.imgUrl}}/>
+        </View>
+        <View style={StylesRecipeDetailsPage.ContentSection}>
           <Text style={StylesGeneric.GenericTitle}>Ingredientes 📋</Text>
-          <ScrollView style={{flex: 1, marginHorizontal: 20, marginBottom: 20}}>
+          <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
             <Text style={StylesGeneric.LabelGeneric}>{recipe.ingredients}</Text>
           </ScrollView>
         </View>
-        <View style={{flex: 1, backgroundColor: 'blue', alignItems: 'center'}}>
+        <View style={StylesRecipeDetailsPage.ContentSection}>
           <Text style={StylesGeneric.GenericTitle}>Modo de Preparo 🍴</Text>
-          <ScrollView style={{flex: 1, marginHorizontal: 20, marginBottom: 20}}>
+          <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
             <Text style={StylesGeneric.LabelGeneric}>{recipe.instrucions}</Text>
           </ScrollView>
         </View>
       </View>
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: 'purple'}}>
+      <View style={StylesRecipeDetailsPage.BottomSection}>
         <GenericGoBackComponent/>
       </View>
 
