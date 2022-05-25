@@ -3,6 +3,7 @@ import HeaderComponent from './../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
 import { PostRecipes } from '../services/recipes-service';
 import { useState } from 'react';
+import StylesLoginPage from '../styles/StylesLoginPage';
 
 
 const PostRecipePage = () => {
@@ -12,29 +13,37 @@ const PostRecipePage = () => {
   const [ingredients, setIngredients] = useState('');
   const [instrucions, setInstrucions] = useState('');
 
+  const [trueFeedBack, setTrueFeedBack] = useState(false);
+  const [falseFeedBack, setFalseFeedBack] = useState(false);
+
   const handlePostRecipes = () => {
 
-    PostRecipes({
-      imgUrl: imgUrl,
-      name: title,
-      ingredients: ingredients,
-      instrucions: instrucions
+    if(imgUrl != '' && title != '' && ingredients != '' && instrucions != ''){
+      PostRecipes({
+        imgUrl: imgUrl,
+        name: title,
+        ingredients: ingredients,
+        instrucions: instrucions
 
-    }).then( response => {
+      }).then( response => {
 
-      if(response && response.success){
-        console.log('Recipes success');
-        console.log(response);
-        console.warn('Receita registrada com Sucesso');
+        if(response && response.success){
+          console.log('Recipes success');
+          console.log(response);
+          console.warn('Receita registrada com Sucesso');
+          setTrueFeedBack(true);
 
-      }else{
-        console.log('Recipes failed');
-        console.log(response);
-        console.warn('Erro ao criar nova receita');
-      }
-    })
+        }else{
+          console.log('Recipes failed');
+          console.log(response);
+          console.warn('Erro ao criar nova receita');
+        }
+      })
+    }
+    else
+      console.log("Errado");
+      setFalseFeedBack(true);
   }
-
   return (
   <>
     <HeaderComponent></HeaderComponent>
@@ -79,7 +88,11 @@ const PostRecipePage = () => {
             autoCorrect={true}
             onChangeText={(text) => setInstrucions(text)}
           />
-        </View>  
+        </View>
+        <View>
+          <Text style={estilo.texto}>{ trueFeedBack ? 'A Receita foi enviada com sucesso!!!' : null }</Text>
+          <Text style={estilo.texto}>{ falseFeedBack ? 'Possui algum local em branco, favor verificar' : null }</Text>
+        </View>
         <TouchableOpacity style={estilo.CreateAccount} onPress={()=> handlePostRecipes()} > 
           <Text style={estilo.LinkGeneric}>Publicar Receita</Text>
         </TouchableOpacity>
