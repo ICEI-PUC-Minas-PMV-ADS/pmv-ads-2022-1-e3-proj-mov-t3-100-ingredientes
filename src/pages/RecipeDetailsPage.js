@@ -48,7 +48,7 @@ const RecipeDetailsPage = ({route}) => {
       <View style={{flex: 7}}>
         <View style={StylesRecipeDetailsPage.ContentSection}>
           <Text style={StylesGeneric.GenericTitle}>{recipe.name}</Text>
-          <Image style={{width: '60%', height: '60%', borderRadius: 7}} source={{uri:recipe.imgUrl}}/>
+          <Image style={StylesRecipeDetailsPage.Image} source={{uri:recipe.imgUrl}}/>
         </View>
         <View style={StylesRecipeDetailsPage.ContentSection}>
           <Text style={StylesGeneric.GenericTitle}>Ingredientes 📋</Text>

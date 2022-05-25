@@ -6,13 +6,13 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
 import { getRecipesIngredientV8, getRecipesById } from '../services/recipes-service';
 import { allInitialsUpperCase } from '../utils/StringFormaterHelper';
-
-
-import {insertLastSeen, getLastSeen, deleteLastSeen } from '../services/sqlite-service';
+import {insertLastSeen, getLastSeen } from '../services/sqlite-service';
 
 const screenWidth = Dimensions.get('window').width;
 const columnsLast = Math.floor(screenWidth / 130);
 const columnsSearch = Math.floor(screenWidth / 300);
+
+import { useNavigation } from '@react-navigation/native';
 
 const MainPage = () => {
 const twoinone = (t) => {
@@ -20,6 +20,8 @@ const twoinone = (t) => {
     getSearchRecipes();
     console.log(t);
 }
+
+  const navigation = useNavigation();
 
   const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
@@ -42,7 +44,6 @@ const twoinone = (t) => {
     })
 }
 
-//#region putaria
 const [lastSeenRecipeList, setlastSeenRecipeList] = useState([]);
 
 let lastSeenList = [];
@@ -71,7 +72,10 @@ const getRecipesLastList =async (lastSeenIds) =>{
   })
 }
 
-//#endregion
+const goToRecipeDetails = (recipeId) => {
+  insertLastSeen({recipeId: recipeId});
+  navigation.navigate('RecipeDetailsPage', {recipeId: recipeId})
+} 
 
   return (
     <>
@@ -95,7 +99,7 @@ const getRecipesLastList =async (lastSeenIds) =>{
       
           renderItem={({item})=> {
             return(
-              <TouchableOpacity style={StylesMainPage.ReceitaPostada}  onPress={()=>{insertLastSeen({recipeId: item.id})}}>   
+              <TouchableOpacity style={StylesMainPage.ReceitaPostada}  onPress={()=>{goToRecipeDetails(item.id)}}>   
                 <Image style={StylesMainPage.ImagemPostada} source={{uri:item.imgUrl}}/>
                 <Text style={StylesMainPage.testeT} numberOfLines={1} >{allInitialsUpperCase(item.name)}</Text>
               </TouchableOpacity>
@@ -113,7 +117,7 @@ const getRecipesLastList =async (lastSeenIds) =>{
           numColumns={columnsLast}
           renderItem={({item})=> {
             return(
-              <TouchableOpacity style={StylesMainPage.ReceitaUT} onPress={()=>{insertLastSeen({recipeId: item.id})}}>
+              <TouchableOpacity style={StylesMainPage.ReceitaUT} onPress={()=>{goToRecipeDetails(item.id)}}>
                 <View>
                   <Image style={StylesMainPage.ImagemPostada} source={{uri:item.imgUrl}}/>
                 </View>
