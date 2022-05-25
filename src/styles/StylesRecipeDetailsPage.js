@@ -11,7 +11,7 @@ const StylesRecipeDetailsPage = StyleSheet.create({
     BottomSection: {
       flex: 1, 
       alignItems: 'center', 
-      justifyContent: 'center'
+      flexDirection: 'row'
     },
     ScrollViewText: {
       flex: 1,

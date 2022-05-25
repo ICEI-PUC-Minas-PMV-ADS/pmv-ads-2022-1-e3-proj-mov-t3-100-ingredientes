@@ -200,14 +200,14 @@ useEffect(() => {
             </TouchableOpacity>}
           </View>
           <View style={StylesConfigurationPage.SectionButtons}>
-                {!editing && <TouchableOpacity style={StylesConfigurationPage.EditButton} onPress={() => setEditing(!editing)}>
-                  <Text style={StylesConfigurationPage.ButtonText}>Editar</Text>
+                {!editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
+                  <Text style={StylesGeneric.GenericWhiteButtonText}>Editar</Text>
                 </TouchableOpacity>}
-                {editing && <TouchableOpacity style={StylesConfigurationPage.EditButton} onPress={() => cancelUpdate()}>
-                  <Text style={StylesConfigurationPage.ButtonText}>Cancelar</Text>
+                {editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => cancelUpdate()}>
+                  <Text style={StylesGeneric.GenericWhiteButtonText}>Cancelar</Text>
                 </TouchableOpacity>}
-                {editing && <TouchableOpacity style={StylesConfigurationPage.SaveButton} onPress={() => handleUpdate()}>
-                  <Text style={StylesConfigurationPage.ButtonText}>Salvar</Text>
+                {editing && <TouchableOpacity style={StylesGeneric.GenericButtonOrange} onPress={() => handleUpdate()}>
+                  <Text style={StylesGeneric.GenericWhiteButtonText}>Salvar</Text>
                 </TouchableOpacity>}
           </View>  
         </View>

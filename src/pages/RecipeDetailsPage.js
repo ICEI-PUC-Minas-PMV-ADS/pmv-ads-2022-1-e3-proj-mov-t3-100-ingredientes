@@ -1,4 +1,4 @@
-import {Text, View, TouchableOpacity,Dimensions, Image, ScrollView} from 'react-native';
+import {Text, TextInput, View, TouchableOpacity,Dimensions, Image, ScrollView} from 'react-native';
 import {useState, useEffect} from 'react';
 import StylesRecipeDetailsPage from '../styles/StylesRecipeDetailsPage';
 import StylesGeneric from '../styles/StylesGeneric';
@@ -14,11 +14,15 @@ import GenericGoBackComponent from '../components/GenericGoBackComponent';
 
 const RecipeDetailsPage = ({route}) => {
   const { recipeId } = route.params;
+
   const [recipe, setRecipe] = useState({
     name: 'Carregando...',
     ingredients: 'Carregando...',
     instrucions: 'Carregando...'
   });
+
+  const [editing, setEditing] = useState(false);
+  const [userIsOwner, setUserIsOwner] = useState(false);
 
   const getRecipe = async () =>{
     getRecipeById({
@@ -37,8 +41,6 @@ const RecipeDetailsPage = ({route}) => {
 
   useEffect(() => {
     getRecipe();
-
-
   }, [recipeId]);
 
   return (
@@ -54,19 +56,44 @@ const RecipeDetailsPage = ({route}) => {
         <View style={StylesRecipeDetailsPage.ContentSection}>
           <Text style={StylesGeneric.GenericTitle}>Ingredientes 📋</Text>
           <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
-            <Text style={StylesGeneric.LabelGeneric}>{recipe.ingredients}</Text>
+            {!editing && <Text style={StylesGeneric.LabelGeneric}>{recipe.ingredients}</Text>}
+            {editing && <TextInput style={StylesGeneric.GenericInput}
+              defaultValue={recipe.instructions}
+              multiline={true}
+              autoCorrect={true}
+            />}
           </ScrollView>
         </View>
         <View style = {StylesGeneric.LineGeneric} />
         <View style={StylesRecipeDetailsPage.ContentSection}>
           <Text style={StylesGeneric.GenericTitle}>Modo de Preparo 🍴</Text>
           <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
-            <Text style={StylesGeneric.LabelGeneric}>{recipe.instrucions}</Text>
+            {!editing && <Text style={StylesGeneric.LabelGeneric}>{recipe.instructions}</Text>}
+            {editing && <TextInput style={StylesGeneric.GenericInput}
+              defaultValue={recipe.instructions}
+              multiline={true}
+              autoCorrect={true}
+            />}
           </ScrollView>
         </View>
       </View>
       <View style={StylesRecipeDetailsPage.BottomSection}>
-        <GenericGoBackComponent/>
+        <View style={{flex: 1}}>
+          <GenericGoBackComponent/>
+        </View>
+        <View style={{flex: 1, alignItems: 'flex-end'}}>
+          <View style={{flexDirection: 'row', marginRight: 20}}>
+            {!editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
+              <Text style={StylesGeneric.GenericWhiteButtonText}>Editar</Text>
+            </TouchableOpacity>}
+            {editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
+              <Text style={StylesGeneric.GenericWhiteButtonText}>Cancelar</Text>
+            </TouchableOpacity>}
+            {editing && <TouchableOpacity style={StylesGeneric.GenericButtonOrange} onPress={() => handleUpdate()}>
+              <Text style={StylesGeneric.GenericWhiteButtonText}>Salvar</Text>
+            </TouchableOpacity>}
+          </View>
+        </View>
       </View>
 
     </BodyComponent>
