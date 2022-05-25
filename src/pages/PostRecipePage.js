@@ -4,9 +4,13 @@ import BodyComponent from '../components/BodyComponent';
 import { PostRecipes } from '../services/recipes-service';
 import { useState } from 'react';
 import StylesLoginPage from '../styles/StylesLoginPage';
-
+import { useUser } from './../contexts/UserContext';
+import {redirectUnauthenticatedToLogin} from '../services/auth-service'
 
 const PostRecipePage = () => {
+  //redirectUnauthenticatedToLogin();
+
+  const {userId} = useUser();
 
   const [imgUrl, setImgUrl] = useState('');
   const [title, setTitle] = useState('');
@@ -23,7 +27,8 @@ const PostRecipePage = () => {
         imgUrl: imgUrl,
         name: title,
         ingredients: ingredients,
-        instrucions: instrucions
+        instructions: instrucions,
+        createdByUserId: userId,
 
       }).then( response => {
 
