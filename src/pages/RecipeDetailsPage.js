@@ -50,12 +50,14 @@ const RecipeDetailsPage = ({route}) => {
           <Text style={StylesGeneric.GenericTitle}>{recipe.name}</Text>
           <Image style={StylesRecipeDetailsPage.Image} source={{uri:recipe.imgUrl}}/>
         </View>
+        <View style = {StylesGeneric.LineGeneric} />
         <View style={StylesRecipeDetailsPage.ContentSection}>
           <Text style={StylesGeneric.GenericTitle}>Ingredientes 📋</Text>
           <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
             <Text style={StylesGeneric.LabelGeneric}>{recipe.ingredients}</Text>
           </ScrollView>
         </View>
+        <View style = {StylesGeneric.LineGeneric} />
         <View style={StylesRecipeDetailsPage.ContentSection}>
           <Text style={StylesGeneric.GenericTitle}>Modo de Preparo 🍴</Text>
           <ScrollView style={StylesRecipeDetailsPage.ScrollViewText}>
