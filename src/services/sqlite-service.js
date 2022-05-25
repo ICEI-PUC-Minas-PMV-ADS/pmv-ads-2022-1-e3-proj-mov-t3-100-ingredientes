@@ -66,14 +66,12 @@ export const deleteLoginOptions = async (params) => {
 
 //#region Ultimos Vistos
 export const insertLastSeen = async (params) => {
-  console.log("cheguei "+ params.recipeId );
   let results = await DB_EXEC(`insert into lastSeen(recipeId) values (?)`, [params.recipeId]);
-  console.log(results);
   return results.rowsAffected;
 }
+
 export const getLastSeen = async () => {
   let results = await DB_EXEC(`select * from lastSeen `);
-  //console.log(results);
   if(Platform.OS != 'web') 
     return results.rows._array;
   let arraySql = results.rows;

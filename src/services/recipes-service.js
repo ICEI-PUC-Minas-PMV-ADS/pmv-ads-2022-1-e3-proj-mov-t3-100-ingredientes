@@ -56,7 +56,7 @@ export const getRecipesUsers = async (userId) => {
 
 export const getOwnRecipesByUserId = async (props) => {
   try{
-    return await API.get(`${BASE_URL}/recipes?cratedByUserId=${props.userId}`).then( 
+    return await API.get(`${BASE_URL}/recipes?createdByUserId=${props.userId}`).then( 
       response => {
         return { success: true, data: response.data };
       },

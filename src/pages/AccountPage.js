@@ -30,8 +30,6 @@ const AccountPage = () => {
             userId: userId,
         }).then(async response => {  
           if(response && response.success){
-            console.log("Get own recipes by user id success");
-
             let items = response.data.slice(0, itemsQuantity);
             setOwnRecipes(items);
           }else{
@@ -46,8 +44,6 @@ const AccountPage = () => {
             userId: userId,
         }).then(async response => {  
           if(response && response.success){
-            console.log("Get favorite recipes by user id success");
-
             let items = response.data.slice(0, itemsQuantity);
             setFavoriteRecipes(items);
           }else{

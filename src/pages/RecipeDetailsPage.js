@@ -14,6 +14,7 @@ import GenericGoBackComponent from '../components/GenericGoBackComponent';
 
 const RecipeDetailsPage = ({route}) => {
   const { recipeId } = route.params;
+  const {userId} = useUser();
 
   const [recipeName, setRecipeName] = useState('Carregando...');
   const [recipeImgUrl, setRecipeImgUrl] = useState('Carregando...');
@@ -26,12 +27,17 @@ const RecipeDetailsPage = ({route}) => {
   const getRecipe = async () =>{
     getRecipeById({
       recipeId: recipeId,
-    }).then(async response => {  
+    }).then(response => {  
       if(response && response.success){
         setRecipeImgUrl(response.data[0].imgUrl);
         setRecipeInstructions(response.data[0].instructions);
         setRecipeName(response.data[0].name);
         setRecipeIngredients(response.data[0].ingredients);
+
+        if(response.data[0].createdByUserId == userId && userId != 0)
+          setUserIsOwner(true);
+        else setUserIsOwner(false);
+
       }else{
         console.log("Get recipe by id failed");
         console.log(response);
@@ -48,8 +54,6 @@ const handleUpdate = () => {
     instructions: recipeInstructions
   }).then( response => {
     if(response && response.success){
-      console.log("Update recipe success");
-
       setEditing(!editing);
     }else{
       console.log("Update recipe failed");
@@ -59,7 +63,7 @@ const handleUpdate = () => {
 }
 
   useEffect(() => {
-    getRecipe();
+    getRecipe();    
   }, [recipeId, editing]);
 
   return (
@@ -119,7 +123,7 @@ const handleUpdate = () => {
         <View style={{flex: 1}}>
           <GenericGoBackComponent/>
         </View>
-        <View style={{flex: 1, alignItems: 'flex-end'}}>
+        {userIsOwner && <View style={{flex: 1, alignItems: 'flex-end'}}>
           <View style={{flexDirection: 'row', marginRight: 20}}>
             {!editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
               <Text style={StylesGeneric.GenericWhiteButtonText}>Editar</Text>
@@ -131,7 +135,7 @@ const handleUpdate = () => {
               <Text style={StylesGeneric.GenericWhiteButtonText}>Salvar</Text>
             </TouchableOpacity>}
           </View>
-        </View>
+        </View>}
       </View>
 
     </BodyComponent>

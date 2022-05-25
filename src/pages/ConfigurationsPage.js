@@ -33,13 +33,11 @@ const ConfigurationPage = () => {
         userId: userId,
     }).then(async response => {  
       if(response && response.success){
-        console.log("Get user by id success");
         setUserName(response.data.name);
         setUserEmail(response.data.email);
       }else{
         console.log("Get user by id failed");
         console.log(response);
-        //navigation.navigate('LoginPage');
       }
     })
   }
