@@ -40,9 +40,10 @@ const PostRecipePage = () => {
         }
       })
     }
-    else
+    else{
       console.log("Errado");
       setFalseFeedBack(true);
+    }
   }
   return (
   <>

@@ -1,4 +1,4 @@
-import { Text, View} from 'react-native';
+import { Text, TextInput, View, Image} from 'react-native';
 import {useState, useEffect} from 'react';
 import StylesRecipesListPage from '../styles/StylesRecipesListPage';
 import HeaderComponent from '../components/HeaderComponent';
@@ -10,6 +10,10 @@ import { getOwnRecipesByUserId, getFavoriteRecipesByUserId } from '../services/r
 import { useUser } from './../contexts/UserContext';
 import {redirectUnauthenticatedToLogin} from '../services/auth-service'
 
+import StylesMainPage from '../styles/StylesMainPage';
+import { Ionicons } from '@expo/vector-icons';
+import {ScrollView} from 'react-native';
+
 const RecipesList = ({route}) => {
     redirectUnauthenticatedToLogin();
     const navigation = useNavigation();
@@ -19,6 +23,8 @@ const RecipesList = ({route}) => {
 
     const [ownRecipes, setOwnRecipes] = useState([]);
     const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+
+    const [search, setSearch] = useState('');
 
     const getOwnRecipes = async () =>{
         getOwnRecipesByUserId({
@@ -57,12 +63,52 @@ const RecipesList = ({route}) => {
    <>
     <HeaderComponent></HeaderComponent> 
     <BodyComponent>
-    <View style={StylesRecipesListPage.Screen}> 
+   <View style={StylesRecipesListPage.Screen}> 
         <View style={StylesRecipesListPage.SectionRecipeList}>
-            <Text style={StylesRecipesListPage.Title}>{type == 'own' ? 'Minhas Receitas 📔' : 'Receitas Favoritas ❤️'}</Text>
+
+          <View style={StylesMainPage.Pesquisar}>
+              <TextInput placeholder='Pesquisar' 
+              onChangeText={(text) => setSearch(text)}
+              style={StylesMainPage.input}/>
+              <Ionicons name='search' color={'#fff'} size={30} onPress={() => {}} 
+              style={StylesMainPage.search}/>
+          </View>
+        {search == '' &&  <View>
+
+        <View style={StylesMainPage.mainmain}>
+
+          <Text style={StylesRecipesListPage.Title}>{type == 'own' ? 'Minhas Receitas 📔' : 'Receitas Favoritas ❤️'}</Text>
+          <View style={StylesMainPage.imagemmain1}>
             <View>
-                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>          
+                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>
+                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>
+                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>
+                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>       
             </View>
+          </View>
+        </View>
+      </View>}
+      {search != '' && <ScrollView>
+        <View style={StylesMainPage.ReceitaPostada}>
+          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
+          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
+        </View>
+        <View style={StylesMainPage.ReceitaPostada}>
+          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
+          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
+        </View>
+        <View style={StylesMainPage.ReceitaPostada}>
+          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
+          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
+        </View>
+        <View style={StylesMainPage.ReceitaPostada}>
+          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
+          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
+        </View>
+      </ScrollView>}
+
+
+            
         </View>
         <View style={StylesRecipesListPage.SectionBottom}>           
             <GenericGoBackComponent/>
