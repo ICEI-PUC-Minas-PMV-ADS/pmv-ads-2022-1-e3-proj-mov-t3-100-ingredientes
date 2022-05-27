@@ -31,7 +31,6 @@ const RecipesList = ({route}) => {
             userId: userId,
         }).then(async response => {  
           if(response && response.success){
-            console.log("Get own recipes by user id success");
             setOwnRecipes(response.data);
           }else{
             console.log("Get own recipes by user id failed");
@@ -45,7 +44,6 @@ const RecipesList = ({route}) => {
             userId: userId,
         }).then(async response => {  
           if(response && response.success){
-            console.log("Get favorite recipes by user id success");
             setFavoriteRecipes(response.data);
           }else{
             console.log("Get favorite recipes by user id failed");

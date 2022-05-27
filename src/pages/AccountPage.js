@@ -1,4 +1,4 @@
-import {Text, View, TouchableOpacity} from 'react-native';
+import {Text, View, TouchableOpacity,Dimensions} from 'react-native';
 import {useState, useEffect} from 'react';
 import StylesAccountPage from '../styles/StylesAccountPage';
 import StylesGeneric from '../styles/StylesGeneric';
@@ -20,13 +20,18 @@ const AccountPage = () => {
     const [ownRecipes, setOwnRecipes] = useState([]);
     const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
+    const screenWidth = Dimensions.get('window').width;
+    const columns = Math.floor(screenWidth / 100)
+    const rows =  3;
+    const itemsQuantity = columns * rows;
+
     const getOwnRecipes = async () =>{
         getOwnRecipesByUserId({
             userId: userId,
         }).then(async response => {  
           if(response && response.success){
-            console.log("Get own recipes by user id success");
-            setOwnRecipes(response.data);
+            let items = response.data.slice(0, itemsQuantity);
+            setOwnRecipes(items);
           }else{
             console.log("Get own recipes by user id failed");
             console.log(response);
@@ -39,8 +44,8 @@ const AccountPage = () => {
             userId: userId,
         }).then(async response => {  
           if(response && response.success){
-            console.log("Get favorite recipes by user id success");
-            setFavoriteRecipes(response.data);
+            let items = response.data.slice(0, itemsQuantity);
+            setFavoriteRecipes(items);
           }else{
             console.log("Get favorite recipes by user id failed");
             console.log(response);
@@ -59,7 +64,7 @@ const AccountPage = () => {
      <BodyComponent>
     <View style={StylesAccountPage.Screen}> 
         <View style={StylesAccountPage.SectionRecipeList}>
-            <Text style={StylesAccountPage.Title}>Minhas Receitas 📔</Text>
+            <Text style={StylesGeneric.GenericTitle}>Minhas Receitas 📔</Text>
             <View style={{flex: 9}}>
                 {ownRecipes.length > 0 && <RecipeListComponent data={ownRecipes}></RecipeListComponent>}
                 {ownRecipes.length == 0 && <View style={{marginLeft: 50, marginRight: 50, flex: 1, justifyContent: 'center'}}>
@@ -71,14 +76,14 @@ const AccountPage = () => {
                 
             </View>
             <View style={{flex: 2, marginTop: 15}}>
-              <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'own'})}>
+              {ownRecipes.length > 0 && <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'own'})}>
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>
-              </TouchableOpacity>
+              </TouchableOpacity>}
             </View>
         </View>
         <View style = {StylesGeneric.LineGeneric} />
         <View style={StylesAccountPage.SectionRecipeList}>
-            <Text style={StylesAccountPage.Title}>RECEITAS FAVORITAS ❤️</Text>
+            <Text style={StylesGeneric.GenericTitle}>RECEITAS FAVORITAS ❤️</Text>
             <View style={{flex: 9}}>
                 {favoriteRecipes.length > 0 && <RecipeListComponent data={favoriteRecipes}></RecipeListComponent>}
                 {favoriteRecipes.length == 0 && <View style={{marginLeft: 50, marginRight: 50, flex: 1, justifyContent: 'center'}}>
@@ -89,9 +94,9 @@ const AccountPage = () => {
                 </View>}
             </View>
             <View style={{flex: 2, marginTop: 15}}>
-              <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'favorited'})}>
+              {favoriteRecipes.length > 0 && <TouchableOpacity onPress={() => navigation.navigate('RecipesListPage', {type: 'favorited'})}>
                 <GenericButtonComponent>Ver todos</GenericButtonComponent>
-              </TouchableOpacity>
+              </TouchableOpacity>}
             </View>
         </View>
         <View style = {StylesGeneric.LineGeneric} />

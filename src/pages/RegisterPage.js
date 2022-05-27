@@ -1,22 +1,22 @@
-import { TextInput, Text } from 'react-native';
-import { View,Image, } from 'react-native';
+import { View,Image, TextInput, Text } from 'react-native';
+import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import HeaderComponent from '../components/HeaderComponent';
-import StylesRegisterPage from '../styles/StylesRegisterPage';
 import BodyComponent from '../components/BodyComponent';
 import { TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { useState } from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { register } from '../services/auth-service';
+import { validateRegister } from '../services/users-service';
 import StylesLoginPage from '../styles/StylesLoginPage';
 import StylesGeneric from '../styles/StylesGeneric';
-
-
+import StylesRegisterPage from '../styles/StylesRegisterPage';
+import { useUser } from '../contexts/UserContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Register = () => {
 
   const navigation = useNavigation();
-
+  const {setUserSigned, userName, userId, setUserName, setUserId} = useUser();
 
   const [input, setInput] = useState('');
   const [inputDois, setInputDois] = useState('');
@@ -30,44 +30,39 @@ const Register = () => {
   const [hidePass, setHidePass] = useState(true);
   const [hidePassDois, setHidePassDois] = useState(true);
 
-  const [registerFail, setRegisterFail] = useState(false);
-  const [registerNull, setRegisterNull] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [registerSucess, setRegisterSucess] = useState(false);
+ 
 
-
-  var error = "";
-
-  var email, senha, email2, senha2;
-  email = inputEmail;
-  email2 = inputEmailDois;
-  senha2 = inputDois;
-  senha = input;
-
-  function valida(inputMail, inputMail2, inputSenha, inputSenha2){
-  
-    setRegisterFail(false);
-    setRegisterNull(false);
-    
-
-    if(inputMail != "" && inputMail2 != "" && inputSenha != "" && inputSenha2 != ""){
-      (inputMail == inputMail2 && inputSenha == inputSenha2) ? handleRegister() : setRegisterFail(true);
-    }
-    else{
-      setRegisterNull(true);
-    }
-  }
-
-  const handleRegister = () => {
-
+  const handleRegister = async () => {
     setRegisterSucess(false);
+    setErrorMessage('');
+    
+    let validation = await validateRegister({email: inputEmail, emailConfirm: inputEmailDois, password: input, passwordConfirm: inputDois});
 
+    if(!validation.success){
+      setErrorMessage(validation.errorMessage);
+      return;
+    }
+    
     register({
-      email: email,
-      password: senha
+      email: inputEmail,
+      password: input
     }).then( response => {
       if(response && response.success){
-        console.log("Register success")
+        console.log("Register success");
         setRegisterSucess(true);
+
+        setUserSigned(true);
+        setUserName(response.data.user.name);
+        setUserId(response.data.user.id);
+        AsyncStorage.setItem('@TOKEN_KEY', response.data.accessToken).then();
+
+        console.log("Redirecionando em 3seg...");
+        setTimeout(() => {
+          navigation.navigate('MainPage');
+        }, 3000)
+        
       }else{
         console.log("Register failed");
         
@@ -76,23 +71,6 @@ const Register = () => {
     })
   }
 
- /* function post(email, password){
-    fetch('http://localhost:3000/users', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        email: email,
-        password: password
-      })
-    })
-      .then( (resposta) => resposta.json )
-        .then( (json) => console.log(json) )
-        .catch( (error) => console.log(error) )
-  }
-*/
   return (
     <>
     <HeaderComponent></HeaderComponent>
@@ -183,10 +161,9 @@ const Register = () => {
         </View>
 
         <View>
-        <Text style={StylesLoginPage.AlertLabel}>{ registerFail ? 'Email ou senha incorretos!' : null }</Text>
-        <Text style={StylesLoginPage.AlertLabel}>{registerNull ? 'Email ou Senha em branco' : null}</Text>
+        {errorMessage != '' && <Text style={StylesLoginPage.AlertLabel}>{errorMessage}</Text>}
         <Text style={StylesLoginPage.AlertLabel}>{registerSucess ? 'Registrado com Sucesso' : null}</Text>
-        <Text  onPress={() => valida(email, email2, senha, senha2)}>Registrar</Text>
+        <Text  onPress={() => handleRegister()}>Registrar</Text>
         <TouchableOpacity style={StylesLoginPage.CreateAccount} onPress={() => navigation.navigate('MainPage')}>
             <Text style={StylesGeneric.LinkGeneric}>Welcome</Text>
         </TouchableOpacity>

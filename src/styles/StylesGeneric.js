@@ -23,8 +23,11 @@ const StylesGeneric = StyleSheet.create({
       alignSelf: 'center',
       paddingBottom: 20
    },
-   TitleGeneric: {
-      
+   GenericTitle:{
+      fontSize: 13,
+      color: '#000000',
+      padding: 21,
+      textTransform: 'uppercase'
    },
    GenericInput:{
       borderBottomWidth: 1,
@@ -41,8 +44,28 @@ const StylesGeneric = StyleSheet.create({
       fontSize: 13,
       color: '#00000075'
    },
-
-
+   GenericButtonGray:{
+      backgroundColor: '#605B56',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 30,
+      width: 100,
+      borderRadius:2,
+      margin: 5
+   },
+   GenericButtonOrange:{
+      backgroundColor: '#E05D25',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 30,
+      width: 100,
+      borderRadius:2,
+      margin: 5
+   },
+   GenericWhiteButtonText:{
+      color:'#FFFFFF',
+      fontSize:12
+   },
 
 });
 

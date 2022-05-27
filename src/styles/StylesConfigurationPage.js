@@ -35,24 +35,6 @@ SectionBottom: {
    height: 40,
    alignItems: 'center',
    justifyContent: 'center',
-},  
-EditButton:{
-   backgroundColor: '#605B56',
-   alignItems: 'center',
-   justifyContent: 'center',
-   height: 30,
-   width: 100,
-   borderRadius:2,
-   margin: 5
-},
-SaveButton:{
-   backgroundColor: '#E05D25',
-   alignItems: 'center',
-   justifyContent: 'center',
-   height: 30,
-   width: 100,
-   borderRadius:2,
-   margin: 5
 },
 DeleteRegion:{
    margin: 5,
@@ -68,12 +50,6 @@ DeleteRegionText:{
    fontSize:12,
    fontWeight: '400',
 },
-ButtonText:{
-   color:'#FFFFFF',
-   fontSize:12
-},
-
-
 CentralizedModalDelete: {
    flex: 1,
    justifyContent: "center",

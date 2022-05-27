@@ -1,14 +1,81 @@
-import { View, Text, TextInput, Image } from 'react-native';
+import { View, Text, TextInput, Image, FlatList, TouchableOpacity, Dimensions } from 'react-native';
 import StylesMainPage from '../styles/StylesMainPage';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
 import { Ionicons } from '@expo/vector-icons';
-import { useState } from 'react';
-import {ScrollView} from 'react-native';
+import { useState, useEffect } from 'react';
+import { getRecipesIngredientV8, getRecipesById } from '../services/recipes-service';
+import { allInitialsUpperCase } from '../utils/StringFormaterHelper';
+import {insertLastSeen, getLastSeen } from '../services/sqlite-service';
+
+const screenWidth = Dimensions.get('window').width;
+const columnsLast = Math.floor(screenWidth / 130);
+const columnsSearch = Math.floor(screenWidth / 300);
+
+import { useNavigation } from '@react-navigation/native';
 
 const MainPage = () => {
+const twoinone = (t) => {
+    setSearch(t);
+    getSearchRecipes();
+    console.log(t);
+}
+
+  const navigation = useNavigation();
 
   const [search, setSearch] = useState('');
+  const [result, setResult] = useState([]);
+
+  let Filter = 'ingredients';
+
+  const getSearchRecipes = async () =>{
+    getRecipesIngredientV8(
+         Filter,
+         search
+
+    ).then(async response => {  
+      if(response && response.success){
+        console.log("Get favorite recipes by user id success");
+        setResult(response.data);
+      }else{
+        console.log("Get favorite recipes by user id failed");
+        console.log(response);
+      }
+    })
+}
+
+const [lastSeenRecipeList, setlastSeenRecipeList] = useState([]);
+
+let lastSeenList = [];
+let lastSeenIds = [];
+
+useEffect(() => {
+
+  getLastSeen().then( (result) => {
+    lastSeenList = result;
+    lastSeenIds = lastSeenList.map((i) => {return i.recipeId});
+
+    getRecipesLastList(lastSeenIds);
+    console.log(lastSeenRecipeList);
+  });
+
+},[search]);
+
+const getRecipesLastList =async (lastSeenIds) =>{
+  getRecipesById(lastSeenIds).then(async response => {  
+    if(response && response.success){
+      if(lastSeenRecipeList.length < response.data.length)
+        setlastSeenRecipeList(response.data);
+    }else{
+      console.log(response);
+    }
+  })
+}
+
+const goToRecipeDetails = (recipeId) => {
+  insertLastSeen({recipeId: recipeId});
+  navigation.navigate('RecipeDetailsPage', {recipeId: recipeId})
+} 
 
   return (
     <>
@@ -16,60 +83,49 @@ const MainPage = () => {
     <BodyComponent>
       <View style={StylesMainPage.Pesquisar}>
         <TextInput placeholder='Pesquisar' 
-        onChangeText={(text) => setSearch(text)}
+        value={search}
+        onChangeText={(t) => twoinone(t)}
         style={StylesMainPage.input}/>
         <Ionicons name='search' color={'#fff'} size={30} onPress={() => {}} 
         style={StylesMainPage.search}/>
       </View>
-      {search == '' &&  <View>
-        <View style={StylesMainPage.ultimo}>
-        <Text>ÚLTIMOS VISTOS</Text>
-        </View>
-        <View style={StylesMainPage.mainmain}>
-          <View style={StylesMainPage.imagemmain1}>
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receitaum.png')}/>
-            </View> 
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita2.png')}/>
-            </View>
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita3.png')}/>
-            </View>
-          </View>
-          <View style={StylesMainPage.imagemmain2}>
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita4.png')}/>
-            </View> 
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita5.png')}/>
-            </View>
-            <View style={StylesMainPage.imagemp}>
-              <Image style={StylesMainPage.imagema} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-            </View>
-          </View>
-        </View>
-      </View>}
-      {search != '' && <ScrollView>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-      </ScrollView>}
-     
       
+      {search != '' &&  <View>
+        
+        <FlatList style={StylesMainPage.Flat}
+          data={result}
+          keyExtractor={(item)=>item.id}
+          numColumns={columnsSearch}
+      
+          renderItem={({item})=> {
+            return(
+              <TouchableOpacity style={StylesMainPage.ReceitaPostada}  onPress={()=>{goToRecipeDetails(item.id)}}>   
+                <Image style={StylesMainPage.ImagemPostada} source={{uri:item.imgUrl}}/>
+                <Text style={StylesMainPage.testeT} numberOfLines={1} >{allInitialsUpperCase(item.name)}</Text>
+              </TouchableOpacity>
+          );
+      }}
+    />
+        </View>
+      }
+      {search == '' && <View>
+      <Text style={StylesMainPage.UltimoV} >ÚLTIMOS VISTOS</Text>
+        <FlatList style={StylesMainPage.Flat}
+        
+          data={lastSeenRecipeList}
+          keyExtractor={(item)=> item.id}
+          numColumns={columnsLast}
+          renderItem={({item})=> {
+            return(
+              <TouchableOpacity style={StylesMainPage.ReceitaUT} onPress={()=>{goToRecipeDetails(item.id)}}>
+                <View>
+                  <Image style={StylesMainPage.ImagemPostada} source={{uri:item.imgUrl}}/>
+                </View>
+              </TouchableOpacity>
+            );
+          }}
+        />
+      </View>}
     </BodyComponent>
     </>
   );
