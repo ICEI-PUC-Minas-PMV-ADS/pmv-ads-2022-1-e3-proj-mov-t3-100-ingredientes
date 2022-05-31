@@ -11,14 +11,24 @@ const PostRecipePage = () => {
   const [title, setTitle] = useState('');
   const [ingredients, setIngredients] = useState('');
   const [instrucions, setInstrucions] = useState('');
+  const [userId, setuserId] = useState('1');
+
+  let array = [];
+  let arrayOrder = [];
 
   const handlePostRecipes = () => {
+    array = ingredients.split(" ").join("");
+    console.log(userId);
+    array = array.split(',');
+    arrayOrder = array.sort();
+
 
     PostRecipes({
       imgUrl: imgUrl,
       name: title,
-      ingredients: ingredients,
-      instrucions: instrucions
+      ingredients: arrayOrder,
+      instrucions: instrucions,
+      userId: userId
 
     }).then( response => {
 

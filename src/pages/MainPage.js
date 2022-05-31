@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Image, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, Image, FlatList, TouchableOpacity,CheckBox } from 'react-native';
 import StylesMainPage from '../styles/StylesMainPage';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
@@ -16,23 +16,39 @@ import {insertLastSeen, getLastSeen, deleteLastSeen } from '../services/sqlite-s
 const MainPage = () => {
 const twoinone = (t) => {
     setSearch(t);
+    if (isSelected == true){
+      array = search.split(',');
+      arrayOrder = array.sort();
+      stringArrayOrder = arrayOrder.toString();
+      console.log(stringArrayOrder);
+    }
+    else {
+      stringArrayOrder = search;
+      console.log(stringArrayOrder);
+    }
     getSearchRecipes();
     console.log(t);
 }
 
   const [search, setSearch] = useState('pesquisa');
   const [result, setResult] = useState([]);
+  const [isSelected, setSelection] = useState(false);
 
-  let Filter = 'ingredients';
+  let Filter = isSelected ? 'ingredients':'name';
+
+  let array = [];
+  let arrayOrder = [];
+  let stringArrayOrder = '';
+
 
   const getSearchRecipes = async () =>{
     getRecipesIngredientV8(
          Filter,
-         search
+         stringArrayOrder
 
     ).then(async response => {  
       if(response && response.success){
-        console.log("Get favorite recipes by user id success");
+        console.log(stringArrayOrder);
         setResult(response.data);
       }else{
         console.log("Get favorite recipes by user id failed");
@@ -41,7 +57,7 @@ const twoinone = (t) => {
     })
 }
 
-//#region putaria
+//#region sqlLite
 const [lastSeenRecipeList, setlastSeenRecipeList] = useState([]);
 
 let lastSeenList = [];
@@ -54,7 +70,6 @@ useEffect(() => {
     lastSeenIds = lastSeenList.map((i) => {return i.recipeId});
 
     getRecipesLastList(lastSeenIds);
-    console.log(lastSeenRecipeList);
   });
 
 },[search]);
@@ -84,7 +99,15 @@ const getRecipesLastList =async (lastSeenIds) =>{
         <Ionicons name='search' color={'#fff'} size={30} onPress={() => {}} 
         style={StylesMainPage.search}/>
       </View>
-      
+      <View style={StylesMainPage.checkboxContainer}>
+      <CheckBox
+            value={isSelected}
+            onValueChange={setSelection}
+            style={StylesMainPage.checkbox}
+          />
+          <Text>Pesquisa por Ingredientes.</Text>     
+      </View>
+
       {search != '' &&  <View>
         <View style={StylesMainPage.ultimo}>
         <Text>ÚLTIMOS VISTOS</Text>
