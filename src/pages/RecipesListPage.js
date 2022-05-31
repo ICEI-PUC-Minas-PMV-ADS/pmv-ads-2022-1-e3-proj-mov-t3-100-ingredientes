@@ -32,6 +32,7 @@ const RecipesList = ({route}) => {
         }).then(async response => {  
           if(response && response.success){
             setOwnRecipes(response.data);
+            console.log(response.data);
           }else{
             console.log("Get own recipes by user id failed");
             console.log(response);
@@ -51,6 +52,21 @@ const RecipesList = ({route}) => {
           }
         })
     }
+    const getSearchRecipes = async () =>{
+      getRecipesIngredientV8(
+           'name',
+           search
+  
+      ).then(async response => {  
+        if(response && response.success){
+          console.log("Get favorite recipes by user id success");
+          setResult(response.data);
+        }else{
+          console.log("Get favorite recipes by user id failed");
+          console.log(response);
+        }
+      })
+    }
 
     useEffect(() => {
       getOwnRecipes();
@@ -66,7 +82,7 @@ const RecipesList = ({route}) => {
 
           <View style={StylesMainPage.Pesquisar}>
               <TextInput placeholder='Pesquisar' 
-              onChangeText={(text) => setSearch(text)}
+              onChangeText={(search) => getSearchRecipes(search)}
               style={StylesMainPage.input}/>
               <Ionicons name='search' color={'#fff'} size={30} onPress={() => {}} 
               style={StylesMainPage.search}/>
@@ -79,9 +95,7 @@ const RecipesList = ({route}) => {
           <View style={StylesMainPage.imagemmain1}>
             <View>
                 <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>
-                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>
-                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>
-                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>       
+     
             </View>
           </View>
         </View>
