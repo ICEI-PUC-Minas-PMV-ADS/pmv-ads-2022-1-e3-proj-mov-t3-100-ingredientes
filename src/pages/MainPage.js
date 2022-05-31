@@ -1,17 +1,18 @@
-import { View, Text, TextInput, Image, FlatList, TouchableOpacity,CheckBox } from 'react-native';
+import { View, Text, TextInput, Image, FlatList, TouchableOpacity,CheckBox ,Dimensions } from 'react-native';
 import StylesMainPage from '../styles/StylesMainPage';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
 import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
-import {ScrollView} from 'react-native';
 import { getRecipesIngredientV8, getRecipesById } from '../services/recipes-service';
+import { allInitialsUpperCase } from '../utils/StringFormaterHelper';
+
 
 import {insertLastSeen, getLastSeen, deleteLastSeen } from '../services/sqlite-service';
 
-
-
-
+const screenWidth = Dimensions.get('window').width;
+const columnsLast = Math.floor(screenWidth / 130);
+const columnsSearch = Math.floor(screenWidth / 300);
 
 const MainPage = () => {
 const twoinone = (t) => {
@@ -30,7 +31,7 @@ const twoinone = (t) => {
     console.log(t);
 }
 
-  const [search, setSearch] = useState('pesquisa');
+  const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
   const [isSelected, setSelection] = useState(false);
 
@@ -109,43 +110,41 @@ const getRecipesLastList =async (lastSeenIds) =>{
       </View>
 
       {search != '' &&  <View>
-        <View style={StylesMainPage.ultimo}>
-        <Text>ÚLTIMOS VISTOS</Text>
-        </View>
-        <View style={StylesMainPage.mainmain}>
-        <FlatList
+        
+        <FlatList style={StylesMainPage.Flat}
           data={result}
           keyExtractor={(item)=>item.id}
-          numColumns={1}
+          numColumns={columnsSearch}
       
           renderItem={({item})=> {
             return(
-              <TouchableOpacity onPress={()=>{insertLastSeen({recipeId: item.id})}}>   
-                <Text numberOfLines={1} >{item.name}</Text>
-                <Image style={StylesMainPage.testeImg} source={{uri:item.imageUrl}}/>
+              <TouchableOpacity style={StylesMainPage.ReceitaPostada}  onPress={()=>{insertLastSeen({recipeId: item.id})}}>   
+                <Image style={StylesMainPage.ImagemPostada} source={{uri:item.imgUrl}}/>
+                <Text style={StylesMainPage.testeT} numberOfLines={1} >{allInitialsUpperCase(item.name)}</Text>
               </TouchableOpacity>
           );
       }}
     />
         </View>
-      </View>}
-      {search == '' && <ScrollView>
-        <FlatList
+      }
+      {search == '' && <View>
+      <Text style={StylesMainPage.UltimoV} >ÚLTIMOS VISTOS</Text>
+        <FlatList style={StylesMainPage.Flat}
+        
           data={lastSeenRecipeList}
           keyExtractor={(item)=> item.id}
-          numColumns={1}
+          numColumns={columnsLast}
           renderItem={({item})=> {
             return(
-              <TouchableOpacity onPress={()=>{insertLastSeen({recipeId: item.id})}}>
-                <View style={StylesMainPage.ReceitaPostada}>   
-                  <Image style={StylesMainPage.ImagemPostada} source={{uri:item.imageUrl}}/>
-                  <Text style={StylesMainPage.TextPostada} numberOfLines={1} >{item.name}</Text>
+              <TouchableOpacity style={StylesMainPage.ReceitaUT} onPress={()=>{insertLastSeen({recipeId: item.id})}}>
+                <View>
+                  <Image style={StylesMainPage.ImagemPostada} source={{uri:item.imgUrl}}/>
                 </View>
               </TouchableOpacity>
             );
           }}
         />
-      </ScrollView>}
+      </View>}
     </BodyComponent>
     </>
   );
