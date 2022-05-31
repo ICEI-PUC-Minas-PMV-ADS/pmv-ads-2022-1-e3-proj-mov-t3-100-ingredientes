@@ -11,6 +11,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { useNavigation } from '@react-navigation/native';
 import { insertLoginOptions, getLoginOptions, updateLoginOptions } from '../services/sqlite-service';
 
+
+
 const LoginPage = () => {
   const {setUserSigned, userSigned, setUserName, userId, setUserId} = useUser();
   const [loading, setLoading] = useState(false);

@@ -17,8 +17,11 @@ export const getRecipes = async () => {
   }
 }
 export const getRecipesIngredientV8 = async (filter,params) => {
+  console.log(params);
+  console.log(filter);
   try{
-    return await API.get(`${BASE_URL}/recipes?${filter}_like=`,params).then( 
+    /* http://localhost:3000/recipes?ingredients_like=`b%27 */ 
+    return await API.get(`${BASE_URL}/recipes?${filter}_like=${params}`).then( 
       response => {
         console.log(response.data);
         return { success: true, data: response.data };
@@ -92,6 +95,28 @@ export const getFavoriteRecipesByUserId = async (props) => {
         });
 
         return { success: true, data: filteredData };
+      },
+      error =>{
+        console.log(error);
+        return { success: false, data: response.data };
+      }
+    );
+  }catch(error){
+    console.log("Erro interno. " + error);
+    return null;
+  }
+}
+
+export const getRecipesById = async (idList) => {
+  
+let textIdRecipe = "";
+  idList.forEach(id => {
+    textIdRecipe += `id=${id}&`;
+  });
+  try{
+    return await API.get(`${BASE_URL}/recipes?${textIdRecipe}`).then( 
+      response => {
+        return { success: true, data: response.data };
       },
       error =>{
         console.log(error);
