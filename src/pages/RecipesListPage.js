@@ -52,20 +52,22 @@ const RecipesList = ({route}) => {
           }
         })
     }
-    const getSearchRecipes = async () =>{
-      getRecipesIngredientV8(
-           'name',
-           search
-  
-      ).then(async response => {  
-        if(response && response.success){
-          console.log("Get favorite recipes by user id success");
-          setResult(response.data);
-        }else{
-          console.log("Get favorite recipes by user id failed");
-          console.log(response);
-        }
-      })
+
+    const mostrar = (search) => {
+      console.log(search)
+      console.log(ownRecipes);
+
+      // Está perconrrendo e transformando o obj do Json server em um Array do js
+      let arr = ownRecipes.map(function(obj){
+        return Object.keys(obj).map(function(key){
+          return obj[key];
+        });
+      });
+
+      let i;
+      for(i = 0; i< ownRecipes.length; i++){
+        console.log(arr[i].slice(0, 1)); // Serve para buscar apenas o primeiro elemento do vetor, ou seja o name;
+      }
     }
 
     useEffect(() => {
@@ -82,7 +84,7 @@ const RecipesList = ({route}) => {
 
           <View style={StylesMainPage.Pesquisar}>
               <TextInput placeholder='Pesquisar' 
-              onChangeText={(search) => getSearchRecipes(search)}
+              onChangeText={(search) => mostrar(search)}
               style={StylesMainPage.input}/>
               <Ionicons name='search' color={'#fff'} size={30} onPress={() => {}} 
               style={StylesMainPage.search}/>
