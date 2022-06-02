@@ -19,6 +19,7 @@ const RecipeDetailsPage = ({route}) => {
 
   const [editing, setEditing] = useState(false);
   const [userIsOwner, setUserIsOwner] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const getRecipe = async () =>{
     getRecipeById({
@@ -70,6 +71,18 @@ const handleUpdate = () => {
         <View style={{flex: 7}}>
           <View style={StylesRecipeDetailsPage.ContentSection}>
             {!editing && <Text style={StylesGeneric.GenericTitle}>{recipeName}</Text>}
+            {!editing && <View style={StylesRecipeDetailsPage.FavoriteRegion}>
+              {!isFavorite && 
+                <TouchableOpacity>
+                  <Text>Favoritar ♡</Text>
+                </TouchableOpacity>
+              }
+              {isFavorite && 
+                <TouchableOpacity>
+                  <Text>Favorito ❤️</Text>
+                </TouchableOpacity>
+              }
+            </View>}
             {editing && <TextInput style={StylesRecipeDetailsPage.InputAreaOneLine}
                 defaultValue={recipeName}
                 multiline={false}

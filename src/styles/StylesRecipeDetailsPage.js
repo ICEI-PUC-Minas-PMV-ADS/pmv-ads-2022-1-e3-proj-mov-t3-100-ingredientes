@@ -29,6 +29,13 @@ const StylesRecipeDetailsPage = StyleSheet.create({
       height: '40%', 
       borderRadius: 7
     },
+    FavoriteRegion: {
+      position: 'absolute', 
+      left: '75%', 
+      top: 20, 
+      right: 10, 
+      bottom: 0
+    },
     InputAreaContent: {
       width: '100%',
       height: 100,
