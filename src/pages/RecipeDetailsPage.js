@@ -25,15 +25,28 @@ const RecipeDetailsPage = ({route}) => {
     getRecipeById({
       recipeId: recipeId,
     }).then(response => {  
+
+      console.log(response.data[0]);
+
       if(response && response.success){
         setRecipeImgUrl(response.data[0].imgUrl);
         setRecipeInstructions(response.data[0].instructions);
         setRecipeName(response.data[0].name);
         setRecipeIngredients(response.data[0].ingredients);
 
+        //set isOwner
         if(response.data[0].createdByUserId == userId && userId != 0)
           setUserIsOwner(true);
         else setUserIsOwner(false);
+
+        //set isFavorite
+        let match = response.data[0].favoritedByUserIdList.filter(function (itemId) {
+          return itemId == userId;
+        });
+      
+        if(match.length > 0)
+          setIsFavorite(true);
+        else setIsFavorite(false);
 
       }else{
         console.log("Get recipe by id failed");
@@ -59,8 +72,15 @@ const handleUpdate = () => {
   })
 }
 
+const handleFavorite = () => {
+
+
+
+
+}
+
   useEffect(() => {
-    getRecipe();    
+    getRecipe();
   }, [recipeId, editing]);
 
   return (
