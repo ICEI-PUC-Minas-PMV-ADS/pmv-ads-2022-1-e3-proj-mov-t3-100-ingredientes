@@ -33,71 +33,47 @@ const StylesMainPage = StyleSheet.create({
       paddingTop: 65,
       paddingLeft: 20,
    },
-   imagemp: {
-      
-      justifyContent: "space-between",
-      marginTop: 25,
-      margin: 5,
-      flexDirection: "row",
-      backgroundColor: "#E9795D",
-      borderRadius: 10,
-      
+ 
    
-   },
-   imagemp: {
-      
-      justifyContent: "space-between",
-      marginTop: 25,
-      margin: 5,
+   ReceitaUT: {
       flexDirection: "row",
-      backgroundColor: "#E9795D",
-      borderRadius: 10
-   
-   },
-   imagemp: {
-      
-      justifyContent: "space-between",
-      marginTop: 25,
-      margin: 5,
-      flexDirection: "row",
-      backgroundColor: "#E9795D",
-      borderRadius: 10
-   
-   },
-   imagema: {
-      height: 80,
-      width: 80,
-      padding: 50,
-      margin: 10,
+      backgroundColor: "#f7a156",
+      borderRadius: 15,
+      margin: 20,
+      width: 100,
+      alignItems: "center",
+      alignSelf: "center",
+      marginTop: 30,
+      height: 90,
+      shadowOffset:{  width: 5,  height: 5,  },
+      shadowColor: 'black',
+      shadowOpacity: 0.5,   
    },
  
-  
+  Flat: {
+      alignSelf: "center",
+  },
 
-   imagemmain1: {
-       marginTop: 5,
-      flexDirection:"row",
-      alignSelf: "center",
-   },
-   imagemmain2: {
-      marginTop: 0,
-      flexDirection:"row",
-      alignSelf: "center",
-   },
-   
+  UltimoV:{
+      fontSize: 15,
+      marginLeft: 10,
+      marginTop: 10,
+  },
   
    ImagemPostada: {
-      width: 60,
-      height: 60,
+      width: 80,
+      height: 70,
       alignSelf: "center",
       marginLeft: 10,
+      borderRadius: 10
    },
 
    ReceitaPostada: {
       flexDirection: "row",
-      backgroundColor: "#d3d3d3",
+      backgroundColor: "#f7a156",
       borderRadius: 15,
       margin: 20,
-      width: 370,
+      width: 240,
       alignSelf: "center",
       marginTop: 30,
       height: 90,
@@ -114,9 +90,22 @@ const StylesMainPage = StyleSheet.create({
    },
    
    testeImg: { 
-   width: 80,
-    height: 60,
-    borderRadius:7,
+      width: 80,
+      height: 75,
+      borderRadius:7,
+      marginTop: 6,
+      marginRight: 20,
+    
+   },
+
+   testeT: {
+      color: "#FFFF",
+      fontFamily: "Arial Bold",
+      fontWeight: 500,
+      marginLeft: 9,
+      marginTop: 5,
+      
+      
    },
 
    checkboxContainer: {
