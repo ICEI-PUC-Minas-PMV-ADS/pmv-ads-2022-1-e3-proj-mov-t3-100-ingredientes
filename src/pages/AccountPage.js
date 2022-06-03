@@ -9,13 +9,15 @@ import GenericButtonComponent from '../components/GenericButtonComponent';
 import RecipeListComponent from '../components/RecipeListComponent';
 import { getOwnRecipesByUserId, getFavoriteRecipesByUserId } from '../services/recipes-service';
 import { useUser } from './../contexts/UserContext';
-import {redirectUnauthenticatedToLogin} from '../services/auth-service'
+import {redirectUnauthenticatedToLogin} from '../services/auth-service';
+import { useIsFocused } from "@react-navigation/native";
 
 const AccountPage = () => {
     redirectUnauthenticatedToLogin();
     const navigation = useNavigation();
 
     const {userId} = useUser();
+    const isFocused = useIsFocused();
 
     const [ownRecipes, setOwnRecipes] = useState([]);
     const [favoriteRecipes, setFavoriteRecipes] = useState([]);
@@ -31,6 +33,8 @@ const AccountPage = () => {
         }).then(async response => {  
           if(response && response.success){
             let items = response.data.slice(0, itemsQuantity);
+
+          if(items.length != ownRecipes.length)
             setOwnRecipes(items);
           }else{
             console.log("Get own recipes by user id failed");
@@ -45,6 +49,8 @@ const AccountPage = () => {
         }).then(async response => {  
           if(response && response.success){
             let items = response.data.slice(0, itemsQuantity);
+
+          if(items.length != favoriteRecipes.length)
             setFavoriteRecipes(items);
           }else{
             console.log("Get favorite recipes by user id failed");
@@ -56,7 +62,10 @@ const AccountPage = () => {
     useEffect(() => {
       getOwnRecipes();
       getFavoriteRecipes();
-    }, []);
+
+      if(isFocused)
+        console.log("ta focaaaado");
+    });
     
   return (
    <>

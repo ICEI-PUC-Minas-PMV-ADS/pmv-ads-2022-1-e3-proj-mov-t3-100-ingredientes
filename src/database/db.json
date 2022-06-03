@@ -54,8 +54,7 @@
         2
       ],
       "favoritedByUserIdList": [
-        2,
-        1
+        2
       ]
     },
     {
@@ -80,9 +79,7 @@
       "ingredients": "farinha de trigo, morango, ovo, leite ",
       "instructions": "Misture tudo e coloque no forno. Temperatura: 800C. Tempo: 11 horas.",
       "id": 6,
-      "favoritedByUserIdList": [
-        1
-      ],
+      "favoritedByUserIdList": [],
       "createdByUserId": 2
     },
     {
@@ -103,9 +100,7 @@
       "instructions": "teste",
       "id": 10,
       "createdByUserId": 1,
-      "favoritedByUserIdList": [
-        1
-      ]
+      "favoritedByUserIdList": []
     },
     {
       "imgUrl": "https://img.olhardigital.com.br/wp-content/uploads/2021/07/Naruto-Classico-e-Naruto-Shippuden-fillers-695x500.jpg",
@@ -113,9 +108,7 @@
       "ingredients": "Naruto, sasuke, bla bla",
       "instructions": "TO CERTO",
       "createdByUserId": 1,
-      "favoritedByUserIdList": [
-        1
-      ],
+      "favoritedByUserIdList": [],
       "id": 11
     },
     {
@@ -124,9 +117,7 @@
       "ingredients": "NarutoTeste",
       "instructions": "NarutoTeste",
       "createdByUserId": 1,
-      "favoritedByUserIdList": [
-        1
-      ],
+      "favoritedByUserIdList": [],
       "id": 12
     },
     {
@@ -135,9 +126,7 @@
       "ingredients": "Raposa",
       "instructions": "Raposa",
       "createdByUserId": 4,
-      "favoritedByUserIdList": [
-        1
-      ],
+      "favoritedByUserIdList": [],
       "id": 13
     },
     {
@@ -145,9 +134,7 @@
       "name": "Raposa teste",
       "ingredients": "Raposaasdfasdf\naaa",
       "createdByUserId": 2,
-      "favoritedByUserIdList": [
-        1
-      ],
+      "favoritedByUserIdList": [],
       "instructions": "Raposaaaaa",
       "id": 14
     },
