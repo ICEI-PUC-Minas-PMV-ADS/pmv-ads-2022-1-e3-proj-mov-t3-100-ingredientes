@@ -73,13 +73,9 @@ export const getOwnRecipesByUserId = async (props) => {
 
 export const getFavoriteRecipesByUserId = async (props) => {
   try{
-    return await API.get(`${BASE_URL}/recipes`).then(    
+    return await API.get(`${BASE_URL}/recipes?favoritedByUserIdList_like=${props.userId}`).then(    
       response => {     
-        let filteredData = response.data.filter(function (item) {
-          return item.favoritedByUserIdList == props.userId;
-        });
-
-        return { success: true, data: filteredData };
+        return { success: true, data: response.data };
       },
       error =>{
         console.log(error);
