@@ -54,7 +54,8 @@
         2
       ],
       "favoritedByUserIdList": [
-        2
+        2,
+        1
       ]
     },
     {
@@ -70,6 +71,7 @@
       "createdByUserId": 1,
       "reviewsIdList": [],
       "favoritedByUserIdList": [
+        2,
         1
       ]
     },

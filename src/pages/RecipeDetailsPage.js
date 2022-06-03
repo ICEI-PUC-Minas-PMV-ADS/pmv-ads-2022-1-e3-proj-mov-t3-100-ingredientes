@@ -17,6 +17,8 @@ const RecipeDetailsPage = ({route}) => {
   const [recipeIngredients, setRecipeIngredients] = useState('Carregando...');
   const [recipeInstructions, setRecipeInstructions] = useState('Carregando...');
 
+  const [favoritedByUserIdList, setFavoritedByUserIdList] = useState([]);
+
   const [editing, setEditing] = useState(false);
   const [userIsOwner, setUserIsOwner] = useState(false);
   const [isFavorite, setIsFavorite] = useState(false);
@@ -33,6 +35,7 @@ const RecipeDetailsPage = ({route}) => {
         setRecipeInstructions(response.data[0].instructions);
         setRecipeName(response.data[0].name);
         setRecipeIngredients(response.data[0].ingredients);
+        setFavoritedByUserIdList(response.data[0].favoritedByUserIdList);
 
         //set isOwner
         if(response.data[0].createdByUserId == userId && userId != 0)
@@ -73,10 +76,51 @@ const handleUpdate = () => {
 }
 
 const handleFavorite = () => {
+  if(!isFavorite)
+    handleAddRecipeFavorite();
+  
+  if(isFavorite)
+    handleRemoveRecipeFavorite();
+}
 
+const handleAddRecipeFavorite = () => {
+  let listToSend = favoritedByUserIdList;
+  listToSend.push(userId);
 
+  updateRecipe({
+    id: recipeId,
+    favoritedByUserIdList: listToSend
+  }).then(response => {
+    if(response && response.success){
+      setIsFavorite(!isFavorite);
 
+    }else{
+      console.log("Update recipe failed");
+      console.log(response);
+    }
+  })
+}
 
+const handleRemoveRecipeFavorite = () => {
+  let listToSend = favoritedByUserIdList;
+
+  let index = listToSend.indexOf(userId);
+  if (index > -1) {
+    listToSend.splice(index, 1); // 2nd parameter means remove one item only
+  }
+
+  updateRecipe({
+    id: recipeId,
+    favoritedByUserIdList: listToSend
+  }).then(response => {
+    if(response && response.success){
+      setIsFavorite(!isFavorite);
+
+    }else{
+      console.log("Update recipe failed");
+      console.log(response);
+    }
+  })
 }
 
   useEffect(() => {
@@ -91,14 +135,14 @@ const handleFavorite = () => {
         <View style={{flex: 7}}>
           <View style={StylesRecipeDetailsPage.ContentSection}>
             {!editing && <Text style={StylesGeneric.GenericTitle}>{recipeName}</Text>}
-            {!editing && <View style={StylesRecipeDetailsPage.FavoriteRegion}>
+            {!editing && userId != undefined && userId != 0 && <View style={StylesRecipeDetailsPage.FavoriteRegion}>
               {!isFavorite && 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => handleFavorite()}>
                   <Text>Favoritar ♡</Text>
                 </TouchableOpacity>
               }
               {isFavorite && 
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => handleFavorite()}>
                   <Text>Favorito ❤️</Text>
                 </TouchableOpacity>
               }
