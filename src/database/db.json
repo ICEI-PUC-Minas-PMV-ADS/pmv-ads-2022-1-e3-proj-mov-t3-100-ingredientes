@@ -153,6 +153,17 @@
       "instructions": "aaaa",
       "createdByUserId": 1,
       "id": 17
+    },
+    {
+      "imgUrl": "http://localhost:19006/static/media/Ramen.67fe25a6.png",
+      "name": "teste teste testeeeee",
+      "ingredients": "banana, farinha e cocaina",
+      "instructions": "mistura todo",
+      "createdByUserId": 1,
+      "favoritedByUserIdList": [
+        1
+      ],
+      "id": 18
     }
   ],
   "reviews": [

@@ -29,6 +29,7 @@ const PostRecipePage = () => {
         ingredients: ingredients,
         instructions: instrucions,
         createdByUserId: userId,
+        favoritedByUserIdList: []
 
       }).then( response => {
 
