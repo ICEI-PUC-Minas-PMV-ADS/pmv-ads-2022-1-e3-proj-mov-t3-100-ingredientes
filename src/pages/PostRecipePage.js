@@ -18,8 +18,8 @@ const PostRecipePage = () => {
   let array = [];
   let arrayOrder = [];
 
-  const [trueFeedBack, setTrueFeedBack] = useState(false);
-  const [falseFeedBack, setFalseFeedBack] = useState(false);
+  const [postSuccess, setPostSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handlePostRecipes = () => {
     array = ingredients.split(" ").join("");
@@ -27,27 +27,33 @@ const PostRecipePage = () => {
     array = array.split(',');
     arrayOrder = array.sort();
 
-    if(imgUrl != '' && title != '' && ingredients != '' && instrucions != ''){
-      PostRecipes({
-        imgUrl: imgUrl,
-        name: title,
-        ingredients: arrayOrder,
-        instructions: instrucions,
-        createdByUserId: userId,
-        favoritedByUserIdList: []
+    PostRecipes({
+      imgUrl: imgUrl,
+      name: title,
+      ingredients: arrayOrder,
+      instructions: instrucions,
+      createdByUserId: userId,
+      favoritedByUserIdList: []
 
-      }).then( response => {
-        if(response && response.success){
-          setTrueFeedBack(true);
-        }else{
-          console.log(response);
-          console.warn('Erro ao criar nova receita');
-        }
-      })
-    }
-    else
-      console.log("Errado");
-      setFalseFeedBack(true);
+    }).then( response => {
+      if(response && response.success){
+        setPostSuccess(true);
+        setErrorMessage('');
+
+        setImgUrl('');
+        setTitle('');
+        setInstrucions('');
+        setIngredients('');
+      }else{
+        setPostSuccess(false);
+        setErrorMessage(response.data);
+
+        console.log("Post recipe failed");
+        console.log(response);
+      }
+    })
+    
+
   }
   return (
   <>
@@ -94,12 +100,13 @@ const PostRecipePage = () => {
               onChangeText={(text) => setInstrucions(text)}
             />
           </View>
-          <View>
-            <Text style={StylesGeneric.LabelGenericBlack}>{ trueFeedBack ? 'A Receita foi enviada com sucesso!!!' : null }</Text>
-            <Text style={StylesGeneric.LabelGenericBlack}>{ falseFeedBack ? 'Possui algum local em branco, favor verificar' : null }</Text>
-          </View>
+
         </View> 
         <View style={{flex: 1}}>
+          <View style={{marginBottom: 15, alignItems: 'center'}}>
+            {postSuccess && <Text>A receita foi enviada com sucesso!!!</Text>}
+            {!postSuccess && <Text style={StylesPostRecipePage.LabelAlert}>{errorMessage}</Text>}            
+          </View>
           <TouchableOpacity style={StylesPostRecipePage.PostRecipeLink} onPress={()=> handlePostRecipes()} > 
             <Text style={StylesGeneric.LinkGeneric}>Publicar Receita</Text>
           </TouchableOpacity>

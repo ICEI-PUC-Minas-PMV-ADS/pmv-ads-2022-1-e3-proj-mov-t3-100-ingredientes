@@ -62,6 +62,12 @@ const StylesPostRecipePage = StyleSheet.create({
    alignSelf: 'center',
    marginVertical: 10
  },
+ LabelAlert: {
+  fontSize: 14,
+  fontWeight: '400',
+  color: 'red',
+  alignSelf: 'center',
+},
  })
 
 export default StylesPostRecipePage;

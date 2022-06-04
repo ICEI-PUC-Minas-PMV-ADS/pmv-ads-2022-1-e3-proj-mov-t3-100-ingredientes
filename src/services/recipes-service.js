@@ -143,7 +143,30 @@ export const updateRecipe = async (params) => {
   }
 }
 
+const validateGeneral = async (recipe) => {
+  if(recipe.imgUrl.length == 0)
+    return {success: false, errorMessage: 'Insira a URL da imagem'};
+
+  if(recipe.ingredients.length == 0)
+    return {success: false, errorMessage: 'Insira os ingredientes'};
+
+  if(recipe.instructions.length == 0)
+    return {success: false, errorMessage: 'Insira o modo de preparo'};
+
+  if(recipe.name.length == 0)
+    return {success: false, errorMessage: 'Insira o título da receita'};
+
+  return {success: true, errorMessage: ''};
+}
+
 export const PostRecipes = async (params) => {
+  console.log(params);
+
+  let validation = await validateGeneral(params);
+
+  if(!validation.success)
+    return { success: validation.success, data: validation.errorMessage};
+
   try{
       return await API.post(`${BASE_URL}/recipes`, params).then(
           response => {
