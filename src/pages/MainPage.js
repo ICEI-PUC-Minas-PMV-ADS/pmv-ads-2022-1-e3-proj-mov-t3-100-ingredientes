@@ -114,12 +114,7 @@ const goToRecipeDetails = (recipeId) => {
       </View>
 
       <View style={StylesMainPage.checkboxContainer}>
-      <CheckBox
-            value={isSelected}
-            onValueChange={setSelection}
-            style={StylesMainPage.checkbox}
-          />
-          <Text>Pesquisa por Ingredientes.</Text>     
+        <BouncyCheckbox onPress={() => {setSelection(!isSelected)}} textStyle={{textDecorationLine: "none", color: 'black'}} isChecked={isSelected} text="Pesquisa por Ingredientes"/>
       </View>
 
 
