@@ -8,8 +8,7 @@ const StylesRegisterPage = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: '#ddd',
         alignItems: 'center',
-        justifyContent: 'center',
-        fontFamily: 'Ovo'
+        justifyContent: 'center'
     },
     button: {
         backgroundColor: '#E05D25',
@@ -24,12 +23,10 @@ const StylesRegisterPage = StyleSheet.create({
         width: '90%',
         borderRadius:7,
         alignSelf: 'center',
-        marginBottom: 20,
-        fontFamily: 'Ovo'
+        marginBottom: 20
     },
     inputArea: {
         flexDirection: 'row',
-        fontFamily: 'Ovo',
         width: '90%',
         backgroundColor: '#ddd',
         borderRadius: 5,
@@ -46,7 +43,6 @@ const StylesRegisterPage = StyleSheet.create({
          color: 'black',
          padding: 8,
          fontSize: 18,
-         fontFamily: 'Ovo'
      },
      icon: {
          width: '15%',
@@ -58,8 +54,7 @@ const StylesRegisterPage = StyleSheet.create({
      title: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: 'black',
-        fontFamily: 'Ovo'
+        color: 'black'
       },
       text: {
         color: '#00000075'
