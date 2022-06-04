@@ -57,16 +57,23 @@ const RecipesList = ({route}) => {
       console.log(search)
       console.log(ownRecipes);
 
-      // Está perconrrendo e transformando o obj do Json server em um Array do js
+      // Está percorrendo e transformando o obj do Json server em um Array do js
       let arr = ownRecipes.map(function(obj){
         return Object.keys(obj).map(function(key){
-          return obj[key];
+          return obj[key]
         });
       });
 
       let i;
       for(i = 0; i< ownRecipes.length; i++){
-        console.log(arr[i].slice(0, 1)); // Serve para buscar apenas o primeiro elemento do vetor, ou seja o name;
+        
+        
+        arr[i].sort(function compare(a,b){
+          if(a.length < b.length) return -1;
+          if(a.length > b.length) return 1;
+          return 0;
+        });
+        console.log(arr[i].slice(0, 1));
       }
     }
 
