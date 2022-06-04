@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
 import { getRecipesIngredientV8, getRecipesById } from '../services/recipes-service';
 import { allInitialsUpperCase } from '../utils/StringFormaterHelper';
-import {insertLastSeen, getLastSeen } from '../services/sqlite-service';
+import {insertLastSeen, getLastSeen, deleteLastSeen } from '../services/sqlite-service';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 
@@ -79,12 +79,38 @@ useEffect(() => {
     lastSeenList = result;
     lastSeenIds = lastSeenList.map((i) => {return i.recipeId});
 
+    function onlyUnique(value, index, self) {
+      return self.indexOf(value) === index;
+    }
+    
+    //ordenando pelos mais recentes
+    lastSeenIds.sort(function(a, b) {
+      return b - a;
+    });
+
+    //pegando ids que vão ser deletados da tabela de ultimos vistos (lastSeen)
+    let uniqueRecipeIdList = lastSeenIds.filter(onlyUnique).slice(0,(columnsLast*2));
+    let indexUniqueRecipeIdList = [];
+    let lastSeenIdListToDelete = []
+
+    uniqueRecipeIdList.forEach((item) => {
+      indexUniqueRecipeIdList.push(lastSeenIds.indexOf(item));
+    })
+
+    for(let i = 0; i < lastSeenIds.length; i++){
+      if(indexUniqueRecipeIdList.filter((index) => {return index == i}).length == 0)
+      lastSeenIdListToDelete.push(lastSeenList[i].id);
+    }
+
+    //deletando ultimos vistos repetidos
+    deleteLastSeen(lastSeenIdListToDelete);
+
     getRecipesLastList(lastSeenIds);
   });
 
 },[search]);
 
-const getRecipesLastList =async (lastSeenIds) =>{
+const getRecipesLastList = async (lastSeenIds) =>{
   getRecipesById(lastSeenIds).then(async response => {  
     if(response && response.success){
       if(lastSeenRecipeList.length < response.data.length)
