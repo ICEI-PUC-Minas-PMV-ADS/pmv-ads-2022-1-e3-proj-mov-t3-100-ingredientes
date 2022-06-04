@@ -17,16 +17,23 @@ const PostRecipePage = () => {
   const [ingredients, setIngredients] = useState('');
   const [instrucions, setInstrucions] = useState('');
 
+  let array = [];
+  let arrayOrder = [];
+
   const [trueFeedBack, setTrueFeedBack] = useState(false);
   const [falseFeedBack, setFalseFeedBack] = useState(false);
 
   const handlePostRecipes = () => {
+    array = ingredients.split(" ").join("");
+    console.log(userId);
+    array = array.split(',');
+    arrayOrder = array.sort();
 
     if(imgUrl != '' && title != '' && ingredients != '' && instrucions != ''){
       PostRecipes({
         imgUrl: imgUrl,
         name: title,
-        ingredients: ingredients,
+        ingredients: arrayOrder,
         instructions: instrucions,
         createdByUserId: userId,
         favoritedByUserIdList: []
