@@ -1,3 +1,5 @@
+StylesRegisterPage
+
 import { StyleSheet } from 'react-native';
 
 const StylesRegisterPage = StyleSheet.create({
@@ -6,7 +8,8 @@ const StylesRegisterPage = StyleSheet.create({
         flexDirection: 'column',
         backgroundColor: '#ddd',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        fontFamily: 'Ovo'
     },
     button: {
         backgroundColor: '#E05D25',
@@ -21,18 +24,20 @@ const StylesRegisterPage = StyleSheet.create({
         width: '90%',
         borderRadius:7,
         alignSelf: 'center',
-        marginBottom: 20
+        marginBottom: 20,
+        fontFamily: 'Ovo'
     },
     inputArea: {
         flexDirection: 'row',
+        fontFamily: 'Ovo',
         width: '90%',
         backgroundColor: '#ddd',
         borderRadius: 5,
         height: 50,
         alignItems: 'center',
         margin: 10,
-        borderBottomColor: 'grey',
-        borderBottomWidth: 2,
+        borderColor: '#E05D25',
+        borderWidth: 2,
         marginBottom: 30,
      },
      input: {
@@ -40,19 +45,21 @@ const StylesRegisterPage = StyleSheet.create({
          height: 50,
          color: 'black',
          padding: 8,
-         fontSize: 18
+         fontSize: 18,
+         fontFamily: 'Ovo'
      },
      icon: {
          width: '15%',
          height: 50,
          justifyContent: 'center',
          alignItems: 'center',
-         backgroundColor: 'red'
+         backgroundColor: '#E05D25'
      },
      title: {
         fontSize: 30,
         fontWeight: 'bold',
-        color: 'black'
+        color: 'black',
+        fontFamily: 'Ovo'
       },
       text: {
         color: '#00000075'
