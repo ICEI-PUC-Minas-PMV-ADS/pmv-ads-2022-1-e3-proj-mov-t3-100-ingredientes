@@ -16,25 +16,25 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Register = () => {
 
   const navigation = useNavigation();
-  const {setUserSigned, userName, userId, setUserName, setUserId} = useUser();
+  const {setUserSigned, setUserName, setUserId} = useUser();
 
-  const [input, setInput] = useState('');
-  const [inputDois, setInputDois] = useState('');
+  const [name, setName] = useState();
+  const [password, setPassword] = useState('');
+  const [passwordConfirm, setPasswordConfirm] = useState('');
 
-  const [inputEmail, setEmail] = useState('');
-  const [inputEmailDois, setEmailDois] = useState('');
+  const [email, setEmail] = useState('');
+  const [emailConfirm, setEmailConfirm] = useState('');
 
   const [hidePassword, setHidePassword] = useState(true);
 
   const [errorMessage, setErrorMessage] = useState('');
   const [registerSucess, setRegisterSucess] = useState(false);
  
-
   const handleRegister = async () => {
     setRegisterSucess(false);
     setErrorMessage('');
     
-    let validation = await validateRegister({email: inputEmail, emailConfirm: inputEmailDois, password: input, passwordConfirm: inputDois});
+    let validation = await validateRegister({email: email, emailConfirm: emailConfirm, password: password, passwordConfirm: passwordConfirm});
 
     if(!validation.success){
       setErrorMessage(validation.errorMessage);
@@ -42,8 +42,9 @@ const Register = () => {
     }
     
     register({
-      email: inputEmail,
-      password: input
+      name: name,
+      email: email,
+      password: password
     }).then( response => {
       if(response && response.success){
         console.log("Register success");
@@ -77,6 +78,14 @@ const Register = () => {
           <View style={StylesRegisterPage.InteractionSection}>
             <Text style={StylesGeneric.GenericMajorLabel}>Register</Text>
 
+            <Text style={StylesGeneric.GenericInputLabelGray}>Nome</Text>
+            <TextInput
+              style={StylesGeneric.GenericInput}
+              placeholder="Insira seu nome aqui"
+              autoCorrect={true}
+              onChangeText={(text) => setName(text)}
+            />
+
             <Text style={StylesGeneric.GenericInputLabelGray}>Endereço de E-mail</Text>
             <TextInput
               style={StylesGeneric.GenericInput}
@@ -90,7 +99,7 @@ const Register = () => {
               style={StylesGeneric.GenericInput}
               placeholder="nome@email.com"
               autoCorrect={true}
-              onChangeText={(text) => setEmailDois(text)}
+              onChangeText={(text) => setEmailConfirm(text)}
             />
 
             <Text style={StylesGeneric.GenericInputLabelGray}>Senha</Text>
@@ -100,7 +109,7 @@ const Register = () => {
                 placeholder="***********"
                 secureTextEntry={hidePassword}
                 autoCorrect={false}
-                onChangeText={(text) => setInput(text)}
+                onChangeText={(text) => setPassword(text)}
               />
               <View style={StylesRegisterPage.PasswordInputIcon}>
                 <TouchableOpacity onPress={ () => setHidePassword(!hidePassword) }>
@@ -116,7 +125,7 @@ const Register = () => {
                 placeholder="***********"
                 secureTextEntry={hidePassword}
                 autoCorrect={false}
-                onChangeText={(text) => setInputDois(text)}
+                onChangeText={(text) => setPasswordConfirm(text)}
               />
               <View style={StylesRegisterPage.PasswordInputIcon}>
                 <TouchableOpacity onPress={ () => setHidePassword(!hidePassword) }>
