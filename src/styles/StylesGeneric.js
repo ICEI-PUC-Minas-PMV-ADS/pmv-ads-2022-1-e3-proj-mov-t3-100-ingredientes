@@ -33,6 +33,26 @@ const StylesGeneric = StyleSheet.create({
       padding: 21,
       textTransform: 'uppercase'
    },
+   GenericMajorLabel: {
+      fontSize: 45,
+      fontWeight: '400',
+      color: '#000000',
+      marginBottom: 11
+   },
+   GenericMajorButton:{
+      backgroundColor: '#E05D25',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 62,
+      width: '90%',
+      borderRadius:7,
+      alignSelf: 'center',
+      marginBottom: 20
+   },
+   GenericMajorButtonLabel:{
+      color:'#FFFFFF',
+      fontSize:23
+   },
    GenericInput:{
       borderBottomWidth: 1,
       marginBottom: 9,
@@ -70,7 +90,23 @@ const StylesGeneric = StyleSheet.create({
       color:'#FFFFFF',
       fontSize:12
    },
-
+   GenericSearchInputRegion:{
+      flexDirection:"row",
+      justifyContent: "space-between",
+      width: '70%',
+      alignSelf: "center",
+      paddingTop: 10,
+   },
+   GenericSearchInput:{
+      flex: 1,
+      backgroundColor:"#d3d3d3",
+      borderRadius:10,
+      color:"white",
+      fontSize: 18,
+      paddingHorizontal: 15, 
+      shadowOpacity: 5,
+      shadowRadius: 10,
+   }
 });
 
 export default StylesGeneric;

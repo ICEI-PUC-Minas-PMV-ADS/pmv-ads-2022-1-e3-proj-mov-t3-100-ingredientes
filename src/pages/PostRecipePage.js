@@ -1,4 +1,4 @@
-import { View, Text, TextInput,TouchableOpacity,Image, KeyboardAvoidingView} from 'react-native';
+import { View, Text, TextInput,TouchableOpacity,Image, KeyboardAvoidingView,  TouchableWithoutFeedback, Keyboard} from 'react-native';
 import HeaderComponent from './../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
 import { PostRecipes } from '../services/recipes-service';
@@ -59,60 +59,61 @@ const PostRecipePage = () => {
   <>
     <HeaderComponent></HeaderComponent>
     <BodyComponent>
-    <KeyboardAvoidingView style={{flex: 1}} behavior="padding">
-        <View style={{flex: 3, alignItems:'center' }}>
-          <Text style={StylesGeneric.GenericTitle}>PUBLIQUE SUA RECEITA</Text>
-          {imgUrl != '' && <Image style={StylesPostRecipePage.logo} source={{uri:imgUrl}}/>}
-          {imgUrl == '' && <Image style={StylesPostRecipePage.logo} source={require('../assets/images/Ramen.png')}/>}
-        </View>
-        <View style={{flex: 7}}>
-          <TextInput
-          style={StylesPostRecipePage.inputImgUrl}
-          placeholder="URL da imagem"
-          autoCorrect={true}
-          onChangeText={(text) => setImgUrl(text)}
-          />
-        
-          <View>
-            <Text style={StylesPostRecipePage.Label}>Título da Receita</Text>
-            <TextInput
-              style={StylesPostRecipePage.inputArea}
-              placeholder ="Bolo de morango" 
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <KeyboardAvoidingView style={{flex: 1}} behavior="padding">
+            <View style={{flex: 3, alignItems:'center' }}>
+              <Text style={StylesGeneric.GenericTitle}>PUBLIQUE SUA RECEITA</Text>
+              {imgUrl != '' && <Image style={StylesPostRecipePage.logo} source={{uri:imgUrl}}/>}
+              {imgUrl == '' && <Image style={StylesPostRecipePage.logo} source={require('../assets/images/Ramen.png')}/>}
+            </View>
+            <View style={{flex: 7}}>
+              <TextInput
+              style={StylesPostRecipePage.inputImgUrl}
+              placeholder="URL da imagem"
               autoCorrect={true}
-              onChangeText={(text) => setTitle(text)}
-            />
-          </View>  
-          <View>
-            <Text style={StylesPostRecipePage.Label}>Ingredientes</Text>  
-            <TextInput
-              style={StylesPostRecipePage.inputArea}
-              placeholder="Banana, farinha de tringo, ovos ..."
-              autoCorrect={true}
-              onChangeText={(text) => setIngredients(text)}
-            />
-          </View>
-          <View>  
-            <Text style={StylesPostRecipePage.Label}>Modo de Preparo</Text>
-            <TextInput
-              style={StylesPostRecipePage.inputArea}
-              placeholder="Misture tudo e coloque no forno..."
-              autoCorrect={true}
-              onChangeText={(text) => setInstrucions(text)}
-            />
-          </View>
+              onChangeText={(text) => setImgUrl(text)}
+              />
+            
+              <View>
+                <Text style={StylesPostRecipePage.Label}>Título da Receita</Text>
+                <TextInput
+                  style={StylesPostRecipePage.inputArea}
+                  placeholder ="Bolo de morango" 
+                  autoCorrect={true}
+                  onChangeText={(text) => setTitle(text)}
+                />
+              </View>  
+              <View>
+                <Text style={StylesPostRecipePage.Label}>Ingredientes</Text>  
+                <TextInput
+                  style={StylesPostRecipePage.inputArea}
+                  placeholder="Banana, farinha de tringo, ovos ..."
+                  autoCorrect={true}
+                  onChangeText={(text) => setIngredients(text)}
+                />
+              </View>
+              <View>  
+                <Text style={StylesPostRecipePage.Label}>Modo de Preparo</Text>
+                <TextInput
+                  style={StylesPostRecipePage.inputArea}
+                  placeholder="Misture tudo e coloque no forno..."
+                  autoCorrect={true}
+                  onChangeText={(text) => setInstrucions(text)}
+                />
+              </View>
 
-        </View> 
-        <View style={{flex: 1}}>
-          <View style={{marginBottom: 15, alignItems: 'center'}}>
-            {postSuccess && <Text>A receita foi enviada com sucesso!!!</Text>}
-            {!postSuccess && <Text style={StylesPostRecipePage.LabelAlert}>{errorMessage}</Text>}            
-          </View>
-          <TouchableOpacity style={StylesPostRecipePage.PostRecipeLink} onPress={()=> handlePostRecipes()} > 
-            <Text style={StylesGeneric.LinkGeneric}>Publicar Receita</Text>
-          </TouchableOpacity>
-        </View>
-    </KeyboardAvoidingView>
-
+            </View> 
+            <View style={{flex: 1}}>
+              <View style={{marginBottom: 15, alignItems: 'center'}}>
+                {postSuccess && <Text>A receita foi enviada com sucesso!!!</Text>}
+                {!postSuccess && <Text style={StylesPostRecipePage.LabelAlert}>{errorMessage}</Text>}            
+              </View>
+              <TouchableOpacity style={StylesPostRecipePage.PostRecipeLink} onPress={()=> handlePostRecipes()} > 
+                <Text style={StylesGeneric.LinkGeneric}>Publicar Receita</Text>
+              </TouchableOpacity>
+            </View>
+        </KeyboardAvoidingView>
+      </TouchableWithoutFeedback>
     </BodyComponent>
   </>
   );

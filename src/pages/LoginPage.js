@@ -95,25 +95,23 @@ const LoginPage = () => {
             </View> 
             <View style={StylesLoginPage.InteractionSection}> 
 
-              <Text style={StylesLoginPage.LoginLabel}>Login</Text>
+              <Text style={StylesGeneric.GenericMajorLabel}>Login</Text>
               
               <Text style={StylesGeneric.GenericInputLabelGray}>Endereço de E-mail</Text>
-
               <TextInput
-              style={StylesGeneric.GenericInput}
-              placeholder="nome@email.com"
-              autoCorrect={true}
-              onChangeText={(text) => setEmail(text)}
+                style={StylesGeneric.GenericInput}
+                placeholder="nome@email.com"
+                autoCorrect={true}
+                onChangeText={(text) => setEmail(text)}
               />
 
               <Text style={StylesGeneric.GenericInputLabelGray}>Senha</Text>
-
               <TextInput 
-              style={StylesGeneric.GenericInput}
-              placeholder="***********"
-              secureTextEntry
-              autoCorrect={false}
-              onChangeText={(text) => setPassword(text)}
+                style={StylesGeneric.GenericInput}
+                placeholder="***********"
+                secureTextEntry
+                autoCorrect={false}
+                onChangeText={(text) => setPassword(text)}
               />
 
               <Text style={StylesGeneric.GenericLabelAlert}>{ loginError ? 'Email ou senha incorretos!' : null }</Text>
@@ -122,15 +120,18 @@ const LoginPage = () => {
                 <BouncyCheckbox onPress={() => {setKeepConnected(!keepConnected)}} textStyle={{textDecorationLine: "none",}} isChecked={keepConnected} text="Manter conectado"/>
               </View>
 
-              <TouchableOpacity onPress={handleLogin} style={StylesLoginPage.LoginButton}>
+              <TouchableOpacity onPress={handleLogin} style={StylesGeneric.GenericMajorButton}>
                 { loading
                   ? <ActivityIndicator size="small" color="#FFFFFF" />
-                  : <Text style={StylesLoginPage.LoginButtonLabel}> Acessar </Text>             
+                  : <Text style={StylesGeneric.GenericMajorButtonLabel}> Acessar </Text>             
                 }    
               </TouchableOpacity>
 
               <TouchableOpacity style={StylesLoginPage.CreateAccount} onPress={() => navigation.navigate('RegisterPage')}>
                 <Text style={StylesGeneric.LabelGeneric}>Não tem uma conta? </Text><Text style={StylesGeneric.LinkGeneric}>Criar nova conta.</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={{alignSelf: 'center', marginTop: 10}} onPress={() => navigation.navigate('ContactPage')}>
+                <Text style={StylesGeneric.LinkGeneric}>Contato com Desenvolvedores</Text>
               </TouchableOpacity>
 
             </View>
