@@ -15,6 +15,9 @@ import { Ionicons } from '@expo/vector-icons';
 import {ScrollView} from 'react-native';
 
 const RecipesList = ({route}) => {
+
+  const [lista, setLista] = useState([]);
+
     redirectUnauthenticatedToLogin();
     const navigation = useNavigation();
 
@@ -54,28 +57,23 @@ const RecipesList = ({route}) => {
     }
 
     const mostrar = (search) => {
-      console.log(search)
-      console.log(ownRecipes);
+      let filterList = [];
 
-      // Está percorrendo e transformando o obj do Json server em um Array do js
-      let arr = ownRecipes.map(function(obj){
-        return Object.keys(obj).map(function(key){
-          return obj[key]
-        });
-      });
+        if(type == 'own')
+          filterList = ownRecipes.filter(item => item.name.includes(search));
+        if(type != 'own')
+          filterList = favoriteRecipes.filter(item => item.name.includes(search));
 
-      let i;
-      for(i = 0; i< ownRecipes.length; i++){
-        
-        
-        arr[i].sort(function compare(a,b){
-          if(a.length < b.length) return -1;
-          if(a.length > b.length) return 1;
-          return 0;
-        });
-        console.log(arr[i].slice(0, 1));
+        if(search.length == 0){
+          setLista([]);
+        }
+        else{
+          
+          setLista(filterList);
+          console.log(lista);
+        }
       }
-    }
+    
 
     useEffect(() => {
       getOwnRecipes();
@@ -90,7 +88,8 @@ const RecipesList = ({route}) => {
         <View style={StylesRecipesListPage.SectionRecipeList}>
 
           <View style={StylesMainPage.Pesquisar}>
-              <TextInput placeholder='Pesquisar' 
+              <TextInput placeholder='Pesquisar'
+              
               onChangeText={(search) => mostrar(search)}
               style={StylesMainPage.input}/>
               <Ionicons name='search' color={'#fff'} size={30} onPress={() => {}} 
@@ -103,30 +102,19 @@ const RecipesList = ({route}) => {
           <Text style={StylesRecipesListPage.Title}>{type == 'own' ? 'Minhas Receitas 📔' : 'Receitas Favoritas ❤️'}</Text>
           <View style={StylesMainPage.imagemmain1}>
             <View>
-                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>
-     
+                {type == 'own' && <RecipeListComponent data={/*type == 'own'*/ lista != 0 ? lista : ownRecipes}></RecipeListComponent>}
+                {type != 'own' && <RecipeListComponent data={lista != 0 ? lista : favoriteRecipes}></RecipeListComponent>}
             </View>
           </View>
         </View>
       </View>}
-      {search != '' && <ScrollView>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
+      <ScrollView>
+        
+        <View>
+
         </View>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-        <View style={StylesMainPage.ReceitaPostada}>
-          <Image style={StylesMainPage.ImagemPostada} onPress={() => {}} source={require('../assets/images/receita6.png')}/>
-          <Text style={StylesMainPage.TextPostada}>PIZZA DOCE: Quentinhas, saborosas e com recheios tão diferentes, as pizzas doces deixam qualquer um com água na boca.</Text>
-        </View>
-      </ScrollView>}
+
+      </ScrollView>
 
 
             
