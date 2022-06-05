@@ -12,6 +12,8 @@ import { useNavigation } from '@react-navigation/native';
 import { insertLoginOptions, getLoginOptions, updateLoginOptions } from '../services/sqlite-service';
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 
+
+
 const LoginPage = () => {
   const {setUserSigned, userSigned, setUserName, userId, setUserId} = useUser();
   const [loading, setLoading] = useState(false);

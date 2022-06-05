@@ -103,7 +103,16 @@ const StylesMainPage = StyleSheet.create({
       marginLeft: 9,
       marginTop: 5,
    },
-   
+
+   checkboxContainer: {
+      alignSelf: "center",
+      flexDirection: "row",
+      marginBottom: 10,
+      marginTop:17
+    },
+    checkbox: {
+      alignSelf: "center",
+    }
 });
 
 export default StylesMainPage;
