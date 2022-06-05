@@ -2,11 +2,10 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Especificação do Projeto</a></span>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="4-Metodologia.md"> Metodologia</a>, <a href="3-Projeto de Interface.md"> Projeto de Interface</a>, <a href="5-Arquitetura da Solução.md"> Arquitetura da Solução</a>
 
-Implementação do sistema descritas por meio dos requisitos funcionais e/ou não funcionais. Deve relacionar os requisitos atendidos os artefatos criados (código fonte) além das estruturas de dados utilizadas e as instruções para acesso e verificação da implementação que deve estar funcional no ambiente de hospedagem.
 
-Para cada requisito funcional, pode ser entregue um artefato desse tipo
+<h1>Hospedagem</h1>
 
-Para que seja implementado este sistema, será necessário a alocação de um servidor onde ocorrerá a hospedagem do aplicativo sendo monumentais para serviços de mensageria e notificação, controle de versão, requisisições , controle de tráfego e outros. Conforme detalhado no RF-001, o servidor será responsavél por retornar através de uma requisição do tipo GET para um servidor que será alocado o Back-end, sendo ele, a parte responsável por armazenar dados importantes ao usuário. Este tipo de requisição permite o retorno de informações importantes, por exemplo,nomes de receitas pela semelhança com seu nome e descrição (RF-002), permitindo assim mais agilidade aos processos do software. 
+<p>Para que seja implementado este sistema, será necessário a alocação de um servidor onde ocorrerá a hospedagem do aplicativo sendo monumentais para serviços de mensageria e notificação, controle de versão, requisisições , controle de tráfego e outros. Conforme detalhado no RF-001, o servidor será responsavél por retornar através de uma requisição do tipo GET para um servidor que será alocado o Back-end, sendo ele, a parte responsável por armazenar dados importantes ao usuário. Este tipo de requisição permite o retorno de informações importantes, por exemplo,nomes de receitas pela semelhança com seu nome e descrição (RF-002), permitindo assim mais agilidade aos processos do software. </p>
 
 ```js
 import { Platform } from 'react-native';
@@ -35,21 +34,9 @@ const onRequest = async(config) => {
 
 ```
 
-|RF-001| A aplicação deverá exibir receitas de forma listada e detalhada. | ALTA |
-|RF-002| A aplicação deverá permitir buscar receitas pela semelhança com seu nome e descrição. | ALTA |
-|RF-003| A aplicação deverá permitir buscar receitas de acordo com uma lista de ingredientes inserida pelo usuário. | ALTA | 
-|RF-004| A aplicação deverá permitir que o usuário insira novas receitas. | MÉDIA |
-|RF-005| A aplicação deverá listar as receitas publicadas ao usuário que a publicou. | MÉDIA |
-|RF-006| A aplicação deverá permitir o autor de uma receita alterá-la ou deletá-la. | MÉDIA |
-|RF-007| A aplicação deverá permitir ordenar e filtrar o resultado da busca. | BAIXA |
-|RF-008| A aplicação deverá permitir que as receitas sejam salvas em uma lista de desejos. | BAIXA |
-|RF-009| A aplicação deverá permitir avaliar e comentar receitas de outro usuário | BAIXA |
-|RF-010| A aplicação deverá notificar o usuário quando alguém interagir com sua receita (avaliação e comentário). | BAIXA |
+<H2>Distribuição</h2>
+O projeto estará disponivel para consumo do cliente através das lojas virtuais (Play / App store) e através do Github da equipe, desta forma os usuários poderam estar interagindo com os desenvolvedores através de comentários e aceitação. Isso se da pelo fato que as plataforma permitem que os usuário interajam diretamente com os desenvolvedores e dessa forma será mais rápido entender a dor do cliente.  
 
-> **Links Úteis**:
->
-> - [Trabalhando com HTML5 Local Storage e JSON](https://www.devmedia.com.br/trabalhando-com-html5-local-storage-e-json/29045)
-> - [JSON Tutorial](https://www.w3resource.com/JSON)
-> - [JSON Data Set Sample](https://opensource.adobe.com/Spry/samples/data_region/JSONDataSetSample.html)
-> - [JSON - Introduction (W3Schools)](https://www.w3schools.com/js/js_json_intro.asp)
-> - [JSON Tutorial (TutorialsPoint)](https://www.tutorialspoint.com/json/index.htm)
+#### Comunidade para suporte
+![Página do projeto](img/Github.png)
+
