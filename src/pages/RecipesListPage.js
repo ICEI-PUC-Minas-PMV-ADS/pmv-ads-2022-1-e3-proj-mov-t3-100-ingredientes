@@ -48,9 +48,9 @@ const RecipesList = ({route}) => {
     let resultList = [];
 
     if(type == 'own')
-      resultList = ownRecipes.filter(item => item.name.includes(search));
+      resultList = ownRecipes.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
     if(type != 'own')
-      resultList = favoriteRecipes.filter(item => item.name.includes(search));
+      resultList = favoriteRecipes.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
 
     if(search.length != 0)
       setFilteredList(resultList);
