@@ -7,6 +7,7 @@ const Database = {
     const db = SQLite.openDatabase('database.db');
 
     db.transaction((tx) => {
+
       tx.executeSql('create table if not exists loginOptions (id integer primary key not null, userId integer not null, keepConnected numeric not null, userEmail text, userPassword text);');
       tx.executeSql('create table if not exists lastSeen (id integer primary key not null, recipeId integer not null);');
     });
@@ -83,10 +84,15 @@ export const getLastSeen = async () => {
  // console.log(arrayJs); 
   return arrayJs;
 }
-export const deleteLastSeen = async (recipeIdList) => {
-  let results = await DB_EXEC(`delete from lastSeen where id in (?)`, [recipeIdList]);
-  console.log(results);
-  return results.rowsAffected;
+export const deleteLastSeen = async (lastSeenIdList) => {
+  let rowsAffected = 0;
+
+  await lastSeenIdList.forEach(async (id) => {
+    let result = await DB_EXEC(`delete from lastSeen where id = (?)`, [id]);
+    rowsAffected += result.rowsAffected;
+  })
+
+  return rowsAffected;
 }
 //#endregion
 

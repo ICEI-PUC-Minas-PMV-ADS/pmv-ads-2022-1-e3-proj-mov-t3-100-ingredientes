@@ -53,8 +53,6 @@ const ConfigurationPage = () => {
       passwordConfirm: userPasswordConfirm
     }).then( response => {
       if(response && response.success){
-        console.log("Update user success");
-
         setEditing(!editing);
         setEditSuccess(true);
         setErrorMessage('');

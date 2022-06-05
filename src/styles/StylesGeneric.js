@@ -11,6 +11,10 @@ const StylesGeneric = StyleSheet.create({
       fontSize: 13,
       color: '#00000080',
    },
+   LabelGenericBlack:{
+      fontSize: 13,
+      color: '#000000',
+   },
    LinkGeneric: {
       fontSize: 13,
       color: '#E05D25',
