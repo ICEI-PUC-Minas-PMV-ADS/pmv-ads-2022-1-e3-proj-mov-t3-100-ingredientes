@@ -20,7 +20,7 @@ const HeaderComponent = () => {
       { userSigned ? <Button mode="text" style={Styles.HeaderButton} labelStyle={[Styles.HeaderButtonLabel, route.name == 'AccountPage' ? Styles.HeaderButtonLabelSelected : null]} onPress={() => navigation.navigate('AccountPage')}>Conta</Button> : null }
       { !userSigned ? <Button mode="text" style={Styles.HeaderButton} labelStyle={[Styles.HeaderButtonLabel, route.name == 'LoginPage' ? Styles.HeaderButtonLabelSelected : null]} onPress={() => navigation.navigate('LoginPage')}>Login</Button> : null }
       <Button mode="text" style={Styles.HeaderButton} labelStyle={[Styles.HeaderButtonLabel, route.name == 'MainPage' ? Styles.HeaderButtonLabelSelected : null]} onPress={() => navigation.navigate('MainPage')}>Pesquisar</Button>
-      <Button mode="text" style={Styles.HeaderButton} labelStyle={[Styles.HeaderButtonLabel, route.name == 'PostRecipePage' ? Styles.HeaderButtonLabelSelected : null]} onPress={() => navigation.navigate('PostRecipePage')}>Postar</Button>
+      { userSigned ? <Button mode="text" style={Styles.HeaderButton} labelStyle={[Styles.HeaderButtonLabel, route.name == 'PostRecipePage' ? Styles.HeaderButtonLabelSelected : null]} onPress={() => navigation.navigate('PostRecipePage')}>Postar</Button> : null }
     </View>  
   );
 }
