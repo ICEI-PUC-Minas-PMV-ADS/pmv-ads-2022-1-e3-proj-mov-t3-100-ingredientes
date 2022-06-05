@@ -82,7 +82,7 @@ const Register = () => {
           </View> 
 
           <View style={StylesRegisterPage.InteractionSection}>
-            <Text style={StylesGeneric.GenericMajorLabel}>Register</Text>
+            <Text style={StylesGeneric.GenericMajorLabel}>Registrar</Text>
 
             <Text style={StylesGeneric.GenericInputLabelGray}>Nome</Text>
             <TextInput
