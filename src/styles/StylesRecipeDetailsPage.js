@@ -64,5 +64,11 @@ const StylesRecipeDetailsPage = StyleSheet.create({
       elevation: 5,
       backgroundColor: '#fff',
     },
+    LabelAlert: {
+      fontSize: 14,
+      fontWeight: '400',
+      color: 'red',
+      alignSelf: 'center',
+    },
   });
   export default StylesRecipeDetailsPage;

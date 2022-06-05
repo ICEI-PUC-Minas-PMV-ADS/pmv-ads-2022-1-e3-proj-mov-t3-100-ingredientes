@@ -17,6 +17,8 @@ const RecipeDetailsPage = ({route}) => {
   const [recipeIngredients, setRecipeIngredients] = useState('Carregando...');
   const [recipeInstructions, setRecipeInstructions] = useState('Carregando...');
 
+  const [errorMessage, setErrorMessage] = useState('');
+
   const [favoritedByUserIdList, setFavoritedByUserIdList] = useState([]);
 
   const [editing, setEditing] = useState(false);
@@ -68,9 +70,9 @@ const handleUpdate = () => {
   }).then( response => {
     if(response && response.success){
       setEditing(!editing);
+      setErrorMessage('');
     }else{
-      console.log("Update recipe failed");
-      console.log(response);
+      setErrorMessage(response.data);
     }
   })
 }
@@ -121,6 +123,11 @@ const handleRemoveRecipeFavorite = () => {
       console.log(response);
     }
   })
+}
+
+function cancelEditing(){
+  setEditing(false);
+  setErrorMessage('');
 }
 
   useEffect(() => {
@@ -192,6 +199,9 @@ const handleRemoveRecipeFavorite = () => {
               />}
             </ScrollView>
           </View>
+          {editing && <View style={{alignItems: 'center'}}>
+            <Text style={StylesRecipeDetailsPage.LabelAlert}>{errorMessage}</Text>
+          </View>}
         </View>
       </TouchableWithoutFeedback>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -204,7 +214,7 @@ const handleRemoveRecipeFavorite = () => {
               {!editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
                 <Text style={StylesGeneric.GenericWhiteButtonText}>Editar</Text>
               </TouchableOpacity>}
-              {editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
+              {editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => cancelEditing(!editing)}>
                 <Text style={StylesGeneric.GenericWhiteButtonText}>Cancelar</Text>
               </TouchableOpacity>}
               {editing && <TouchableOpacity style={StylesGeneric.GenericButtonOrange} onPress={() => handleUpdate()}>

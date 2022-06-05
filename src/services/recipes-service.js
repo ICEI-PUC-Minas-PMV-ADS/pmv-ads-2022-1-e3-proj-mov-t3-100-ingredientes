@@ -128,6 +128,11 @@ let textIdRecipe = "";
 }
 
 export const updateRecipe = async (params) => {
+  let validation = await validateGeneral(params);
+
+  if(!validation.success)
+    return { success: validation.success, data: validation.errorMessage};
+    
   try{
       return await API.patch(`${BASE_URL}/recipes/${params.id}`, params).then(
           response => {
@@ -160,8 +165,6 @@ const validateGeneral = async (recipe) => {
 }
 
 export const PostRecipes = async (params) => {
-  console.log(params);
-
   let validation = await validateGeneral(params);
 
   if(!validation.success)
