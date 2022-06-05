@@ -66,7 +66,7 @@ const RecipesList = ({route}) => {
 
         if(search.length == 0){
           setLista([]);
-        }
+        } 
         else{
           
           setLista(filterList);
