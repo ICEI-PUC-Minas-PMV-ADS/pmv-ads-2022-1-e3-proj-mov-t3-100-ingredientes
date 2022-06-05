@@ -110,7 +110,10 @@ const AccountPage = () => {
         <View style = {StylesGeneric.LineGeneric} />
         <View style={StylesAccountPage.SectionBottom}>
             <TouchableOpacity style={{flexDirection: 'row', alignSelf: 'center', margin:7}} onPress={() => navigation.navigate('ConfigurationPage')}>
-                <Text style={StylesGeneric.LabelGeneric}>Configurações de </Text><Text style={StylesGeneric.LinkGeneric}>Perfil.</Text>
+                <Text style={StylesGeneric.LabelGeneric}>Configurações de </Text><Text style={StylesGeneric.LinkGeneric}>Perfil</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{flexDirection: 'row', alignSelf: 'center', margin:7}} onPress={() => navigation.navigate('ContactPage')}>
+                <Text style={StylesGeneric.LinkGeneric}>Contato com Desenvolvedores</Text>
             </TouchableOpacity>
         </View>
      </View>

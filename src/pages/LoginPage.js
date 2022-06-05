@@ -130,6 +130,9 @@ const LoginPage = () => {
               <TouchableOpacity style={StylesLoginPage.CreateAccount} onPress={() => navigation.navigate('RegisterPage')}>
                 <Text style={StylesGeneric.LabelGeneric}>Não tem uma conta? </Text><Text style={StylesGeneric.LinkGeneric}>Criar nova conta.</Text>
               </TouchableOpacity>
+              <TouchableOpacity style={{alignSelf: 'center', marginTop: 10}} onPress={() => navigation.navigate('ContactPage')}>
+                <Text style={StylesGeneric.LinkGeneric}>Contato com Desenvolvedores</Text>
+              </TouchableOpacity>
 
             </View>
         </KeyboardAvoidingView>
