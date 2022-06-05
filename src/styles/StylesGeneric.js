@@ -33,6 +33,26 @@ const StylesGeneric = StyleSheet.create({
       padding: 21,
       textTransform: 'uppercase'
    },
+   GenericMajorLabel: {
+      fontSize: 45,
+      fontWeight: '400',
+      color: '#000000',
+      marginBottom: 11
+   },
+   GenericMajorButton:{
+      backgroundColor: '#E05D25',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 62,
+      width: '90%',
+      borderRadius:7,
+      alignSelf: 'center',
+      marginBottom: 20
+   },
+   GenericMajorButtonLabel:{
+      color:'#FFFFFF',
+      fontSize:23
+   },
    GenericInput:{
       borderBottomWidth: 1,
       marginBottom: 9,

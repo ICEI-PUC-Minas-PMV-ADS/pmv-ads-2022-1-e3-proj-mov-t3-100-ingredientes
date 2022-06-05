@@ -95,7 +95,7 @@ const LoginPage = () => {
             </View> 
             <View style={StylesLoginPage.InteractionSection}> 
 
-              <Text style={StylesLoginPage.LoginLabel}>Login</Text>
+              <Text style={StylesGeneric.GenericMajorLabel}>Login</Text>
               
               <Text style={StylesGeneric.GenericInputLabelGray}>Endereço de E-mail</Text>
               <TextInput
@@ -120,10 +120,10 @@ const LoginPage = () => {
                 <BouncyCheckbox onPress={() => {setKeepConnected(!keepConnected)}} textStyle={{textDecorationLine: "none",}} isChecked={keepConnected} text="Manter conectado"/>
               </View>
 
-              <TouchableOpacity onPress={handleLogin} style={StylesLoginPage.LoginButton}>
+              <TouchableOpacity onPress={handleLogin} style={StylesGeneric.GenericMajorButton}>
                 { loading
                   ? <ActivityIndicator size="small" color="#FFFFFF" />
-                  : <Text style={StylesLoginPage.LoginButtonLabel}> Acessar </Text>             
+                  : <Text style={StylesGeneric.GenericMajorButtonLabel}> Acessar </Text>             
                 }    
               </TouchableOpacity>
 
