@@ -28,16 +28,17 @@ const Register = () => {
   const [hidePassword, setHidePassword] = useState(true);
 
   const [errorMessage, setErrorMessage] = useState('');
-  const [registerSucess, setRegisterSucess] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState(false);
  
   const handleRegister = async () => {
-    setRegisterSucess(false);
+    setRegisterSuccess(false);
     setErrorMessage('');
     
     let validation = await validateRegister({name: name, email: email, emailConfirm: emailConfirm, password: password, passwordConfirm: passwordConfirm});
 
     if(!validation.success){
       setErrorMessage(validation.errorMessage);
+      setRegisterSuccess(false);
       return;
     }
     
@@ -48,12 +49,17 @@ const Register = () => {
     }).then( response => {
       if(response && response.success){
         console.log("Register success");
-        setRegisterSucess(true);
+        setRegisterSuccess(true);
 
         setUserSigned(true);
         setUserName(response.data.user.name);
         setUserId(response.data.user.id);
         AsyncStorage.setItem('@TOKEN_KEY', response.data.accessToken).then();
+        
+        console.log("Redirecionando em 3seg...");
+        setTimeout(() => {
+          navigation.navigate('MainPage');
+        }, 3000)
         
       }else{
         console.log("Register failed");
@@ -135,12 +141,16 @@ const Register = () => {
             </View>
               
             <View style={StylesRegisterPage.BottomSection}>
-              {errorMessage != '' && <Text style={StylesLoginPage.AlertLabel}>{errorMessage}</Text>}
-              <Text style={StylesLoginPage.AlertLabel}>{registerSucess ? 'Registrado com Sucesso' : null}</Text>
+              {!registerSuccess && <Text style={StylesGeneric.GenericLabelAlert}>{errorMessage}</Text>}
+              {registerSuccess && <Text style={StylesGeneric.LabelGeneric}>Registrado com Sucesso!</Text>}
               
-              <TouchableOpacity style={StylesGeneric.GenericMajorButton} onPress={ () => {handleRegister()}}>
+              {!registerSuccess && <TouchableOpacity style={StylesGeneric.GenericMajorButton} onPress={ () => {handleRegister()}}>
                 <Text style={StylesGeneric.GenericMajorButtonLabel}>Registrar</Text>
-              </TouchableOpacity>
+              </TouchableOpacity>}
+
+              {registerSuccess && <TouchableOpacity style={StylesGeneric.GenericMajorButton} onPress={ () => {navigation.navigate('MainPage')}}>
+                <Text style={StylesGeneric.GenericMajorButtonLabel}>Redirecionando...</Text>
+              </TouchableOpacity>}
 
             </View>
           </View>

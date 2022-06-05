@@ -22,6 +22,7 @@ const StylesRegisterPage = StyleSheet.create({
   
      },
      BottomSection: {
+         alignItems: 'center',
          flexDirection: 'column',
          justifyContent: 'flex-end'
          
