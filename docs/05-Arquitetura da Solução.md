@@ -22,11 +22,11 @@ As tabelas que estruturam o sistema, bem como suas ligações, restrições de i
 
 ![Esquema Relacional](img/esquema_relacional.png)
 
-<!--
+
 ## Modelo Físico
 
-Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do banco de dados. Este arquivo deverá ser incluído dentro da pasta src\bd.
--->
+O arquivo contendo scrpts de criação e manipulação do banco está localizado na pasta src/services e contém o nome de sqlite-service.js. 
+
 
 <!--
 ## Tecnologias Utilizadas

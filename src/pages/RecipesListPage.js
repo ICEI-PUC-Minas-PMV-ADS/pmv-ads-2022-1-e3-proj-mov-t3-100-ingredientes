@@ -1,4 +1,4 @@
-import { Text, View} from 'react-native';
+import { Text, TextInput, View, Image} from 'react-native';
 import {useState, useEffect} from 'react';
 import StylesRecipesListPage from '../styles/StylesRecipesListPage';
 import HeaderComponent from '../components/HeaderComponent';
@@ -10,7 +10,14 @@ import { getOwnRecipesByUserId, getFavoriteRecipesByUserId } from '../services/r
 import { useUser } from './../contexts/UserContext';
 import {redirectUnauthenticatedToLogin} from '../services/auth-service'
 
+import StylesMainPage from '../styles/StylesMainPage';
+import { Ionicons } from '@expo/vector-icons';
+import {ScrollView} from 'react-native';
+
 const RecipesList = ({route}) => {
+
+  const [lista, setLista] = useState([]);
+
     redirectUnauthenticatedToLogin();
     const navigation = useNavigation();
 
@@ -20,12 +27,15 @@ const RecipesList = ({route}) => {
     const [ownRecipes, setOwnRecipes] = useState([]);
     const [favoriteRecipes, setFavoriteRecipes] = useState([]);
 
+    const [search, setSearch] = useState('');
+
     const getOwnRecipes = async () =>{
         getOwnRecipesByUserId({
             userId: userId,
         }).then(async response => {  
           if(response && response.success){
             setOwnRecipes(response.data);
+            console.log(response.data);
           }else{
             console.log("Get own recipes by user id failed");
             console.log(response);
@@ -46,6 +56,25 @@ const RecipesList = ({route}) => {
         })
     }
 
+    const mostrar = (search) => {
+      let filterList = [];
+
+        if(type == 'own')
+          filterList = ownRecipes.filter(item => item.name.includes(search));
+        if(type != 'own')
+          filterList = favoriteRecipes.filter(item => item.name.includes(search));
+
+        if(search.length == 0){
+          setLista([]);
+        } 
+        else{
+          
+          setLista(filterList);
+          console.log(lista);
+        }
+      }
+    
+
     useEffect(() => {
       getOwnRecipes();
       getFavoriteRecipes();
@@ -55,12 +84,40 @@ const RecipesList = ({route}) => {
    <>
     <HeaderComponent></HeaderComponent> 
     <BodyComponent>
-    <View style={StylesRecipesListPage.Screen}> 
+   <View style={StylesRecipesListPage.Screen}> 
         <View style={StylesRecipesListPage.SectionRecipeList}>
-            <Text style={StylesRecipesListPage.Title}>{type == 'own' ? 'Minhas Receitas 📔' : 'Receitas Favoritas ❤️'}</Text>
+
+          <View style={StylesMainPage.Pesquisar}>
+              <TextInput placeholder='Pesquisar'
+              
+              onChangeText={(search) => mostrar(search)}
+              style={StylesMainPage.input}/>
+              <Ionicons name='search' color={'#fff'} size={30} onPress={() => {}} 
+              style={StylesMainPage.search}/>
+          </View>
+        {search == '' &&  <View>
+
+        <View style={StylesMainPage.mainmain}>
+
+          <Text style={StylesRecipesListPage.Title}>{type == 'own' ? 'Minhas Receitas 📔' : 'Receitas Favoritas ❤️'}</Text>
+          <View style={StylesMainPage.imagemmain1}>
             <View>
-                <RecipeListComponent data={type == 'own' ? ownRecipes : favoriteRecipes}></RecipeListComponent>          
+                {type == 'own' && <RecipeListComponent data={/*type == 'own'*/ lista != 0 ? lista : ownRecipes}></RecipeListComponent>}
+                {type != 'own' && <RecipeListComponent data={lista != 0 ? lista : favoriteRecipes}></RecipeListComponent>}
             </View>
+          </View>
+        </View>
+      </View>}
+      <ScrollView>
+        
+        <View>
+
+        </View>
+
+      </ScrollView>
+
+
+            
         </View>
         <View style={StylesRecipesListPage.SectionBottom}>           
             <GenericGoBackComponent/>
