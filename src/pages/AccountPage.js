@@ -60,11 +60,10 @@ const AccountPage = () => {
     }
 
     useEffect(() => {
-      getOwnRecipes();
-      getFavoriteRecipes();
-
-      if(isFocused)
-        console.log("ta focaaaado");
+      if(isFocused){
+        getOwnRecipes();
+        getFavoriteRecipes();
+      }
     });
     
   return (

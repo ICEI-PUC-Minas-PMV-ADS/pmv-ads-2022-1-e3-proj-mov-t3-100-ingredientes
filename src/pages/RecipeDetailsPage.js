@@ -4,7 +4,7 @@ import StylesRecipeDetailsPage from '../styles/StylesRecipeDetailsPage';
 import StylesGeneric from '../styles/StylesGeneric';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
-import { getRecipeById, updateRecipe } from '../services/recipes-service';
+import { getRecipeById, updateRecipe, updateRecipeFavorite } from '../services/recipes-service';
 import { useUser } from './../contexts/UserContext';
 import GenericGoBackComponent from '../components/GenericGoBackComponent';
 
@@ -89,7 +89,7 @@ const handleAddRecipeFavorite = () => {
   let listToSend = favoritedByUserIdList;
   listToSend.push(userId);
 
-  updateRecipe({
+  updateRecipeFavorite({
     id: recipeId,
     favoritedByUserIdList: listToSend
   }).then(response => {
@@ -111,7 +111,7 @@ const handleRemoveRecipeFavorite = () => {
     listToSend.splice(index, 1); // 2nd parameter means remove one item only
   }
 
-  updateRecipe({
+  updateRecipeFavorite({
     id: recipeId,
     favoritedByUserIdList: listToSend
   }).then(response => {

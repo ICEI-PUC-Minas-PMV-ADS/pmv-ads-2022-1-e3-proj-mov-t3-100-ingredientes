@@ -127,12 +127,29 @@ let textIdRecipe = "";
   }
 }
 
+export const updateRecipeFavorite = async (params) => {
+  try{
+      return await API.patch(`${BASE_URL}/recipes/${params.id}`, params).then(
+          response => {
+              return {success: true, data: response.data};
+          },
+          error => {
+              return {success: false, data: error};
+          }
+      )
+  }catch(error){
+      console.log("Erro interno. " + error);
+      return null;
+  }
+}
+
 export const updateRecipe = async (params) => {
+  
   let validation = await validateGeneral(params);
 
   if(!validation.success)
     return { success: validation.success, data: validation.errorMessage};
-    
+
   try{
       return await API.patch(`${BASE_URL}/recipes/${params.id}`, params).then(
           response => {
