@@ -18,7 +18,7 @@ const Register = () => {
   const navigation = useNavigation();
   const {setUserSigned, setUserName, setUserId} = useUser();
 
-  const [name, setName] = useState();
+  const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
 
@@ -34,7 +34,7 @@ const Register = () => {
     setRegisterSucess(false);
     setErrorMessage('');
     
-    let validation = await validateRegister({email: email, emailConfirm: emailConfirm, password: password, passwordConfirm: passwordConfirm});
+    let validation = await validateRegister({name: name, email: email, emailConfirm: emailConfirm, password: password, passwordConfirm: passwordConfirm});
 
     if(!validation.success){
       setErrorMessage(validation.errorMessage);

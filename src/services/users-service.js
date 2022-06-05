@@ -111,6 +111,9 @@ export const updateUser = async (params) => {
 }
 
 const validateGeneral = async (user) => {
+  if(user.name.length == 0)
+    return {success: false, errorMessage: "Insira o nome"};
+
   if(user.email.length == 0)
     return {success: false, errorMessage: 'Insira o email'};
 
