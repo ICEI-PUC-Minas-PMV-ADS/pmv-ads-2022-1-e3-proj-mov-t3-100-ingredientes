@@ -70,7 +70,23 @@ const StylesGeneric = StyleSheet.create({
       color:'#FFFFFF',
       fontSize:12
    },
-
+   GenericSearchInputRegion:{
+      flexDirection:"row",
+      justifyContent: "space-between",
+      width: '70%',
+      alignSelf: "center",
+      paddingTop: 10,
+   },
+   GenericSearchInput:{
+      flex: 1,
+      backgroundColor:"#d3d3d3",
+      borderRadius:10,
+      color:"white",
+      fontSize: 18,
+      paddingHorizontal: 15, 
+      shadowOpacity: 5,
+      shadowRadius: 10,
+   }
 });
 
 export default StylesGeneric;

@@ -7,8 +7,7 @@ import GenericGoBackComponent from '../components/GenericGoBackComponent';
 import RecipeListComponent from '../components/RecipeListComponent';
 import { getOwnRecipesByUserId, getFavoriteRecipesByUserId } from '../services/recipes-service';
 import { useUser } from './../contexts/UserContext';
-import StylesMainPage from '../styles/StylesMainPage';
-import { Ionicons } from '@expo/vector-icons';
+import StylesGeneric from '../styles/StylesGeneric';
 
 const RecipesList = ({route}) => {
 
@@ -69,10 +68,10 @@ const RecipesList = ({route}) => {
     <BodyComponent>
       <View style={StylesRecipesListPage.Screen}> 
         <View style={StylesRecipesListPage.SectionRecipeList}>
-          <View style={StylesMainPage.Pesquisar}>
+          <View style={StylesGeneric.GenericSearchInputRegion}>
             <TextInput placeholder='Filtrar'
               onChangeText={(search) => showFilteredResult(search)}
-              style={StylesMainPage.input}/>
+              style={StylesGeneric.GenericSearchInput}/>
           </View>
             <Text style={StylesRecipesListPage.Title}>{type == 'own' ? 'Minhas Receitas 📔' : 'Receitas Favoritas ❤️'}</Text>
             <View>
