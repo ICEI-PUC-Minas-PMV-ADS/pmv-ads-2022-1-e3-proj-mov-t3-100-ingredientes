@@ -1,70 +1,45 @@
+StylesRegisterPage
+
 import { StyleSheet } from 'react-native';
 
 const StylesRegisterPage = StyleSheet.create({
-    container: {
-       // flex: 1,
-        flexDirection: 'column',
-        backgroundColor: '#ddd',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    button: {
-        backgroundColor: '#E05D25',
-       /* width: 105,
-        alignItems:'center',
-        justifyContent:'center',
-        height: 19,
-        borderRadius:7 */
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 62,
-        width: '90%',
-        borderRadius:7,
-        alignSelf: 'center',
-        marginBottom: 20
-    },
-    inputArea: {
-        flexDirection: 'row',
-        width: '90%',
-        backgroundColor: '#ddd',
-        borderRadius: 5,
-        height: 50,
-        alignItems: 'center',
-        margin: 10,
-        borderBottomColor: 'grey',
-        borderBottomWidth: 2,
-        marginBottom: 30,
-     },
-     input: {
-         width: '85%',
-         height: 50,
-         color: 'black',
-         padding: 8,
-         fontSize: 18
-     },
-     icon: {
-         width: '15%',
-         height: 50,
-         justifyContent: 'center',
-         alignItems: 'center',
-         backgroundColor: 'red'
-     },
-     title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: 'black'
-      },
-      text: {
-        color: '#00000075'
-      },
     ImageSection: {
-        flex: 99
+        flex: 13
      },
      Image:{
         flex: 1,
-        width: 436,
-        height: 175,
+        width: null,
+        height: null,
         resizeMode: 'cover'
+     },
+     InteractionSection: {
+        flex: 26,
+        backgroundColor: 'white',
+        paddingTop: 20,
+        paddingBottom: 20,
+        paddingLeft: 20,
+        paddingRight: 20
+  
+     },
+     BottomSection: {
+         alignItems: 'center',
+         flexDirection: 'column',
+         justifyContent: 'flex-end'
+         
+     },
+     PasswordInput:{
+        width: '90%',
+        borderBottomWidth: 1,
+        marginBottom: 9,
+        borderBottomColor: '#C2C2C2'
+     },
+     PasswordInputRegion: {
+        flexDirection: 'row',
+        width: '100%'
+     },
+     PasswordInputIcon: {
+        width: '10%', 
+        alignItems: 'flex-end'
      }
 })
 

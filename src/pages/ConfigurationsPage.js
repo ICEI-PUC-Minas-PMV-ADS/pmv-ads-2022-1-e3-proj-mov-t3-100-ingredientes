@@ -9,6 +9,7 @@ import GenericGoBackComponent from '../components/GenericGoBackComponent';
 import { useUser } from './../contexts/UserContext';
 import {redirectUnauthenticatedToLogin, logoff} from '../services/auth-service'
 import { getUserById, updateUser, deleteUser } from '../services/users-service';
+import { deleteLoginOptions } from '../services/sqlite-service';
 
 const ConfigurationPage = () => {
   redirectUnauthenticatedToLogin();
@@ -32,13 +33,11 @@ const ConfigurationPage = () => {
         userId: userId,
     }).then(async response => {  
       if(response && response.success){
-        console.log("Get user by id success");
         setUserName(response.data.name);
         setUserEmail(response.data.email);
       }else{
         console.log("Get user by id failed");
         console.log(response);
-        //navigation.navigate('LoginPage');
       }
     })
   }
@@ -54,8 +53,6 @@ const ConfigurationPage = () => {
       passwordConfirm: userPasswordConfirm
     }).then( response => {
       if(response && response.success){
-        console.log("Update user success");
-
         setEditing(!editing);
         setEditSuccess(true);
         setErrorMessage('');
@@ -88,6 +85,7 @@ const ConfigurationPage = () => {
     setUserId('');
     setUserSigned('');
 
+    deleteLoginOptions({userId: userId});
     console.log('Logoff success');
 
     navigation.popToTop();
@@ -198,14 +196,14 @@ useEffect(() => {
             </TouchableOpacity>}
           </View>
           <View style={StylesConfigurationPage.SectionButtons}>
-                {!editing && <TouchableOpacity style={StylesConfigurationPage.EditButton} onPress={() => setEditing(!editing)}>
-                  <Text style={StylesConfigurationPage.ButtonText}>Editar</Text>
+                {!editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => setEditing(!editing)}>
+                  <Text style={StylesGeneric.GenericWhiteButtonText}>Editar</Text>
                 </TouchableOpacity>}
-                {editing && <TouchableOpacity style={StylesConfigurationPage.EditButton} onPress={() => cancelUpdate()}>
-                  <Text style={StylesConfigurationPage.ButtonText}>Cancelar</Text>
+                {editing && <TouchableOpacity style={StylesGeneric.GenericButtonGray} onPress={() => cancelUpdate()}>
+                  <Text style={StylesGeneric.GenericWhiteButtonText}>Cancelar</Text>
                 </TouchableOpacity>}
-                {editing && <TouchableOpacity style={StylesConfigurationPage.SaveButton} onPress={() => handleUpdate()}>
-                  <Text style={StylesConfigurationPage.ButtonText}>Salvar</Text>
+                {editing && <TouchableOpacity style={StylesGeneric.GenericButtonOrange} onPress={() => handleUpdate()}>
+                  <Text style={StylesGeneric.GenericWhiteButtonText}>Salvar</Text>
                 </TouchableOpacity>}
           </View>  
         </View>

@@ -8,6 +8,8 @@ import UserProvider from './contexts/UserContext';
 import AccountPage from './pages/AccountPage';
 import RecipesListPage from './pages/RecipesListPage';
 import ConfigurationPage from './pages/ConfigurationsPage';
+import RecipeDetailsPage from './pages/RecipeDetailsPage';
+import ContactPage from './pages/ContactPage';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +25,8 @@ const App = () => {
           <Stack.Screen name="AccountPage" component={AccountPage}/>
           <Stack.Screen name="RecipesListPage" component={RecipesListPage} />
           <Stack.Screen name="ConfigurationPage" component={ ConfigurationPage } />
+          <Stack.Screen name="RecipeDetailsPage" component={ RecipeDetailsPage } />
+          <Stack.Screen name="ContactPage" component={ ContactPage } />
         </Stack.Navigator>
       </NavigationContainer>   
     </UserProvider> 

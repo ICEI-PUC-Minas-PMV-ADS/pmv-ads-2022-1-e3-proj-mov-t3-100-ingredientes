@@ -15,13 +15,7 @@ const StylesAccountPage = StyleSheet.create({
       backgroundColor: '#E5E5E5',
       alignItems: 'center',
       justifyContent: 'center',
-   },
-   Title:{
-      fontSize: 13,
-      color: '#000000',
-      padding: 21,
-      textTransform: 'uppercase'
-   },
+   }
 
 });
 

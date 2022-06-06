@@ -25,28 +25,6 @@ const StylesLoginPage = StyleSheet.create({
       paddingRight: 20
 
    },
-   LoginLabel: {
-      fontSize: 55,
-      fontWeight: '400',
-      //fontFamily: 'Oxygen',
-      color: '#000000',
-      marginBottom: 11
-   },
-   LoginButton:{
-      backgroundColor: '#E05D25',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: 62,
-      width: '90%',
-      borderRadius:7,
-      alignSelf: 'center',
-      marginBottom: 20
-
-   },
-   LoginButtonLabel:{
-      color:'#FFFFFF',
-      fontSize:23
-   },
    CreateAccount:{
       flexDirection: 'row',
       alignSelf: 'center'
