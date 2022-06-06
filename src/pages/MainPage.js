@@ -130,6 +130,7 @@ const getRecipesLastList =async (lastSeenIds) =>{
       <TouchableOpacity style={StylesMainPage.CreateAccount} onPress={() => navigation.navigate('PostRecipePage')}> 
           <Text style={StylesMainPage.LinkGeneric}>Publicar Receita</Text>
       </TouchableOpacity>
+      
     </BodyComponent>
     </>
     
