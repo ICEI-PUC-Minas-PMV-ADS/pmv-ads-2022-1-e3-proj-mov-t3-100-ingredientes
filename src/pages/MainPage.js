@@ -1,4 +1,4 @@
-import { View, Text, TextInput, Image, FlatList, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, TextInput, Image, FlatList, TouchableOpacity, Dimensions, Button } from 'react-native';
 import StylesMainPage from '../styles/StylesMainPage';
 import HeaderComponent from '../components/HeaderComponent';
 import BodyComponent from '../components/BodyComponent';
@@ -6,7 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState, useEffect } from 'react';
 import { getRecipesIngredientV8, getRecipesById } from '../services/recipes-service';
 import { allInitialsUpperCase } from '../utils/StringFormaterHelper';
-
+import { useNavigation } from '@react-navigation/native';
 
 import {insertLastSeen, getLastSeen, deleteLastSeen } from '../services/sqlite-service';
 
@@ -23,6 +23,8 @@ const twoinone = (t) => {
 
   const [search, setSearch] = useState('');
   const [result, setResult] = useState([]);
+
+  const navigation = useNavigation();
 
   let Filter = 'ingredients';
 
@@ -96,12 +98,15 @@ const getRecipesLastList =async (lastSeenIds) =>{
           renderItem={({item})=> {
             return(
               <TouchableOpacity style={StylesMainPage.ReceitaPostada}  onPress={()=>{insertLastSeen({recipeId: item.id})}}>   
-                <Image style={StylesMainPage.ImagemPostada} source={{uri:item.imgUrl}}/>
-                <Text style={StylesMainPage.testeT} numberOfLines={1} >{allInitialsUpperCase(item.name)}</Text>
+                <Image style={StylesMainPage.ImagemPostadaR} source={{uri:item.imgUrl}}/>
+                <View style={StylesMainPage.ViewImgT}>
+                  <Text style={StylesMainPage.testeT}>{allInitialsUpperCase(item.name)}</Text>
+                  <Text style={StylesMainPage.textoI}>{(item.ingredients)}</Text>
+                </View>
               </TouchableOpacity>
           );
       }}
-    />
+      />
         </View>
       }
       {search == '' && <View>
@@ -122,8 +127,12 @@ const getRecipesLastList =async (lastSeenIds) =>{
           }}
         />
       </View>}
+      <TouchableOpacity style={StylesMainPage.CreateAccount} onPress={() => navigation.navigate('PostRecipePage')}> 
+          <Text style={StylesMainPage.LinkGeneric}>Publicar Receita</Text>
+      </TouchableOpacity>
     </BodyComponent>
     </>
+    
   );
 }
 

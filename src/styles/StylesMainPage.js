@@ -52,18 +52,28 @@ const StylesMainPage = StyleSheet.create({
  
   Flat: {
       alignSelf: "center",
+      paddingTop: 40,
+      fontFamily: "Arial Bold",
   },
 
   UltimoV:{
-      fontSize: 15,
-      marginLeft: 10,
-      marginTop: 10,
+      fontSize: 22,
+      marginLeft: 18,
+      marginTop: 15,
   },
   
    ImagemPostada: {
       width: 80,
       height: 70,
       alignSelf: "center",
+      marginLeft: 10,
+      borderRadius: 10
+   },
+   ImagemPostadaR: {
+      marginTop: 10,
+      width: 80,
+      height: 70,
+      alignSelf: "left",
       marginLeft: 10,
       borderRadius: 10
    },
@@ -80,6 +90,7 @@ const StylesMainPage = StyleSheet.create({
       shadowOffset:{  width: 5,  height: 5,  },
       shadowColor: 'black',
       shadowOpacity: 0.5,     
+      overflow: "hidden",
       
    },
 
@@ -97,16 +108,44 @@ const StylesMainPage = StyleSheet.create({
       marginRight: 20,
     
    },
-
+   ViewImagemPostada: {
+      width: 80,
+      height: 70,
+      alignSelf: "left",
+      marginLeft: 10,
+      borderRadius: 10
+   },
+   ViewImgT: {
+      float: "right",
+      flexDirection: "column"
+   },
    testeT: {
       color: "#FFFF",
       fontFamily: "Arial Bold",
       fontWeight: 500,
       marginLeft: 9,
       marginTop: 5,
-      
-      
+      fontSize: 16,
    },
+   textoI: {
+      color: "#FFF",
+      fontFamily: "Arial Bold",
+      fontWeight: 500,
+      marginLeft: 9,
+      marginTop: 5,
+      fontSize: 10,
+   },
+
+   LinkGeneric: {
+      fontSize: 20,
+      color: '#E05D25',
+      fontWeight: '700',
+      marginTop:20
+    },
+    CreateAccount:{
+      flexDirection: 'row',
+      alignSelf: 'center'
+    }
    
 });
 
