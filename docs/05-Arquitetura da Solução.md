@@ -25,7 +25,8 @@ As tabelas que estruturam o sistema, bem como suas ligações, restrições de i
 
 ## Modelo Físico
 
-O arquivo contendo scrpts de criação e manipulação do banco está localizado na pasta src/services e contém o nome de sqlite-service.js. 
+O arquivo contendo scrpts de criação e manipulação do banco está localizado na pasta src/services e contém o nome de sqlite-service.js.
+![Esquema Relacional](img/DocsImg/SQLite.png) 
 
 
 
