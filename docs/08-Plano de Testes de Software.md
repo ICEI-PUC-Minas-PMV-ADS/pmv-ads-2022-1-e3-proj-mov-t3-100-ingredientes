@@ -23,7 +23,7 @@ Está seção detalha o planejamentos do processo de realização dos Testes de 
 |**Passos**| 1 - Acessar a aplicação<br/> 2 - Acessar a barra de pesquisas<br/> 3 - selecionar os ingredientes que deseja<br/> 4 - Clicar na opção de buscar<br/> 5 - Irá aparecer as receitas com o uso dos ingredientes|
 |**Critérios de Êxito**| Seção de fácil funcionalidade, o usuário irá escolher os ingredientes que deseja e a aplicação irá filtrar todas as receitas que usam estes ingredientes, caso não tenha a receita com os ingredientes a aplicação irá dar o devido retorno para o usuário. |
 
-|Caso de Teste | CT-04 - Adicionar comentário na receita |
+|Caso de Teste | CT-04 - Adicionar comentário na receita e Favoritar |
 |:--|:--|
 |**Pré-Condições**| O Usuário precisa estar logado na aplicação |
 |**Requisitos Associados**|RF-011 - O usuário poderá adicionar comentários nas receitas.<br/> RF-012 - O usuário só poderá adicionar comentários.<br/> RF-013 - O Comentário aparecerá para todos os usuários da aplicação.|
