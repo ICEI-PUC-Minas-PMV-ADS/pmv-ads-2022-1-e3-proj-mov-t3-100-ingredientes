@@ -39,14 +39,10 @@
   ],
   "recipes": [
     {
-      "name": "bolo de banana",
-      "imgUrl": "https://recreio.uol.com.br/media/_versions/historia/kurama_capa_widemd.jpg",
-      "instructions": "mistura tudo e bate e assa",
-      "ingredients": [
-        "banana",
-        "farinha",
-        "ovo"
-      ],
+      "name": "Bolo de banana",
+      "imgUrl": "https://www.sabornamesa.com.br/media/k2/items/cache/8835fed4de3847a26822c5cc338a0cab_XL.jpg",
+      "instructions": "Misture tudo no liquidificador, leve ao forno pré-aquecido por 50min",
+      "ingredients": "Farinha, ovo, banana, olho",
       "id": 1,
       "createdByUserId": 1,
       "reviewsIdList": [
@@ -59,13 +55,9 @@
     },
     {
       "name": "bolo de morango",
-      "imgUrl": "https://images.aws.nestle.recipes/resized/29bb98070ebfcbab93128be99ddd4327_bolo-banana-caramelada-receitas-nestle_1200_600.jpg",
-      "instructions": "mistura tudo e bate e assa",
-      "ingredients": [
-        "banana",
-        "farinha",
-        "ovo"
-      ],
+      "imgUrl": "https://vovopalmirinha.com.br/wp-content/uploads/2017/05/bolo-morango-702x336.jpg",
+      "instructions": "Misture tudo com uma batedeira bem potente, leve ao forno pré-aquecido por 50min",
+      "ingredients": "Farinho, ovo, morango, olho, corante vermelho",
       "id": 2,
       "createdByUserId": 1,
       "reviewsIdList": [],
@@ -94,93 +86,33 @@
       "createdByUserId": 3
     },
     {
-      "imgUrl": "https://s2.glbimg.com/SkyLTd6VJy8WiUMg5L6EeUwgyMw=/0x0:620x548/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2021/B/t/limPwzQmSeI4WJO7haZg/2012-08-15-mf1.jpg",
-      "name": "teste",
-      "ingredients": "teste",
-      "instructions": "teste",
+      "imgUrl": "https://img.itdg.com.br/tdg/images/blog/uploads/2022/04/shutterstock_614932352.jpg",
+      "name": "Hamburguer Artesanal",
+      "ingredients": "Hamburguer sadia, alface, queijo prato, pao",
+      "instructions": "Frita tudo, junta, cubra com o metade do pão em cada extremidade",
       "id": 10,
       "createdByUserId": 1,
       "favoritedByUserIdList": []
     },
     {
-      "imgUrl": "https://img.olhardigital.com.br/wp-content/uploads/2021/07/Naruto-Classico-e-Naruto-Shippuden-fillers-695x500.jpg",
-      "name": "TesteNaruto",
-      "ingredients": "Naruto, sasuke, bla bla",
-      "instructions": "TO CERTO",
+      "imgUrl": "http://www.saboresajinomoto.com.br/uploads/images/recipes/shio-lamen.jpg",
+      "name": "Ramen do Naruto",
+      "ingredients": "Miojo, ovo, legumes variados, peixe",
+      "instructions": "Cozinhe o miojo, cozinhe o ovo, corte os legumes em fatias e frite o peixe. Depois junte tudo.",
       "createdByUserId": 1,
       "favoritedByUserIdList": [],
       "id": 11
     },
     {
-      "imgUrl": "https://viciados.net/wp-content/uploads/2020/02/Naruto-Cl%C3%A1ssico-e-Naruto-Shippuden-fillers.jpg",
-      "name": "Teste img",
-      "ingredients": "NarutoTeste",
-      "instructions": "NarutoTeste",
+      "imgUrl": "https://static.clubedaanamariabraga.com.br/wp-content/uploads/2016/11/brigadeiro-1024x576.jpg",
+      "name": "Brigadeiro",
+      "ingredients": "Leite condensado, margarina, achocolatado",
+      "instructions": "Misture tudo numa panela no fogão, tire quando estiver pronto,",
       "createdByUserId": 1,
-      "favoritedByUserIdList": [],
+      "favoritedByUserIdList": [
+        1
+      ],
       "id": 12
-    },
-    {
-      "imgUrl": "https://recreio.uol.com.br/media/_versions/historia/kurama_capa_widemd.jpg",
-      "name": "Raposa",
-      "ingredients": "Raposa",
-      "instructions": "Raposa",
-      "createdByUserId": 4,
-      "favoritedByUserIdList": [],
-      "id": 13
-    },
-    {
-      "imgUrl": "https://recreio.uol.com.br/media/_versions/historia/kurama_capa_widemd.jpg",
-      "name": "Raposa teste",
-      "ingredients": "Raposaasdfasdf\naaa",
-      "createdByUserId": 2,
-      "favoritedByUserIdList": [],
-      "instructions": "Raposaaaaa",
-      "id": 14
-    },
-    {
-      "imgUrl": "https://images.aws.nestle.recipes/resized/29bb98070ebfcbab93128be99ddd4327_bolo-banana-caramelada-receitas-nestle_1200_600.jpg",
-      "name": "teste",
-      "ingredients": "teste",
-      "instructions": "teste",
-      "createdByUserId": 1,
-      "favoritedByUserIdList": [
-        1
-      ],
-      "id": 15
-    },
-    {
-      "imgUrl": "a",
-      "name": "teste2",
-      "ingredients": "teste2",
-      "instructions": "teste2",
-      "createdByUserId": 1,
-      "favoritedByUserIdList": [
-        1
-      ],
-      "id": 16
-    },
-    {
-      "imgUrl": "aaaa",
-      "name": "aaaaa",
-      "ingredients": "aaaa",
-      "instructions": "aaaa",
-      "createdByUserId": 1,
-      "favoritedByUserIdList": [
-        1
-      ],
-      "id": 17
-    },
-    {
-      "imgUrl": "http://localhost:19006/static/media/Ramen.67fe25a6.png",
-      "name": "teste teste testeeeee",
-      "ingredients": "banana, farinha e cocaina",
-      "instructions": "mistura todo",
-      "createdByUserId": 1,
-      "favoritedByUserIdList": [
-        1
-      ],
-      "id": 18
     }
   ],
   "reviews": [
