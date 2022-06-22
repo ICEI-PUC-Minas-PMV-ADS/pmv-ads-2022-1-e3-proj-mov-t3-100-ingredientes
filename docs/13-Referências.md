@@ -1,7 +1,7 @@
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+REACT NATIVE. React Native · Learn once, write anywhere, 2022. Disponível em: https://reactnative.dev/docs/getting-started. Acesso em: 23/06/2022.
 
-> **Links Úteis**:
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+MDN WEB DOCS: Javascript. MDN Web Docs, 2022. Disponível em: https://developer.mozilla.org/en-US/docs/Web/JavaScript. Acesso em: 23/06/2022.
+
+EXPO DOCUMENTATION. Expo, 2022. Disponível em: https://docs.expo.dev/. Acesso em: 23/06/2022.
